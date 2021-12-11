@@ -1,0 +1,40 @@
+.themeOscuro{
+/* 	color: #8f9193; */
+	color: white;
+	
+	background-color: #262626;
+}
+
+.iconos {
+	width: 150px;
+	color: black;
+	font-size: large;
+}
+
+.fondoTransparente {
+	background-color: rgba(0, 0, 0, 0.15);
+
+}
+
+.fondoTransparenteDark {
+	background-color: rgba(244, 244, 244, 0.62);
+
+}
+
+.luminoso {
+	height: 50vh;
+	/* 	min-height: 500px; */
+	background-image: url('../img/index/banner-lightside.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.oscuro {
+	height: 50vh;
+	/*   min-height: 500px; */
+	background-image: url('../img/index/banner-darkside.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}

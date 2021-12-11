@@ -1,0 +1,23 @@
+/* body {
+	font-family: "Lato", sans-serif;
+} */
+
+
+.openbtn {
+	font-size: 20px;
+	cursor: pointer;
+
+	padding: 10px 15px;
+	border: none;
+}
+
+/* .openbtn:hover {
+	background-color: #cfcfcf;
+} */
+
+#main {
+	transition: margin-left .5s;
+	padding-top: 68px;
+	
+}
+
