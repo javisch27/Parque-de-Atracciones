@@ -16,6 +16,11 @@
 
 }
 
+.fondoTransparenteLight {
+	background-color: rgba(0, 0, 0, 0.05);
+
+}
+
 .fondoTransparenteDark {
 	background-color: rgba(244, 244, 244, 0.62);
 

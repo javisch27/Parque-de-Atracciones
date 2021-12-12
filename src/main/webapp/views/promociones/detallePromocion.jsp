@@ -35,16 +35,16 @@
 
 
 		<div
-			class="d-flex flex-column justify-content-center align-items-center px-5 py-33">
+			class="d-flex flex-column justify-content-center align-items-center px-5 py-4">
 
-			<div class="col-md-4 me-auto">
+			<div class="col-md-8  m-3 fondoTransparenteLight rounded py-4">
 				<div class="d-flex flex-row mb-3">
-					<div class="col-md-3">
-						<img class="col-8"
+					<div class="col-md-3 text-end">
+						<img class="col-4"
 							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/LaFuerza-Turismo/assets/img/home/dark-grey.png"</c:when><c:otherwise>src="/LaFuerza-Turismo/assets/img/home/light.png"</c:otherwise></c:choose>>
 
 					</div>
-					<div class="col-md-9 align-self-center me-auto">
+					<div class="col-md-9 align-self-center mx-3">
 						<h3>
 							<c:out value="${promocion.nombre}"></c:out>
 						</h3>
@@ -53,20 +53,43 @@
 
 				</div>
 				<div>
-					<p class="text-star">${promocion.descripcion}</p>
+					<p class="text-center">${promocion.descripcion}</p>
 				</div>
 				<div
 					class="d-flex flex-row mb-3 justify-content-around align-items-center mt-5">
-					<div
-						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.costo}</div>
-					<div
-						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.tiempoTotal}</div>
+					<div class="row">
+
+						<div
+							class="col-md-3  mx-2 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.costo}</div>
+						<div
+							class="col-md-3 mx-2  fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.tiempoTotal}</div>
+					</div>
+					<div>
+						<c:choose>
+							<c:when
+								test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
+
+								<div>
+									<a href="promociones/buy.do?id=${promocion.propuestaID}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div>
+									<a href="#" class="btn btn-secondary rounded disabled"
+										role="button">Comprar</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
+
+					</div>
 				</div>
 			</div>
 
 
-			<div class="my-4">
-
+			<div class="my-4 ">
+				<h4 class="mb-4"">Atracciones Incluídas</h4>
 				<div class="row row-cols-1 row-cols-md-3 g-4 ">
 
 					<c:forEach items="${atracciones}" var="atraccion">
@@ -90,7 +113,7 @@
 
 										<a
 											href="../attraction?promocionID=${promocion.propuestaID}&lado=${lado}&attractionID=${atraccion.id_atraccion} "
-											class="btn btn-secondary rounded" role="button">Info</a>
+											class="btn btn-primary rounded" role="button">Info</a>
 
 									</div>
 
@@ -98,7 +121,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- 						</div> -->
+
 					</c:forEach>
 
 
