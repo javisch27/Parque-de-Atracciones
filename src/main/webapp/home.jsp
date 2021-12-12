@@ -9,7 +9,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
 	rel="stylesheet" />
-<link href="/LaFuerza-Turismo/assets/css/home.css" rel="stylesheet" />
+<link href="assets/css/home.css" rel="stylesheet" />
 
 <script defer type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
@@ -36,7 +36,7 @@
 				<div class="p-2 d-flex flex-column align-items-center">
 					<div class="fondoTransparente  rounded iconos text-center">
 						<img class="m-3 logos"
-							src="/LaFuerza-Turismo/assets/img/home/light.png">
+							src="assets/img/home/light.png">
 					</div>
 					<div class="mt-2">
 						<form method="get" action="guest">
@@ -50,7 +50,7 @@
 				<div class="p-2 d-flex flex-column align-items-center">
 					<div class="fondoTransparente  rounded iconos text-center">
 						<img class="m-3 logos"
-							src="/LaFuerza-Turismo/assets/img/home/dark.png">
+							src="assets/img/home/dark.png">
 					</div>
 					<div class="mt-2">
 

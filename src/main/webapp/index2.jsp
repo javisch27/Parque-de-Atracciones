@@ -7,7 +7,7 @@
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
-<link href="/LaFuerza-Turismo/assets/css/userIndex.css" rel="stylesheet" />
+<link href="assets/css/userIndex.css" rel="stylesheet" />
 
 
 </head>
@@ -45,9 +45,7 @@
 			</div>
 
 
-		
-
-
+	
 		</div>
 
 	</div>

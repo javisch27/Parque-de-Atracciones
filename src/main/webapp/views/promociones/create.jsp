@@ -17,7 +17,7 @@
 			</div>
 		</c:if>
 
-		<form action="/LaFuerza-Turismo/promociones/create.do" method="post">
+		<form action="promociones/create.do" method="post">
 			<jsp:include page="/views/promociones/form.jsp"></jsp:include>
 		</form>
 	</main>

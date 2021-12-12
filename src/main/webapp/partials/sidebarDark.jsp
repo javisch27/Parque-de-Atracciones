@@ -1,5 +1,5 @@
 
-<link href="/LaFuerza-Turismo/assets/css/sidebar.css" rel="stylesheet" />
+<link href="assets/css/sidebar.css" rel="stylesheet" />
 
 <div class="offcanvas offcanvas-start sidebarDark
 " tabindex="-1"
@@ -19,15 +19,11 @@
 
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark p-3 text text-dark"
-					href="/LaFuerza-Turismo">Home</a> <a
+					href="home.jsp">Home</a> <a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-					href="#!">La Fuerza</a>
-				<form method="get" action="attractions">
-					<button type="submit"
-						class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-						value="LADO OSCURO" name="lado">Atracciones</button>
-				</form>
-				<a
+					href="#!">La Fuerza</a> <a
+					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
+					href="attractions?lado=LADO+OSCURO">Atracciones</a> <a
 					class="list-group-item list-group-item-action list-group-item-dark   p-3 text text-dark"
 					href="#!">Promociones</a> <a
 					class="list-group-item list-group-item-action list-group-item-dark   p-3 text text-dark"

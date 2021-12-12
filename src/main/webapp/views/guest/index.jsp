@@ -6,7 +6,7 @@
 <html>
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
-<link href="/LaFuerza-Turismo/assets/css/guest.css" rel="stylesheet" />
+<link href="assets/css/guest.css" rel="stylesheet" />
 
 </head>
 
@@ -38,8 +38,8 @@
 			<div class="row m-4">
 				<div class="col-2">
 					<img class="icono"
-						<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/LaFuerza-Turismo/assets/img/home/dark.png"</c:when>
-		<c:otherwise>src="/LaFuerza-Turismo/assets/img/home/light.png"</c:otherwise></c:choose>>
+						<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="assets/img/home/dark.png"</c:when>
+		<c:otherwise>src="assets/img/home/light.png"</c:otherwise></c:choose>>
 				</div>
 				<div class="col-8">
 					<p class="text-center"
@@ -51,16 +51,16 @@
 						asdfsdfsdfadddasddd asd asdf t</p>
 				</div>
 			</div>
-			
-			
+
+
 
 			<div class="row pb-4">
-				<c:forEach items="${atracciones}" var="atraccion" begin="1" end="3">
+				<c:forEach items="${atracciones}" var="atraccion" begin="0" end="2">
 					<div class="col-sm-4">
 						<div
-							class="card <c:choose><c:when test="${lado=='LADO OSCURO'}"> border-dark</c:when></c:choose> ">
+							class="card my-3 <c:choose><c:when test="${lado=='LADO OSCURO'}"> border-dark</c:when></c:choose> ">
 							<img class="card-img-top"
-								src="/LaFuerza-Turismo/assets/img/attractions/cards/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
+								src="assets/img/attractions/cards/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
 								alt="Card image cap">
 							<div
 								class="card-body  <c:choose><c:when test="${lado=='LADO OSCURO'}"> text-white-50 bg-dark</c:when></c:choose>">
@@ -80,6 +80,7 @@
 					</div>
 				</c:forEach>
 			</div>
+
 		</div>
 
 

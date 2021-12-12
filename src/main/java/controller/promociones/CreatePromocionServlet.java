@@ -42,7 +42,7 @@ public class CreatePromocionServlet extends HttpServlet {
 
 		Promocion promocion = promocionService.create(tipoPromocion, tipoAtracciones, nombre, descripcion, variable);
 		if (promocion.isValid()) {
-			resp.sendRedirect("/LaFuerza-Turismo/promociones/index.do");
+			resp.sendRedirect("/promociones/index.do");
 		} else {
 			req.setAttribute("promocion", promocion);
 

@@ -21,7 +21,7 @@
 			<div
 				class="carousel-item  <c:if test = "${loop.count == 1}"> active</c:if>">
 				<img
-					src="/LaFuerza-Turismo/assets/img/promotions/slider/<c:out value="${promocion.propuestaID}"></c:out>.jpeg"
+					src="assets/img/promotions/slider/<c:out value="${promocion.propuestaID}"></c:out>.jpeg"
 					alt="${promocion.propuestaID}" class="d-block w-100">
 
 				<div class="carousel-caption  d-md-block  text-dark mb-5">
@@ -43,9 +43,8 @@
 									<c:when
 										test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
 
-										<div >
-											<a
-												href="/LaFuerza-Turismo/attractions/buy.do?id=${promocion.propuestaID}"
+										<div>
+											<a href="promociones/buy.do?id=${promocion.propuestaID}"
 												class="btn btn-success rounded" role="button">Comprar</a>
 
 										</div>
@@ -59,31 +58,15 @@
 								</c:choose>
 								<div>
 									<a
-										href="/LaFuerza-Turismo/attractions/buy.do?id=${promocion.propuestaID}"
+										href="promocion/detalle.do?promocionID=${promocion.propuestaID}&lado=${lado} "
 										class="btn btn-success rounded" role="button">Info</a>
 								</div>
 							</div>
-
-
 						</div>
-
 					</div>
-
-
-
-
-
 				</div>
 
-
-
-
-
-
-
 			</div>
-
-
 
 		</c:forEach>
 

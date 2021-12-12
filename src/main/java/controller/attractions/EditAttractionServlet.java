@@ -50,7 +50,7 @@ public class EditAttractionServlet extends HttpServlet {
 				id_atraccion);
 
 		if (atraccion.isValid()) {
-			resp.sendRedirect("/LaFuerza-Turismo/attractions/index.do");
+			resp.sendRedirect("/attractions/index.do");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 

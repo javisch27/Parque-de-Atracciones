@@ -9,8 +9,7 @@
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
 
-<link href="/LaFuerza-Turismo/assets/css/guestAttraction.css"
-	rel="stylesheet" />
+<link href="assets/css/guestAttraction.css" rel="stylesheet" />
 
 
 </head>
@@ -38,7 +37,7 @@
 			class="h-100 d-flex justify-content-center align-items-center px-5 py-3">
 			<div class="col-md-7 my-4  me-auto">
 				<img
-					src="/LaFuerza-Turismo/assets/img/attractions/details/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
+					src="assets/img/attractions/details/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
 					alt="..." class="img-fluid">
 			</div>
 
@@ -46,8 +45,8 @@
 				<div class="d-flex flex-row mb-3">
 					<div class="col-md-3">
 						<img class="col-8"
-							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/LaFuerza-Turismo/assets/img/home/dark-grey.png"</c:when>
-		<c:otherwise>src="/LaFuerza-Turismo/assets/img/home/light.png"</c:otherwise></c:choose>>
+							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="assets/img/home/dark-grey.png"</c:when>
+		<c:otherwise>src="assets/img/home/light.png"</c:otherwise></c:choose>>
 
 
 					</div>
@@ -74,11 +73,26 @@
 		</div>
 
 		<div class="mx-5 pb-4">
-			<form method="get" action="guest">
-				<button type="submit" class="btn btn-secondary" value="${lado}"
-					name="lado">Volver</button>
-			</form>
+			<a
+				<c:choose><c:when test="${usuario == null}">
+		href="guest?lado=${lado} "
+		</c:when><c:otherwise>
+		
+		 
+		href="promocion/detalle.do?promocionID=<%= request.getParameter("promocionID") %>&lado=${lado} "
+										
+		</c:otherwise></c:choose>
+				class="btn btn-secondary rounded" role="button">Volver</a>
+
+
 		</div>
+
+
+
+
+
+
+
 
 	</div>
 
