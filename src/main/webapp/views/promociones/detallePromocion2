@@ -54,30 +54,27 @@
 
 
 
-			<div class="row row-cols-1 row-cols-md-3 g-4 pb-4">
+			<div class="row pb-4">
 				<c:forEach items="${atracciones}" var="atraccion" begin="0" end="2">
 					<div class="col-sm-4">
 						<div
-							class="card  h-100 my-3 <c:choose><c:when test="${lado=='LADO OSCURO'}"> border-dark</c:when></c:choose> ">
+							class="card my-3 <c:choose><c:when test="${lado=='LADO OSCURO'}"> border-dark</c:when></c:choose> ">
 							<img class="card-img-top"
 								src="assets/img/attractions/cards/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
 								alt="Card image cap">
 							<div
-								class="card-body d-flex flex-column <c:choose><c:when test="${lado=='LADO OSCURO'}"> text-white-50 bg-dark</c:when></c:choose>">
+								class="card-body  <c:choose><c:when test="${lado=='LADO OSCURO'}"> text-white-50 bg-dark</c:when></c:choose>">
 								<h5 class="card-title">
 									<c:out value="${atraccion.nombre}"></c:out>
 								</h5>
 								<p class="card-text">"${atraccion.descripcion}"</p>
 
-								<div
-									class="d-flex flex-fill align-items-end justify-content-end">
+								<form method="get" action="attraction">
+									<button type="submit" class="btn btn-secondary"
+										value="${atraccion.id_atraccion}" name="attractionID">Info</button>
+								</form>
 
-									<form method="get" action="attraction">
-										<button type="submit" class="btn btn-secondary"
-											value="${atraccion.id_atraccion}" name="attractionID">Info</button>
-									</form>
 
-								</div>
 							</div>
 						</div>
 					</div>
