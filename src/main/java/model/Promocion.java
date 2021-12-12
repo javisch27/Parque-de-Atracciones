@@ -1,12 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public abstract class Promocion extends Propuesta {
 	protected int tipo_promocion_id;
 	protected String descrpicion;
+	private int cupoDisponible;
 	protected LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 	
 	private Map<String, String> errors;
@@ -48,6 +52,16 @@ public abstract class Promocion extends Propuesta {
 		}
 		return tiempoTotal;
 	}
+	
+	public double getCupo() {
+		List<Integer> cupos = new ArrayList<>();
+		
+		for (Atraccion atraccion : atraccionesIncluidas) {
+			cupos.add(atraccion.getCupoDisponible());
+		}
+		return Collections.min(cupos); 
+	}
+	
 
 	public int getTipoPromocionID() {
 		return tipo_promocion_id;

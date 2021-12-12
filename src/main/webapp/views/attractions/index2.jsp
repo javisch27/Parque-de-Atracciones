@@ -73,7 +73,7 @@
 
 			<div class="p-3">
 
-				<c:if test="${user.isAdmin()}">
+				<c:if test="${usuario.isAdmin()}">
 					<div class="mb-3">
 						<a href="attractions/create.do"
 							class="btn btn-primary" role="button"> <i
@@ -93,7 +93,7 @@
 							<th class="p-3 text-center">Lado</th>
 							<th class="p-3 text-center">Info</th>
 
-							<c:if test="${user != null}">
+							<c:if test="${usuario != null}">
 								<th class="p-3 text-center">Acciones</th>
 							</c:if>
 
@@ -127,8 +127,8 @@
 
 
 
-								<c:if test="${user != null}">
-									<td class="p-3"><c:if test="${user.admin}">
+								<c:if test="${usuario != null}">
+									<td class="p-3"><c:if test="${usuario.admin}">
 											<a
 												href="attractions/edit.do?id=${atraccion.id_atraccion}"
 												class="btn btn-light rounded-0" role="button"><i
@@ -147,7 +147,7 @@
 											</c:when>
 											<c:otherwise>
 												<a href="#" class="btn btn-secondary rounded disabled"
-													role="button">No se puede comprar</a>
+													role="button">Comprar</a>
 											</c:otherwise>
 										</c:choose></td>
 								</c:if>

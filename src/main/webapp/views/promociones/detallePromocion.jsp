@@ -38,7 +38,7 @@
 			class="d-flex flex-column justify-content-center align-items-center px-5 py-4">
 
 			<div class="col-md-8  m-3 fondoTransparenteLight rounded py-4">
-				<div class="d-flex flex-row mb-3">
+				<div class="d-flex flex-row mb-3 mt-3">
 					<div class="col-md-3 text-end">
 						<img class="col-4"
 							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/LaFuerza-Turismo/assets/img/home/dark-grey.png"</c:when><c:otherwise>src="/LaFuerza-Turismo/assets/img/home/light.png"</c:otherwise></c:choose>>
