@@ -76,11 +76,8 @@
 			<a
 				<c:choose><c:when test="${usuario == null}">
 		href="guest?lado=${lado} "
-		</c:when><c:otherwise>
-		
-		 
-		href="promocion/detalle.do?promocionID=<%= request.getParameter("promocionID") %>&lado=${lado} "
-										
+		</c:when><c:otherwise>	 
+		href="promocion/detalle.do?promocionID=<%= request.getParameter("promocionID") %>&lado=${lado} "										
 		</c:otherwise></c:choose>
 				class="btn btn-secondary rounded" role="button">Volver</a>
 

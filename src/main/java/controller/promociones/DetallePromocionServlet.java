@@ -30,7 +30,7 @@ public class DetallePromocionServlet extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String promocionID = req.getParameter("promocionID");
-		System.out.println(promocionID);
+
 		
 		Promocion promocion = promocionService.find(Integer.parseInt(promocionID));
 		

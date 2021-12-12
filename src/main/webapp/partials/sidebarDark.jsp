@@ -1,4 +1,5 @@
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link href="assets/css/sidebar.css" rel="stylesheet" />
 
 <div class="offcanvas offcanvas-start sidebarDark
@@ -18,12 +19,14 @@
 			<div class="list-group list-group-flush lead ">
 
 				<a
-					class="list-group-item list-group-item-action list-group-item-dark p-3 text text-dark"
-					href="home.jsp">Home</a> <a
+					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
+					<c:choose><c:when test="${usuario == null}">href="home.jsp"</c:when><c:otherwise>href="index2.jsp"</c:otherwise></c:choose>>Home</a>
+				<a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
 					href="#!">La Fuerza</a> <a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-					href="attractions?lado=LADO+OSCURO">Atracciones</a> <a
+					href="/LaFuerza-Turismo/attractions?lado=LADO+OSCURO">Atracciones</a>
+				<a
 					class="list-group-item list-group-item-action list-group-item-dark   p-3 text text-dark"
 					href="#!">Promociones</a> <a
 					class="list-group-item list-group-item-action list-group-item-dark   p-3 text text-dark"
@@ -42,6 +45,14 @@
 	</div>
 </div>
 
+
+<a
+	class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
+	<c:choose><c:when test="${usuario == null}">
+		href="home.jsp"
+		</c:when><c:otherwise>	 
+		href="index2.jsp"										
+		</c:otherwise></c:choose>>Home</a>
 
 
 
