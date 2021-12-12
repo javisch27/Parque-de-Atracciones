@@ -26,7 +26,7 @@
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
 					href="/LaFuerza-Turismo/attractions?lado=LADO+LUMINOSO">Atracciones</a> 	<a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
-					href="/LaFuerza-Turismo/promociones?lado=LADO+LUMINOSO">Promociones</a> <a
+					href="/LaFuerza-Turismo/promociones?lado=LADO+LUMINOSO&slider=true">Promociones</a> <a
 					class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
 					href="#!">Nosotros</a> <a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"

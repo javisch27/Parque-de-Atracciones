@@ -41,7 +41,7 @@
 					alt="..." class="img-fluid">
 			</div>
 
-			<div class="col-md-4 me-auto">
+			<div class="col-md-4 me-auto fondoTransparenteLight rounded p-4">
 				<div class="d-flex flex-row mb-3">
 					<div class="col-md-3">
 						<img class="col-8"
@@ -68,6 +68,29 @@
 					<div
 						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${atraccion.tiempoTotal}</div>
 				</div>
+
+				<div class="d-flex flex-fill align-items-end justify-content-end mt-5 ">
+					<c:if test="${usuario != null}">
+						<c:choose>
+							<c:when
+								test="${usuario.puedepagarPropuesta(atraccion) && usuario.tieneTiempoDisponible(atraccion) && atraccion.hayCupoDisponible}">
+
+								<div>
+									<a href="promociones/buy.do?id=${atraccion.atraccionID}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div>
+									<a href="#" class="btn btn-secondary rounded disabled"
+										role="button">Comprar</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
+
+				</div>
 			</div>
 
 		</div>
@@ -85,14 +108,32 @@
 
 				</c:when>
 				<c:otherwise>
-					<a
-						href="promocion/detalle.do?promocionID=<%= request.getParameter("promocionID") %>&lado=${lado} "
-						class="btn btn-secondary rounded" role="button">Volver</a>
+					<%
+					String promocionID = request.getParameter("promocionID");
+					%>
+					<%-- 		<% if (promocionID == null) {promocionID = "0";}%> --%>
+					<%
+					pageContext.setAttribute("promocion", promocionID);
+					%>
+
+					<c:choose>
+						<c:when test="${promocion == null}">
+
+							<form>
+								<button class="btn btn-primary rounded" type="button"
+									name="lado" value="${lado}" onclick="history.back()">Volver</button>
+							</form>
+
+
+						</c:when>
+						<c:otherwise>
+							<a
+								href="promocion/detalle?promocionID=${promocion}&lado=${lado} "
+								class="btn btn-primary rounded" role="button">Volver</a>
+						</c:otherwise>
+					</c:choose>
 				</c:otherwise>
 			</c:choose>
-
-
-
 		</div>
 
 

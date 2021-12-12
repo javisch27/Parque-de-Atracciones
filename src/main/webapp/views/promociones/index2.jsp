@@ -107,8 +107,6 @@
 
 							<tr class="align-middle">
 
-
-
 								<td class="px-3"><strong><c:out
 											value="${promocion.nombre}"></c:out></strong>
 									<p>
@@ -121,7 +119,7 @@
 										value="${promocion.getCupo()}"></c:out></td>
 								<td><c:out value="${promocion.tipoAtraccion}"></c:out></td>
 								<td><a
-									href="promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado}"
+									href="promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado}&slider=true"
 									class="btn btn-white rounded-0" role="button"><i
 										class="far fa-eye"></i></a></td>
 

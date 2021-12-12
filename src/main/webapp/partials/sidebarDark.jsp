@@ -29,7 +29,7 @@
 					href="/LaFuerza-Turismo/attractions?lado=LADO+OSCURO">Atracciones</a>
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-					href="/LaFuerza-Turismo/promociones?lado=LADO+OSCURO">Promociones</a>
+					href="/LaFuerza-Turismo/promociones?lado=LADO+OSCURO&slider=true">Promociones</a>
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark   p-3 text text-dark"
 					href="#!">Nosotros</a>

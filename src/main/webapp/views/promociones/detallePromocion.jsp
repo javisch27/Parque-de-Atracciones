@@ -126,22 +126,42 @@
 
 					</c:forEach>
 
-
 				</div>
 
-
-
 			</div>
-
-
-
 		</div>
 
 		<div class="mx-5 pb-4">
-			<a
-				<c:choose><c:when test="${usuario == null}"> href="/LaFuerza-Turismo/promociones?lado=${lado} "</c:when><c:otherwise>href="/LaFuerza-Turismo/index2.jsp "										
-		</c:otherwise></c:choose>
-				class="btn btn-primary rounded" role="button">Volver</a>
+
+			<c:choose>
+				<c:when test="${usuario == null}">
+
+					<a href="/LaFuerza-Turismo/promociones?lado=${lado} "
+						class="btn btn-primary rounded" role="button">Volver</a>
+
+
+				</c:when>
+				<c:otherwise>
+					<%
+					String slider = request.getParameter("slider");
+					%>
+					<%
+					pageContext.setAttribute("slider", slider);
+					%>
+
+					<c:choose>
+						<c:when test="${slider == 'true'}">
+							<a href="/LaFuerza-Turismo/promociones?lado=${lado} "
+								class="btn btn-primary rounded" role="button">Volver</a>
+						</c:when>
+						<c:otherwise>
+							<a
+								href="/LaFuerza-Turismo/index2.jsp?lado=${lado} "
+								class="btn btn-primary rounded" role="button">Volver</a>
+						</c:otherwise>
+					</c:choose>
+				</c:otherwise>
+			</c:choose>
 
 
 		</div>
