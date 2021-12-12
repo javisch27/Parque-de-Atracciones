@@ -59,4 +59,8 @@ public class AtraccionService {
 		return atraccionDAO.find(id);
 	}
 
+	// para hacer la listas de compras
+	public List<Atraccion> CompradasPorUsuario(int id){
+		return encontraAtraccionesContratadasPorUsuarios(id);
+	}
 }
