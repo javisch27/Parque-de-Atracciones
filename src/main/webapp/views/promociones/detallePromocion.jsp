@@ -35,7 +35,7 @@
 
 
 		<div
-			class="d-flex flex-column justify-content-center align-items-center px-5 py-4">
+			class="d-flex flex-column justify-content-center align-items-start px-5 py-4">
 
 			<div class="col-md-8  m-3 fondoTransparenteLight rounded py-4">
 				<div class="d-flex flex-row mb-3 mt-3">
@@ -53,7 +53,7 @@
 
 				</div>
 				<div>
-					<p class="text-center">${promocion.descripcion}</p>
+					<p class="text-center p-3">${promocion.descripcion}</p>
 				</div>
 				<div
 					class="d-flex flex-row mb-3 justify-content-around align-items-center mt-5">
@@ -65,23 +65,25 @@
 							class="col-md-3 mx-2  fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.tiempoTotal}</div>
 					</div>
 					<div>
-						<c:choose>
-							<c:when
-								test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
+						<c:if test="${usuario != null}">
+							<c:choose>
+								<c:when
+									test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
 
-								<div>
-									<a href="promociones/buy.do?id=${promocion.propuestaID}"
-										class="btn btn-success rounded" role="button">Comprar</a>
+									<div>
+										<a href="promociones/buy.do?id=${promocion.propuestaID}"
+											class="btn btn-success rounded" role="button">Comprar</a>
 
-								</div>
-							</c:when>
-							<c:otherwise>
-								<div>
-									<a href="#" class="btn btn-secondary rounded disabled"
-										role="button">Comprar</a>
-								</div>
-							</c:otherwise>
-						</c:choose>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div>
+										<a href="#" class="btn btn-secondary rounded disabled"
+											role="button">Comprar</a>
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
 
 					</div>
 				</div>
@@ -137,9 +139,9 @@
 
 		<div class="mx-5 pb-4">
 			<a
-				<c:choose><c:when test="${usuario == null}"> href="guest?lado=${lado} "</c:when><c:otherwise>href="/LaFuerza-Turismo/index2.jsp "										
+				<c:choose><c:when test="${usuario == null}"> href="/LaFuerza-Turismo/promociones?lado=${lado} "</c:when><c:otherwise>href="/LaFuerza-Turismo/index2.jsp "										
 		</c:otherwise></c:choose>
-				class="btn btn-secondary rounded" role="button">Volver</a>
+				class="btn btn-primary rounded" role="button">Volver</a>
 
 
 		</div>

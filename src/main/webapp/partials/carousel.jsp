@@ -58,7 +58,7 @@
 								</c:choose>
 								<div>
 									<a
-										href="promocion/detalle.do?promocionID=${promocion.propuestaID}&lado=${lado} "
+										href="promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado} "
 										class="btn btn-success rounded" role="button">Info</a>
 								</div>
 							</div>

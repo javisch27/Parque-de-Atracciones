@@ -53,7 +53,7 @@ public abstract class Promocion extends Propuesta {
 		return tiempoTotal;
 	}
 	
-	public double getCupo() {
+	public int getCupo() {
 		List<Integer> cupos = new ArrayList<>();
 		
 		for (Atraccion atraccion : atraccionesIncluidas) {

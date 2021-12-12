@@ -14,7 +14,7 @@ import model.Atraccion;
 import model.Promocion;
 import services.PromocionService;
 
-@WebServlet("/promocion/detalle.do")
+@WebServlet("/promocion/detalle")
 public class DetallePromocionServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 1965006988697544679L;

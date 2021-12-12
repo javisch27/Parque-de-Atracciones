@@ -73,13 +73,24 @@
 		</div>
 
 		<div class="mx-5 pb-4">
-			<a
-				<c:choose><c:when test="${usuario == null}">
-		href="guest?lado=${lado} "
-		</c:when><c:otherwise>	 
-		href="promocion/detalle.do?promocionID=<%= request.getParameter("promocionID") %>&lado=${lado} "										
-		</c:otherwise></c:choose>
-				class="btn btn-secondary rounded" role="button">Volver</a>
+
+			<c:choose>
+				<c:when test="${usuario == null}">
+
+					<form>
+						<button class="btn btn-primary rounded" type="button" name="lado"
+							value="${lado}" onclick="history.back()">Volver</button>
+					</form>
+
+
+				</c:when>
+				<c:otherwise>
+					<a
+						href="promocion/detalle.do?promocionID=<%= request.getParameter("promocionID") %>&lado=${lado} "
+						class="btn btn-secondary rounded" role="button">Volver</a>
+				</c:otherwise>
+			</c:choose>
+
 
 
 		</div>
