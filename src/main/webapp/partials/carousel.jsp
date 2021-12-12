@@ -26,23 +26,59 @@
 
 				<div class="carousel-caption  d-md-block  text-dark mb-5">
 					<div class=" d-flex justify-content-center">
-						<div class="fondoTransparenteDark rounded col-6 py-4">
-							<h5>${promocion.nombre}</h5>
-							<p>${promocion.descrpicion}</p>
-							<div class=" d-flex justify-content-center">
-								<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">$${promocion.costo}</div>
-								<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">${promocion.tiempoTotal}</div>
+						<div class=" col-6 ">
+
+							<div class="fondoTransparenteDark roundedpy-4 px-3 py-4 mb-3">
+								<h5>${promocion.nombre}</h5>
+								<p>${promocion.descrpicion}</p>
+								<div class=" d-flex justify-content-center">
+									<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">$${promocion.costo}</div>
+									<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">${promocion.tiempoTotal}</div>
+								</div>
+
 							</div>
 
+							<div class="d-flex justify-content-between">
+								<c:choose>
+									<c:when
+										test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
+
+										<div >
+											<a
+												href="/LaFuerza-Turismo/attractions/buy.do?id=${promocion.propuestaID}"
+												class="btn btn-success rounded" role="button">Comprar</a>
+
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div>
+											<a href="#" class="btn btn-secondary rounded disabled"
+												role="button">Comprar</a>
+										</div>
+									</c:otherwise>
+								</c:choose>
+								<div>
+									<a
+										href="/LaFuerza-Turismo/attractions/buy.do?id=${promocion.propuestaID}"
+										class="btn btn-success rounded" role="button">Info</a>
+								</div>
+							</div>
+
+
 						</div>
+
 					</div>
+
+
+
+
 
 				</div>
 
-				<c:if
-					test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
-					<c:set var="puedeComprar" value="1" />
-				</c:if>
+
+
+
+
 
 
 			</div>
@@ -51,8 +87,6 @@
 
 		</c:forEach>
 
-
-		<c:set var="puedeComprar" value="true" />
 
 
 

@@ -44,21 +44,8 @@
 				<jsp:include page="/partials/carousel.jsp"></jsp:include>
 			</div>
 
-			 <c:out value = "${puedeComprar}"/>
-				
-			<c:choose>
 
-					<c:when
-						test="${puedeComprar == 1}">
-						<a
-							href="/LaFuerza-Turismo/attractions/buy.do?id=${promocion.propuestaID}"
-							class="btn btn-success rounded" role="button">Comprar</a>
-					</c:when>
-					<c:otherwise>
-						<a href="#" class="btn btn-secondary rounded disabled"
-							role="button">No se puede comprar</a>
-					</c:otherwise>
-				</c:choose>
+		
 
 
 		</div>
