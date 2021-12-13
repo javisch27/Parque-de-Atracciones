@@ -60,7 +60,7 @@ public class AtraccionService {
 	}
 
 	// para hacer la listas de compras
-	public List<Atraccion> CompradasPorUsuario(int id){
-		return encontraAtraccionesContratadasPorUsuarios(id);
+	public List<Atraccion> CompradasPorUsuario(Integer attractionId){
+		return DAOFactory.getAtraccionesDAO().encontraAtraccionesContratadasPorUsuarios(attractionId);
 	}
 }

@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
 import services.AtraccionService;
 
-@WebServlet("/attractions/compras.do") 
-public class ListAttractionsServlet extends HttpServlet implements Servlet {
+@WebServlet("/attractions/compras") 
+public class ListUserAttractionsServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
 	private AtraccionService atraccionService;
@@ -27,17 +27,13 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = req.getParameter("id");
-        List<Atraccion> atracciones = atraccionService.encontraAtraccionesContratadasPorUsuarios(id);
+		Integer attractionId = Integer.parseInt(req.getParameter("id"));
+        List<Atraccion> atracciones = atraccionService.CompradasPorUsuario(attractionId);
 		req.setAttribute("atracciones", atracciones);
-		
 		String lado = req.getParameter("lado");
 		req.setAttribute("lado", lado.toUpperCase() );
-		
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/attractions/compras.jsp");
 		dispatcher.forward(req, resp);
-
 	}
 
 }
