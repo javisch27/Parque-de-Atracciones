@@ -49,13 +49,6 @@
 </div>
 
 
-<a
-	class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-	<c:choose><c:when test="${usuario == null}">
-		href="home.jsp"
-		</c:when><c:otherwise>	 
-		href="index2.jsp"										
-		</c:otherwise></c:choose>>Home</a>
 
 
 
