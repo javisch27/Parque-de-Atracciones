@@ -39,6 +39,12 @@ public class LoginServlet extends HttpServlet {
 		Usuario usuario = loginService.login(nombre, password);
 
 		if (!usuario.isNull()) {
+			
+			if(usuario.isAdmin()) {
+				req.getSession().setAttribute("usuario", usuario);
+				resp.sendRedirect("index2.jsp");
+				
+			}
 
 			String lado = usuario.getTipoAtraccionPreferida().getNombre();
 			

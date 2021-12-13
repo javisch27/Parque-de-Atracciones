@@ -20,16 +20,19 @@ import model.Usuario;
 import model.nullobjects.NullUsuario;
 
 public class UsuariosDAOImpl implements UsuariosDAO {
+	
 	public int update(Usuario user) {
 		try {
-			String sql = "UPDATE USUARIOS SET TIPO_ATRACCION = ?, PRESUPUESTO = ?, TIEMPO = ? WHERE NOMBRE = ?";
+			String sql = "UPDATE USUARIOS SET PASSWORD = ?, ADMIN = ?, TIPO_ATRACCION = ?, PRESUPUESTO = ?, TIEMPO = ? WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, user.getTipoAtraccionPreferida().getNumeroId());
-			statement.setInt(2, user.getPresupuestoDisponible());
-			statement.setDouble(3, user.getTiempoDisponible());
-			statement.setString(4, user.getNombre());
+			statement.setString(1, user.getPassword());
+			statement.setBoolean(2, user.isAdmin());
+			statement.setInt(3, user.getTipoAtraccionPreferida().getNumeroId());
+			statement.setInt(4, user.getPresupuestoDisponible());
+			statement.setDouble(5, user.getTiempoDisponible());
+			statement.setString(6, user.getNombre());
 
 			int rows = statement.executeUpdate();
 
@@ -163,5 +166,38 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	public int delete(Usuario usuario) {
+		try {
+			String sql = "DELETE FROM USUARIOS WHERE ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
 
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, usuario.getUsuario_id());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	public int insert(Usuario usuario) {
+		try {
+			String sql = "INSERT INTO USUARIOS (NOMBRE, TIPO_ATRACCION, PRESUPUESTO, TIEMPO, PASSWORD, ADMIN) VALUES (?, ?, ?, ?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, usuario.getNombre());
+			statement.setInt(2, usuario.getTipoAtraccionPreferida().getNumeroId());
+			statement.setInt(3, usuario.getPresupuestoDisponible());
+			statement.setString(5, usuario.getPassword());
+			statement.setBoolean(6, usuario.isAdmin());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 }

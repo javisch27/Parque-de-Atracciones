@@ -1,6 +1,8 @@
 package model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 import persistence.commons.DAOFactory;
 import utils.Crypt;
@@ -15,6 +17,8 @@ public class Usuario {
 	private LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 	private String password;
 	private boolean admin;
+	
+	private Map<String, String> errors;
 
 	public Usuario(String nombre, String password, boolean admin, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo,
 			LinkedList<Propuesta> propuestasCompradas, int usuario_id) {
@@ -27,6 +31,27 @@ public class Usuario {
 		this.propuestasCompradas = propuestasCompradas;
 		this.usuario_id = usuario_id;
 
+	}
+	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (presupuestoDisponible <= 0) {
+			errors.put("presupuestoDisponible", "Debe ser positivo");
+		}
+		if (tiempoDisponible <= 0) {
+			errors.put("tiempoDisponible", "Debe ser positivo");
+		}
+		
+	}
+
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 
 	public LinkedList<Propuesta> getPropuestasCompradas() {
