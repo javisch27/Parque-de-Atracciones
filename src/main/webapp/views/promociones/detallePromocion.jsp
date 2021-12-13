@@ -10,7 +10,7 @@
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
 
-<link href="assets/css/guestAttraction.css" rel="stylesheet" />
+<link href="/LaFuerza-Turismo/assets/css/guestAttraction.css" rel="stylesheet" />
 
 
 </head>

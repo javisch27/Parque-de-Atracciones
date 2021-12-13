@@ -59,4 +59,8 @@ public class AtraccionService {
 		return atraccionDAO.find(id);
 	}
 
+	// para hacer la listas de compras
+	public List<Atraccion> CompradasPorUsuario(Integer attractionId){
+		return DAOFactory.getAtraccionesDAO().encontraAtraccionesContratadasPorUsuarios(attractionId);
+	}
 }

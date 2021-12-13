@@ -1,6 +1,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="assets/css/sidebar.css" rel="stylesheet" />
+<link href="/LaFuerza-Turismo/assets/css/sidebar.css" rel="stylesheet" />
 
 <div class="offcanvas offcanvas-start sidebarDark
 " tabindex="-1"

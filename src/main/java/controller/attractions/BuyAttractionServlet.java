@@ -41,9 +41,22 @@ public class BuyAttractionServlet extends HttpServlet {
 			req.setAttribute("errors", errors);
 			req.setAttribute("flash", "No ha podido realizarse la compra");
 		}
+		
+		String promocionID = req.getParameter("promocionID");
+		String attractionID = req.getParameter("id");
+		String lado = req.getParameter("lado");
+		String ruta = req.getParameter("ruta");
+		
 
-		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/attractions/index.do");
+// 		RequestDispatcher dispatcher = getServletContext()
+//				.getRequestDispatcher("/attractions/index.do");
+ 		
+ 		RequestDispatcher dispatcher = getServletContext()
+				.getRequestDispatcher("/"+ruta+"?promocionID="+promocionID+"&attractionID="+attractionID );
+
+ 		
+ 		
+ 	
 		dispatcher.forward(req, resp);
 	}
 }

@@ -1,6 +1,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="assets/css/sidebar.css" rel="stylesheet" />
+<link href="/LaFuerza-Turismo/assets/css/sidebar.css" rel="stylesheet" />
 
 <div class="offcanvas offcanvas-start 
 " tabindex="-1" id="offcanvas"
@@ -26,7 +26,7 @@
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
 					href="/LaFuerza-Turismo/attractions?lado=LADO+LUMINOSO">Atracciones</a> 	<a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
-					href="/LaFuerza-Turismo/promociones?lado=LADO+LUMINOSO&slider=true">Promociones</a> <a
+					href="/LaFuerza-Turismo/promociones?lado=LADO+LUMINOSO">Promociones</a> <a
 					class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
 					href="#!">Nosotros</a> <a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"

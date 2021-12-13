@@ -18,24 +18,35 @@
 
 
 
-	<ul class="nav navbar-nav navbar-center">
-		<span class="navbar-text fs-4"> <c:out value="${lado}"></c:out></span>
-	</ul>
+		<ul class="nav navbar-nav navbar-center ">
+			<span class="navbar-text fs-4"> <c:choose>
+					<c:when test="${lado=='LADO OSCURO'}"> LADO OSCURO</c:when>
+					<c:otherwise>LADO LUMINOSO </c:otherwise>
+				</c:choose>
+		</ul>
 
-	<c:if test="${usuario != null}">
-		<div class="d-flex fondoTransparente rounded justify-content-end px-3">
-			<div class="p-2">
-				<span class="navbar-text fs-5"> Disponible:</span>
-			</div>
-			<div class="p-2">
-				<span class="navbar-text fs-5">$<c:out value="${usuario.presupuestoDisponible}"></c:out></span>
-			</div>
-			<div class="p-2">
-				<span class="navbar-text fs-5"> <c:out value="${usuario.tiempoDisponible}"></c:out></span>
-			</div>
 
-		</div>
-	</c:if>
+		<ul class="nav navbar-nav navbar-center ">
+			<c:if test="${usuario != null}">
+				<div
+					class="d-flex fondoTransparente rounded justify-content-end px-3">
+					<div class="p-2">
+						<span class="navbar-text fs-5"> Disponible:</span>
+					</div>
+					<div class="p-2">
+						<span class="navbar-text fs-5">$<c:out
+								value="${usuario.presupuestoDisponible}"></c:out></span>
+					</div>
+					<div class="p-2">
+						<span class="navbar-text fs-5"> <c:out
+								value="${usuario.tiempoDisponible}"></c:out></span>
+					</div>
+
+				</div>
+			</c:if>
+		</ul>
+
+
 
 
 
@@ -54,6 +65,12 @@
 			</c:otherwise>
 		</c:choose>
 	</form>
+
+
+
+
+
+
 
 
 

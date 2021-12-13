@@ -140,7 +140,7 @@
 											<c:when
 												test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
 												<a
-													href="attractions/buy.do?id=${promocion.propuestaID}"
+													href="/LaFuerza-Turismo/promociones/buy.do?id=${promocion.propuestaID}"
 													class="btn btn-success rounded" role="button">Comprar</a>
 											</c:when>
 											<c:otherwise>
