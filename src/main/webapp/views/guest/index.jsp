@@ -13,6 +13,7 @@
 <body>
 
 	<jsp:include page="/partials/login-modal.jsp"></jsp:include>
+		<jsp:include page="/partials/user-modal.jsp"></jsp:include>
 	<jsp:include page="/partials/navbar.jsp"></jsp:include>
 
 
