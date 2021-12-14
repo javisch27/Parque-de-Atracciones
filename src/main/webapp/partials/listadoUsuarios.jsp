@@ -22,7 +22,7 @@
 					<td class="px-3 text-start"><strong><c:out
 								value="${usuario.nombre}"></c:out></strong></td>
 					<td>$<c:out value="${usuario.presupuestoDisponible}"></c:out></td>
-					<td><c:out value="${usuario.tiempoDisponible}"></c:out></td>
+					<td><c:out value="${usuario.getTiempoDisponibleFormato()}"></c:out></td>
 					<td><c:out value="${usuario.tipoAtraccionPreferida.nombre}"></c:out></td>
 
 					<td><a
