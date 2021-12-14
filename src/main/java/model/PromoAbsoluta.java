@@ -11,4 +11,9 @@ public class PromoAbsoluta extends Promocion {
 		this.costo = costoPromo;
 	}
 
+	public void setVariable(double variable) {
+		this.costo = (int)(variable);
+		
+	}
+
 }

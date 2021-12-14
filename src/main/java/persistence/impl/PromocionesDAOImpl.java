@@ -17,6 +17,7 @@ import model.PromoPorcentual;
 import model.Promocion;
 import model.PromocionAXB;
 import model.TipoAtraccion;
+import model.TipoPromocion;
 
 public class PromocionesDAOImpl implements PromocionesDAO {
 
@@ -151,11 +152,79 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	}
 	
 	public int update(Promocion promocion) {
-		return 0;
+		try {
+			String sql = "UPDATE PROMOCIONES SET TIPO_PROMOCION = ?, TIPO_ATRACCIONES = ?, DESCRIPCION = ?, VARIABLE = ? WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			if (promocion.getClass() == PromoPorcentual.class) {
+				statement.setInt(1, 1);
+				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+				statement.setString(3, promocion.getDescripcion());
+				statement.setDouble(4, promocion.getPorcentajeDescuento());
+				statement.setString(5, promocion.getNombre());
+			}
+			
+			if (promocion.getClass() == PromoAbsoluta.class) {
+				statement.setInt(1, 2);
+				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+				statement.setString(3, promocion.getDescripcion());
+				statement.setDouble(4, promocion.getCosto());
+				statement.setString(5, promocion.getNombre());
+			}
+			
+			if (promocion.getClass() == PromocionAXB.class) {
+				statement.setInt(1, 3);
+				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+				statement.setString(3, promocion.getDescripcion());
+				statement.setString(5, promocion.getNombre());
+			}
+
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 	
 	public int insert(Promocion promocion) {
-		return 0;
+		try {
+			String sql = "INSERT INTO PROMOCIONES (TIPO_PROMOCION, TIPO_ATRACCIONES, NOMBRE, DESCRIPCION, VARIABLE) VALUES (?, ?, ?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			
+			if (promocion.getClass() == PromoPorcentual.class) {
+				statement.setInt(1, 1);
+				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+				statement.setString(3, promocion.getNombre());
+				statement.setString(4, promocion.getDescripcion());
+				statement.setDouble(5, promocion.getPorcentajeDescuento());
+			}
+			
+			if (promocion.getClass() == PromoAbsoluta.class) {
+				statement.setInt(1, 2);
+				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+				statement.setString(3, promocion.getNombre());
+				statement.setString(4, promocion.getDescripcion());
+				statement.setDouble(5, promocion.getCosto());
+			}
+			
+			if (promocion.getClass() == PromocionAXB.class) {
+				statement.setInt(1, 3);
+				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
+				statement.setString(3, promocion.getNombre());
+				statement.setString(4, promocion.getDescripcion());
+			}
+			
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 	
 	public int delete(Promocion promocion) {

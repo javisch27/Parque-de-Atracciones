@@ -12,4 +12,6 @@ public interface PromocionesDAO extends GenericDAO<Promocion> {
 	public abstract int insert(Promocion promocion);
 	
 	public abstract int update(Promocion promocion);
+	
+	public abstract int delete(Promocion promocion);
 }

@@ -27,7 +27,8 @@ public class DeletePromocionServlet extends HttpServlet {
 
 		promocionService.delete(id_promocion);
 
-		resp.sendRedirect("/promociones/index.do");
+//		resp.sendRedirect("/promociones/index.do");
+		resp.sendRedirect("/views/admin/index.jsp&partial=promociones");
 	}
 
 

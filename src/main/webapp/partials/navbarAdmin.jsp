@@ -2,17 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link href="/LaFuerza-Turismo/assets/css/navguest.css" rel="stylesheet" />
+
 
 <nav id="menu"
-	class="navbar  fixed-top  shadow navbar-light bg-light">
+	class="navbar  fixed-top  shadow navbar-light bg-light px-5">
 
 
-	<button data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-		role="button"
-		class="openbtn px-3<c:choose><c:when test="${lado=='LADO OSCURO'}"> btn btn-dark text-secondary</c:when>
-		<c:otherwise>btn btn-light </c:otherwise></c:choose>">☰
-		Menu</button>
 
 	<ul class="nav navbar-nav navbar-center ">
 		<span class="navbar-text fs-4">  Administrador</span>

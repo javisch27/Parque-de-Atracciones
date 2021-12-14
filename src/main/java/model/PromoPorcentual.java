@@ -22,4 +22,8 @@ public class PromoPorcentual extends Promocion {
 		return porcentajeDescuento;
 	}
 
+	public void setVariable(double porcentajeDescuento) {
+		this.porcentajeDescuento = porcentajeDescuento;
+	}
+
 }

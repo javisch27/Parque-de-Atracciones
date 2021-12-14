@@ -20,18 +20,17 @@
 
 				<div class="border-end " id="sidebar-wrapper">
 					<div class="list-group list-group-flush lead ">
-						<a
-							class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
-							
-							href="/LaFuerza/user/compras.do?=${usuario.usuario_id}"><i class="fas fa-shopping-cart px-3"></i>Mis Compras</a> <a
-							class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
+					<c:if test="${!usuario.admin}">
+						<a class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"						
+							href="/LaFuerza/user/compras.do?=${usuario.usuario_id}"><i class="fas fa-shopping-cart px-3"></i>Mis Compras</a></c:if> 
+						
+						<a class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
 							href="#!"><i class="fas fa-user px-3"></i>Mi Perfil</a> 
-
 					</div>
 					<!-- corregir los href -->
 				</div>
-
-
+				
+				
 
 
 				<div class="modal-footer d-block">

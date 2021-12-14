@@ -10,8 +10,10 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
+<link href="/LaFuerza-Turismo/assets/css/admin.css" rel="stylesheet" />
+<link href="/LaFuerza-Turismo/assets/css/formsAdmin.css"
+	rel="stylesheet" />
 
 <div class="d-flex">
 	<div class="sidebar">
@@ -26,29 +28,28 @@
 	<div class="container">
 
 		<div class="header navbar">
-			<div class="header-container">
+			<div class="header-container" id="main">
 				<jsp:include page="/partials/navbarAdmin.jsp"></jsp:include>
 			</div>
 		</div>
 
-		<main class="main-content" id="main">
-			<c:choose>
-				<c:when test="${partial=='usuarios'}">
-					<jsp:include page="/partials/listadoUsuarios.jsp"></jsp:include>
-				</c:when>
-			</c:choose>
-			<c:choose>
-				<c:when test="${partial=='atracciones'}">
-					<jsp:include page="/partials/listadoAtracciones.jsp"></jsp:include>
-				</c:when>
-			</c:choose>
-			<c:choose>
-				<c:when test="${partial=='promociones'}">
-					<jsp:include page="/partials/listadoPromociones.jsp"></jsp:include>
-				</c:when>
-			</c:choose>
 
-		</main>
+
+		<c:if test="${promocion != null && !promocion.isValid()}">
+			<div class="alert alert-danger">
+				<p>Se encontraron errores al actualizar la promoción.</p>
+			</div>
+		</c:if>
+
+		<div id="formulario">
+			<form action="/LaFuerza-Turismo/promociones/edit.do" method="post">
+				<input type="hidden" name="id" value="${promocion.propuestaID}">
+				<jsp:include page="/views/promociones/form.jsp"></jsp:include>
+			</form>
+		</div>
+
+
+
 
 
 	</div>

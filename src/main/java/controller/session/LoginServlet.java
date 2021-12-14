@@ -39,25 +39,28 @@ public class LoginServlet extends HttpServlet {
 		Usuario usuario = loginService.login(nombre, password);
 
 		if (!usuario.isNull()) {
-			
-			if(usuario.isAdmin()) {
+
+			if (usuario.isAdmin()) {
 				req.getSession().setAttribute("usuario", usuario);
+				req.getSession().setAttribute("partial", "index");
+				resp.sendRedirect("/LaFuerza-Turismo/views/admin/index.jsp");
+
+			} else {
+
+				String lado = usuario.getTipoAtraccionPreferida().getNombre();
+
+//				System.out.println(lado);
+				List<Promocion> promociones = promocionService.list(); // TODO cambiar por promociones cuando esté
+																		// armado
+
+				req.getSession().setAttribute("lado", lado);
+				req.getSession().setAttribute("promociones", promociones);
+				req.getSession().setAttribute("usuario", usuario);
+
 				resp.sendRedirect("index2.jsp");
-				
+
 			}
 
-			String lado = usuario.getTipoAtraccionPreferida().getNombre();
-			
-//			System.out.println(lado);
-			List<Promocion> promociones = promocionService.list(); //TODO cambiar por promociones cuando esté armado
-			
-		
-			req.getSession().setAttribute("lado", lado);
-			req.getSession().setAttribute("promociones", promociones);
-			req.getSession().setAttribute("usuario", usuario);
-			
-			
-			resp.sendRedirect("index2.jsp");
 		} else {
 			req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");// TODO falta poner los mensjes
 

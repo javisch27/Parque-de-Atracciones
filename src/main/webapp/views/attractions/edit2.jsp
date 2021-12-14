@@ -10,7 +10,7 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	
+	<link href="/LaFuerza-Turismo/assets/css/formsAdmin.css" rel="stylesheet" />
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
 
 <div class="d-flex">
@@ -31,24 +31,24 @@
 			</div>
 		</div>
 
-		<main class="main-content" id="main">
-			<c:choose>
-				<c:when test="${partial=='usuarios'}">
-					<jsp:include page="/partials/listadoUsuarios.jsp"></jsp:include>
-				</c:when>
-			</c:choose>
-			<c:choose>
-				<c:when test="${partial=='atracciones'}">
-					<jsp:include page="/partials/listadoAtracciones.jsp"></jsp:include>
-				</c:when>
-			</c:choose>
-			<c:choose>
-				<c:when test="${partial=='promociones'}">
-					<jsp:include page="/partials/listadoPromociones.jsp"></jsp:include>
-				</c:when>
-			</c:choose>
 
-		</main>
+
+		<c:if test="${atraccion != null && !atraccion.isValid()}">
+			<div class="alert alert-danger">
+				<p>Se encontraron errores al actualizar la atracción.</p>
+			</div>
+		</c:if>
+
+		<div id="formulario">
+			<form action="/LaFuerza-Turismo/attractions/edit.do" method="post">
+				<input type="hidden" name="id" value="${atraccion.id_atraccion}">
+				<jsp:include page="/views/attractions/form.jsp"></jsp:include>
+			</form>
+		</div>
+
+
+
+
 
 
 	</div>

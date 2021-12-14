@@ -20,4 +20,8 @@ public class PromocionAXB extends Promocion {
 	public LinkedList<Atraccion> getAtraccionesGratis() {
 		return atraccionesGratis;
 	}
+
+	public void setAtraccionesGratis(LinkedList<Atraccion> atraccionesGratis) {
+		this.atraccionesGratis = atraccionesGratis;
+	}
 }

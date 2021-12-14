@@ -32,7 +32,7 @@ public class EditUsuarioServlet extends HttpServlet {
 		Usuario usuario = usuarioService.find(id);
 		req.setAttribute("usuario", usuario);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/edit.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/edit2.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -49,11 +49,13 @@ public class EditUsuarioServlet extends HttpServlet {
 				usuario_id);
 
 		if (usuario.isValid()) {
-			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
+//			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
+			resp.sendRedirect("/views/admin/index.jsp&partial=usuarios");
+			
 		} else {
 			req.setAttribute("usuario", usuario);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/edit.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/edit2.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}

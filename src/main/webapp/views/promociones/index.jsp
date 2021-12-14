@@ -33,7 +33,7 @@
 
 		<c:if test="${usuario.isAdmin()}">
 			<div class="mb-3">
-				<a href="promociones/create.do"
+				<a href="/LaFuerza-Turismo/promociones/create.do"
 					class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i>
 					Nueva Promoción
 				</a>
@@ -58,17 +58,17 @@
 						<td><c:out value="${promocion.tiempoTotal}"></c:out></td>
 						<td><c:out value="${promocion.hayCupoDisponible}"></c:out></td>
 						<td><c:if test="${usuario.admin}">
-								 <a   href="promociones/edit.do?id=${promocion.propuestaID}"
+								 <a   href="/LaFuerza-Turismo/promociones/edit.do?id=${promocion.propuestaID}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="promociones/delete.do?id=${promocion.propuestaID}"
+								<a href="/LaFuerza-Turismo/promociones/delete.do?id=${promocion.propuestaID}"
 									 class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
 
 								<c:when
 									test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
-									<a href="promociones/buy.do?id=${promocion.propuestaID}"
+									<a href="/LaFuerza-Turismo/promociones/buy.do?id=${promocion.propuestaID}"
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>

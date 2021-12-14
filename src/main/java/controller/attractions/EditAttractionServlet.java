@@ -31,7 +31,7 @@ public class EditAttractionServlet extends HttpServlet {
 		Atraccion atraccion = attractionService.find(id);
 		req.setAttribute("atraccion", atraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit2.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -50,11 +50,13 @@ public class EditAttractionServlet extends HttpServlet {
 				id_atraccion);
 
 		if (atraccion.isValid()) {
-			resp.sendRedirect("/attractions/index.do");
+			resp.sendRedirect("/views/admin/index.jsp&partial=atracciones");
+			
+			//resp.sendRedirect("/attractions/index.do"); antes
 		} else {
 			req.setAttribute("atraccion", atraccion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit2.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}

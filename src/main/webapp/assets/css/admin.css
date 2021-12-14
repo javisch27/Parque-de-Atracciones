@@ -1,0 +1,32 @@
+
+#offcanvas{
+/* 	width: 260px; */
+/* 	padding-top: 56px; */
+	background-color: #656565;
+	color: white;
+	margin-top: 68px;
+}
+
+.list-group-item{
+		background-color: #656565;
+	color: white;
+	border-color: white;
+	
+	
+}
+
+
+#lateral{
+	/* width: 260px; */
+/* 	padding-top: 56px; */
+	background-color: #656565;
+		
+}
+
+#main{
+	/* width: 260px; */
+/* 	padding-top: 56px; */
+	margin-left: 200px;
+	margin-top: 70px;
+		
+}

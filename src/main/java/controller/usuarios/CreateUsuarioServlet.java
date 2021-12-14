@@ -27,7 +27,7 @@ public class CreateUsuarioServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/create.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/create2.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -42,12 +42,13 @@ public class CreateUsuarioServlet extends HttpServlet {
 
 		Usuario usuario = usuarioService.create(nombre, password, admin, tipoAtraccion, presupuestoDisponible, tiempoMaximo);
 		if (usuario.isValid()) {
-			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
+//			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
+			resp.sendRedirect("/views/admin/index.jsp&partial=usuarios");
 		} else {
 			req.setAttribute("usuario", usuario);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/usuarios/create.jsp");
+					.getRequestDispatcher("/views/usuarios/create2.jsp");
 			dispatcher.forward(req, resp);
 		}
 

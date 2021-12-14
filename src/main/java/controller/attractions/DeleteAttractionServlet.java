@@ -27,7 +27,9 @@ public class DeleteAttractionServlet extends HttpServlet {
 
 		attractionService.delete(id);
 
-		resp.sendRedirect("/attractions/index.do");
+		//resp.sendRedirect("/attractions/index.do");
+		resp.sendRedirect("/views/admin/index.jsp&partial=atracciones");
+		
 	}
 
 
