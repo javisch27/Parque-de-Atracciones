@@ -10,7 +10,7 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link href="/LaFuerza-Turismo/assets/css/formsAdmin.css" rel="stylesheet" />
+	<link href="/assets/css/formsAdmin.css" rel="stylesheet" />
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
 
 <div class="d-flex">
@@ -40,7 +40,7 @@
 		</c:if>
 
 		<div id="formulario">
-			<form action="/LaFuerza-Turismo/attractions/edit.do" method="post">
+			<form action="/attractions/edit.do" method="post">
 				<input type="hidden" name="id_atraccion" value="${atraccion.id_atraccion}">
 				<jsp:include page="/views/attractions/form.jsp"></jsp:include>
 			</form>

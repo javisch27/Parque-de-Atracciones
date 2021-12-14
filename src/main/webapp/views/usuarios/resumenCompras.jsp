@@ -18,9 +18,9 @@
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script defer src="https://kit.fontawesome.com/d3e9765b95.js"
 	crossorigin="anonymous"></script>
-<link href="assets/css/attractions.css" rel="stylesheet" />
+<link href="/assets/css/attractions.css" rel="stylesheet" />
 <script type="text/javascript"
-	src="/LaFuerza-Turismo/assets/js/listaComprasUsuario.js" defer></script>
+	src="/assets/js/listaComprasUsuario.js" defer></script>
 	
 <script defer type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>

@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			if (usuario.isAdmin()) {
 				req.getSession().setAttribute("usuario", usuario);
 				req.getSession().setAttribute("partial", "index");
-				resp.sendRedirect("/LaFuerza-Turismo/views/admin/index.jsp");
+				resp.sendRedirect("/views/admin/index.jsp");
 
 			} else {
 
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 				req.getSession().setAttribute("promociones", promociones);
 				req.getSession().setAttribute("usuario", usuario);
 
-				resp.sendRedirect("index2.jsp");
+				resp.sendRedirect("/index2.jsp");
 
 			}
 

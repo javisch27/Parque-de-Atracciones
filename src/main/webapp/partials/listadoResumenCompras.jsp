@@ -31,7 +31,7 @@
 					<td><c:out value="${propuesta.costo}"></c:out></td>
 					<td><c:out value="${propuesta.tiempoTotal}"></c:out></td>
 					<td><c:out value="${propuesta.tipoAtraccion.nombre}"></c:out></td>
-					<td><a href="attraction?attractionID=${propuesta.propuestaID}"
+					<td><a href="/attraction?attractionID=${propuesta.propuestaID}"
 						class="btn btn-white rounded-0" role="button"><i
 							class="far fa-eye"></i></a></td>
 				</tr>

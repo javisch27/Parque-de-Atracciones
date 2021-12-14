@@ -11,8 +11,8 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
-<link href="/LaFuerza-Turismo/assets/css/admin.css" rel="stylesheet" />
-<link href="/LaFuerza-Turismo/assets/css/formsAdmin.css"
+<link href="/assets/css/admin.css" rel="stylesheet" />
+<link href="/assets/css/formsAdmin.css"
 	rel="stylesheet" />
 
 <div class="d-flex">
@@ -42,7 +42,7 @@
 		</c:if>
 
 		<div id="formulario">
-			<form action="/LaFuerza-Turismo/promociones/edit.do" method="post">
+			<form action="/promociones/edit.do" method="post">
 				<input type="hidden" name="id" value="${promocion.propuestaID}">
 				<jsp:include page="/views/promociones/form.jsp"></jsp:include>
 			</form>

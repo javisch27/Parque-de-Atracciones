@@ -1,6 +1,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="/LaFuerza-Turismo/assets/css/sidebar.css" rel="stylesheet" />
+<link href="/assets/css/sidebar.css" rel="stylesheet" />
 
 <div class="offcanvas offcanvas-start sidebarDark
 " tabindex="-1"
@@ -20,16 +20,16 @@
 
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-					<c:choose><c:when test="${usuario == null}">href="home.jsp"</c:when><c:otherwise>href="/LaFuerza-Turismo/index2.jsp"</c:otherwise></c:choose>>Home</a>
+					<c:choose><c:when test="${usuario == null}">href="/"</c:when><c:otherwise>href="/index2.jsp"</c:otherwise></c:choose>>Home</a>
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
 					href="#!">La Fuerza</a> 
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-					href="/LaFuerza-Turismo/attractions?lado=LADO+OSCURO">Atracciones</a>
+					href="/attractions?lado=LADO+OSCURO">Atracciones</a>
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark  p-3 text text-dark"
-					href="/LaFuerza-Turismo/promociones?lado=LADO+OSCURO&slider=true">Promociones</a>
+					href="/promociones?lado=LADO+OSCURO&slider=true">Promociones</a>
 				<a
 					class="list-group-item list-group-item-action list-group-item-dark   p-3 text text-dark"
 					href="#!">Nosotros</a>

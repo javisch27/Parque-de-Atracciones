@@ -15,7 +15,7 @@
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="assets/css/listadoPropuestas.css"
+<link href="/assets/css/listadoPropuestas.css"
 	rel="stylesheet" />
 
 

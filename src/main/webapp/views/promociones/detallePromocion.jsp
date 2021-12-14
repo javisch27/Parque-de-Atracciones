@@ -10,7 +10,7 @@
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
 
-<link href="/LaFuerza-Turismo/assets/css/guestAttraction.css" rel="stylesheet" />
+<link href="/assets/css/guestAttraction.css" rel="stylesheet" />
 
 
 </head>
@@ -41,7 +41,7 @@
 				<div class="d-flex flex-row mb-3 mt-3">
 					<div class="col-md-3 text-end">
 						<img class="col-4"
-							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/LaFuerza-Turismo/assets/img/home/dark-grey.png"</c:when><c:otherwise>src="/LaFuerza-Turismo/assets/img/home/light.png"</c:otherwise></c:choose>>
+							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/assets/img/home/dark-grey.png"</c:when><c:otherwise>src="/assets/img/home/light.png"</c:otherwise></c:choose>>
 
 					</div>
 					<div class="col-md-9 align-self-center mx-3">
@@ -71,7 +71,7 @@
 									test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
 
 									<div>
-										<a href="promociones/buy.do?id=${promocion.propuestaID}"
+										<a href="/promociones/buy.do?id=${promocion.propuestaID}"
 											class="btn btn-success rounded" role="button">Comprar</a>
 
 									</div>
@@ -100,7 +100,7 @@
 							<div
 								class="card h-100 <c:choose><c:when test="${lado=='LADO OSCURO'}"> border-dark</c:when></c:choose> ">
 								<img class="card-img-top"
-									src="../assets/img/attractions/cards/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
+									src="/assets/img/attractions/cards/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
 									alt="Card image cap">
 								<div
 									class="card-body d-flex flex-column <c:choose><c:when test="${lado=='LADO OSCURO'}"> text-white-50 bg-dark</c:when></c:choose>">
@@ -114,7 +114,7 @@
 										class="d-flex flex-fill align-items-end justify-content-end">
 
 										<a
-											href="../attraction?promocionID=${promocion.propuestaID}&lado=${lado}&attractionID=${atraccion.id_atraccion} "
+											href="/attraction?promocionID=${promocion.propuestaID}&lado=${lado}&attractionID=${atraccion.id_atraccion} "
 											class="btn btn-primary rounded" role="button">Info</a>
 
 									</div>
@@ -136,7 +136,7 @@
 			<c:choose>
 				<c:when test="${usuario == null}">
 
-					<a href="/LaFuerza-Turismo/promociones?lado=${lado} "
+					<a href="/promociones?lado=${lado} "
 						class="btn btn-primary rounded" role="button">Volver</a>
 
 
@@ -151,12 +151,12 @@
 
 					<c:choose>
 						<c:when test="${slider == 'true'}">
-							<a href="/LaFuerza-Turismo/promociones?lado=${lado} "
+							<a href="/promociones?lado=${lado} "
 								class="btn btn-primary rounded" role="button">Volver</a>
 						</c:when>
 						<c:otherwise>
 							<a
-								href="/LaFuerza-Turismo/index2.jsp?lado=${lado} "
+								href="/index2.jsp?lado=${lado} "
 								class="btn btn-primary rounded" role="button">Volver</a>
 						</c:otherwise>
 					</c:choose>

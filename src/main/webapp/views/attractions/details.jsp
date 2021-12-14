@@ -9,9 +9,9 @@
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
 
-<link href="/LaFuerza-Turismo/assets/css/guestAttraction.css"
+<link href="/assets/css/guestAttraction.css"
 	rel="stylesheet" />
-<script src="/LaFuerza-Turismo/assets/js/toastMensajes.js" defer></script>
+<script src="/assets/js/toastMensajes.js" defer></script>
 
 
 </head>
@@ -55,7 +55,7 @@
 			class="h-100 d-flex justify-content-center align-items-center px-5 py-3">
 			<div class="col-md-7 my-4  me-auto">
 				<img
-					src="/LaFuerza-Turismo/assets/img/attractions/details/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
+					src="/assets/img/attractions/details/<c:out value="${atraccion.id_atraccion}"></c:out>.jpeg"
 					alt="..." class="img-fluid">
 			</div>
 
@@ -63,8 +63,8 @@
 				<div class="d-flex flex-row mb-3">
 					<div class="col-md-3">
 						<img class="col-8"
-							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/LaFuerza-Turismo/assets/img/home/dark-grey.png"</c:when>
-		<c:otherwise>src="/LaFuerza-Turismo/assets/img/home/light.png"</c:otherwise></c:choose>>
+							<c:choose><c:when test="${lado=='LADO OSCURO'}"> src="/assets/img/home/dark-grey.png"</c:when>
+		<c:otherwise>src="/assets/img/home/light.png"</c:otherwise></c:choose>>
 					</div>
 
 
@@ -114,7 +114,7 @@
 
 								<div>
 									<a
-										href="/LaFuerza-Turismo/attractions/buy.do?id=${atraccion.id_atraccion}&promocionID=${promocionID}&lado=${lado}&ruta=attraction"
+										href="/attractions/buy.do?id=${atraccion.id_atraccion}&promocionID=${promocionID}&lado=${lado}&ruta=attraction"
 										class="btn btn-success rounded" role="button">Comprar</a>
 
 
@@ -164,7 +164,7 @@
 
 						<c:otherwise>
 							<a
-								href="/LaFuerza-Turismo/promocion/detalle?promocionID=${promocionID}&lado=${lado} "
+								href="/promocion/detalle?promocionID=${promocionID}&lado=${lado} "
 								class="btn btn-primary rounded" role="button">Volver</a>
 						</c:otherwise>
 

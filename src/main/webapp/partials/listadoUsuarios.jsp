@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="p-3">
 	<div class="mb-3">
-		<a href="/LaFuerza-Turismo/usuarios/create.do" class="btn btn-primary"
+		<a href="/usuarios/create.do" class="btn btn-primary"
 			role="button"> <i class="bi bi-plus-lg"></i> Nuevo Usuario
 		</a>
 	</div>
@@ -26,10 +26,10 @@
 					<td><c:out value="${usuario.tipoAtraccionPreferida.nombre}"></c:out></td>
 
 					<td><a
-						href="/LaFuerza-Turismo/usuarios/edit.do?id=${usuario.usuario_id}"
+						href="/usuarios/edit.do?id=${usuario.usuario_id}"
 						class="btn btn-light rounded-0" role="button"><i
 							class="bi bi-pencil-fill"></i></a> <a
-						href="/LaFuerza-Turismo/usuarios/delete.do?id=${usuario.usuario_id}"
+						href="/usuarios/delete.do?id=${usuario.usuario_id}"
 						class="btn btn-danger rounded" role="button"><i
 							class="bi bi-x-circle-fill"></i></a></td>
 				</tr>

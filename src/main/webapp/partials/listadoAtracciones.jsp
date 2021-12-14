@@ -2,7 +2,7 @@
 <div class="p-3">
 <c:if test="${usuario.isAdmin()}">
 	<div class="mb-3">
-		<a href="/LaFuerza-Turismo/attractions/create.do"
+		<a href="/attractions/create.do"
 			class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i>
 			Nueva Atracción
 		</a>
@@ -49,7 +49,7 @@
 					<td class=""><c:out value="${atraccion.tipoAtraccion.nombre}"></c:out></td>
 					<c:if test="${!usuario.admin}">
 						<td><a
-							href="attraction?attractionID=${atraccion.id_atraccion}&lado=${lado}"
+							href="/attraction?attractionID=${atraccion.id_atraccion}&lado=${lado}"
 							class="btn btn-white rounded-0" role="button"><i
 								class="far fa-eye"></i></a></td>
 					</c:if>
@@ -58,10 +58,10 @@
 
 					<c:if test="${usuario != null}">
 						<td class="p-3 text-center"><c:if test="${usuario.admin}">
-								<a href="/LaFuerza-Turismo/attractions/edit.do?id=${atraccion.id_atraccion}"
+								<a href="/attractions/edit.do?id=${atraccion.id_atraccion}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="/LaFuerza-Turismo/attractions/delete.do?id=${atraccion.id_atraccion}"
+								<a href="/attractions/delete.do?id=${atraccion.id_atraccion}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:if test="${!usuario.admin}">
@@ -71,7 +71,7 @@
 									<c:when
 										test="${usuario.puedepagarPropuesta(atraccion) && usuario.tieneTiempoDisponible(atraccion) && atraccion.hayCupoDisponible}">
 										<a
-											href="/LaFuerza-Turismo/attractions/buy.do?id=${atraccion.id_atraccion}"
+											href="/attractions/buy.do?id=${atraccion.id_atraccion}"
 											class="btn btn-success rounded" role="button">Comprar</a>
 									</c:when>
 									<c:otherwise>

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link href="/LaFuerza-Turismo/assets/css/login-modal.css"
+<link href="/assets/css/login-modal.css"
 	rel="stylesheet" />
 <script defer src="https://kit.fontawesome.com/d3e9765b95.js" crossorigin="anonymous"></script>
 
@@ -22,7 +22,7 @@
 					<div class="list-group list-group-flush lead ">
 					<c:if test="${!usuario.admin}">
 						<a class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"						
-							href="/LaFuerza-Turismo/usuario/compras.do?=${usuario.usuario_id}"><i class="fas fa-shopping-cart px-3"></i>Mis Compras</a></c:if> 
+							href="/usuario/compras.do?=${usuario.usuario_id}"><i class="fas fa-shopping-cart px-3"></i>Mis Compras</a></c:if> 
 						
 						<a class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
 							href="#!"><i class="fas fa-user px-3"></i>Mi Perfil</a> 
@@ -34,7 +34,7 @@
 
 				<div class="modal-footer d-block">
 					<!--    <p class="float-start">Not yet account <a href="#">Sign Up</a></p> -->
-					<a href="/LaFuerza-Turismo/logout"><button
+					<a href="/logout"><button
 							class="btn btn-secondary float-end">Salir</button></a>
 				</div>
 

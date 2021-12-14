@@ -2,7 +2,7 @@
 <div class="p-3">
 	<c:if test="${usuario.isAdmin()}">
 		<div class="mb-3">
-			<a href="promociones/create.do" class="btn btn-primary" role="button">
+			<a href="/promociones/create.do" class="btn btn-primary" role="button">
 				<i class="bi bi-plus-lg"></i> Nueva Promoción
 			</a>
 		</div>
@@ -47,7 +47,7 @@
 					<td ><c:out value="${promocion.tipoAtraccion.nombre}"></c:out></td>
 					<c:if test="${!usuario.admin}">
 						<td><a
-							href="promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado}&slider=true"
+							href="/promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado}&slider=true"
 							class="btn btn-white rounded-0" role="button"><i
 								class="far fa-eye"></i></a></td>
 					</c:if>
@@ -56,10 +56,10 @@
 
 					<c:if test="${usuario != null}">
 						<td class="p-3 text-center"><c:if test="${usuario.admin}">
-								<a href="/LaFuerza-Turismo/promociones/edit.do?id=${promocion.propuestaID}"
+								<a href="/promociones/edit.do?id=${promocion.propuestaID}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="/LaFuerza-Turismo/promociones/delete.do?id=${promocion.propuestaID}"
+								<a href="/promociones/delete.do?id=${promocion.propuestaID}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:if test="${!usuario.admin}">
@@ -69,7 +69,7 @@
 									<c:when
 										test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
 										<a
-											href="/LaFuerza-Turismo/promociones/buy.do?id=${promocion.propuestaID}"
+											href="/promociones/buy.do?id=${promocion.propuestaID}"
 											class="btn btn-success rounded" role="button">Comprar</a>
 									</c:when>
 									<c:otherwise>

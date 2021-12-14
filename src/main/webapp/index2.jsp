@@ -7,7 +7,7 @@
 <head>
 <jsp:include page="/partials/head.jsp"></jsp:include>
 
-<link href="assets/css/userIndex.css" rel="stylesheet" />
+<link href="/assets/css/userIndex.css" rel="stylesheet" />
 
 
 </head>

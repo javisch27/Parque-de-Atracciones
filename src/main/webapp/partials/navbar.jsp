@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<link href="/LaFuerza-Turismo/assets/css/navguest.css" rel="stylesheet" />
+<link href="/assets/css/navguest.css" rel="stylesheet" />
 
 <nav id="menu"
 	class="navbar  fixed-top  shadow <c:choose><c:when test="${lado=='LADO OSCURO'}"> navbar-dark bg-dark</c:when>
