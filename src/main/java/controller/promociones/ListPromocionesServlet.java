@@ -13,17 +13,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Promocion;
 import model.Usuario;
 import services.PromocionService;
+import services.UsuarioService;
 
 @WebServlet("/promociones") /// promociones/index.do
 public class ListPromocionesServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
 	private PromocionService promocionService;
+	private UsuarioService usuarioService;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		this.promocionService = new PromocionService();
+		this.usuarioService = new UsuarioService(); //TODO esto esta mal aca!??? como se hace? 
 	}
 
 	@Override
@@ -31,13 +34,19 @@ public class ListPromocionesServlet extends HttpServlet implements Servlet {
 		List<Promocion> promociones = promocionService.list();
 		req.setAttribute("promociones", promociones);
 		
-		Usuario usuario = (Usuario) ((HttpServletRequest) req).getSession().getAttribute("usuario"); //TODO es valido aca? sino filtro  ??
+//		Usuario usuariowe = (Usuario) ((HttpServletRequest) req).getSession().getAttribute("usuario"); //TODO es valido aca? sino filtro  ??
 
-		if (usuario != null && usuario.isAdmin()) {
-
-			req.setAttribute("partial", "promociones");
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/index.jsp");
-			dispatcher.forward(req, resp);
+		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
+		
+		
+		if (usuario != null) {
+			
+			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id());
+			if (usuario2.isAdmin()) {
+				req.setAttribute("partial", "promociones");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/index.jsp");
+				dispatcher.forward(req, resp);
+			}
 
 		} else {
 

@@ -15,7 +15,7 @@
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="assets/css/attractions.css"
+<link href="assets/css/listadoPropuestas.css"
 	rel="stylesheet" />
 
 
@@ -70,99 +70,8 @@
 				<h4>Listado de Atracciones</h4>
 			</div>
 
-
-			<div class="p-3">
-
-				<c:if test="${usuario.isAdmin()}">
-					<div class="mb-3">
-						<a href="attractions/create.do"
-							class="btn btn-primary" role="button"> <i
-							class="bi bi-plus-lg"></i> Nueva Atracción
-						</a>
-					</div>
-				</c:if>
-				<table
-					class="table table-stripped table-hover <c:if test="${lado=='LADO OSCURO'}">table-dark</c:if>">
-					<thead>
-						<tr>
-
-							<th class="p-3">Atracci&oacute;n</th>
-							<th class="p-3">Costo</th>
-							<th class="p-3">Duraci&oacute;n</th>
-							<th class="p-3">Cupo</th>
-							<th class="p-3 text-center">Lado</th>
-							<th class="p-3 text-center">Info</th>
-
-							<c:if test="${usuario != null}">
-								<th class="p-3 text-center">Acciones</th>
-							</c:if>
-
-
-						</tr>
-					</thead>
-					<tbody>
-
-						<c:forEach items="${atracciones}" var="atraccion">
-
-
-							<tr class="align-middle">
-
-
-
-								<td class="px-3"><strong><c:out
-											value="${atraccion.nombre}"></c:out></strong>
-									<p>
-										<c:out value="${atraccion.descripcion}"></c:out>
-									</p></td>
-								<td class="text-center"><c:out value="${atraccion.costo}"></c:out></td>
-								<td class="text-center"><c:out
-										value="${atraccion.tiempoTotal}"></c:out></td>
-								<td class="text-center"><c:out
-										value="${atraccion.cupoDisponible}"></c:out></td>
-								<td><c:out value="${atraccion.tipoAtraccion}"></c:out></td>
-								<td><a
-									href="attraction?attractionID=${atraccion.id_atraccion}"
-									class="btn btn-white rounded-0" role="button"><i
-										class="far fa-eye"></i></a></td>
-
-
-
-								<c:if test="${usuario != null}">
-									<td class="p-3"><c:if test="${usuario.admin}">
-											<a
-												href="attractions/edit.do?id=${atraccion.id_atraccion}"
-												class="btn btn-light rounded-0" role="button"><i
-												class="bi bi-pencil-fill"></i></a>
-											<a
-												href="attractions/delete.do?id=${atraccion.id_atraccion}"
-												class="btn btn-danger rounded" role="button"><i
-												class="bi bi-x-circle-fill"></i></a>
-										</c:if> <c:choose>
-
-											<c:when
-												test="${usuario.puedepagarPropuesta(atraccion) && usuario.tieneTiempoDisponible(atraccion) && atraccion.hayCupoDisponible}">
-												<a
-													href="/LaFuerza-Turismo/attractions/buy.do?id=${atraccion.id_atraccion}"
-													class="btn btn-success rounded" role="button">Comprar</a>
-											</c:when>
-											<c:otherwise>
-												<a href="#" class="btn btn-secondary rounded disabled"
-													role="button">Comprar</a>
-											</c:otherwise>
-										</c:choose></td>
-								</c:if>
-
-							</tr>
-
-
-						</c:forEach>
-
-
-
-					</tbody>
-				</table>
-			</div>
-
+	<jsp:include page="/partials/listadoAtracciones.jsp"></jsp:include>
+			
 		</main>
 
 

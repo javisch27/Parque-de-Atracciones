@@ -4,7 +4,7 @@ public abstract class ModificadorFormatoHora {
 
 	public static String obtenerHoraConFormato(double tiempo) {
 		if (tiempo == 0)
-			return "0 horas";
+			return "0 hs.";
 
 		String horaConSufijo = "";
 		String minutosConSufijo = "";
@@ -22,9 +22,9 @@ public abstract class ModificadorFormatoHora {
 		}
 
 		if (horas == 1)
-			horaConSufijo = horas + " hora";
+			horaConSufijo = horas + " h.";
 		else if (horas > 1)
-			horaConSufijo = horas + " horas";
+			horaConSufijo = horas + " hs.";
 
 		if (horaConSufijo.length() > 0 && minutosConSufijo.length() > 0)
 			unionTextos = " con ";

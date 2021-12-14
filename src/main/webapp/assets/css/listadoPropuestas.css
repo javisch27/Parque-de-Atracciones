@@ -1,0 +1,9 @@
+.fa-eye {
+	color: SteelBlue;
+	/*    font-size: 2em; */
+}
+
+.fa-eye:hover {
+	color: grey;
+	/*    font-size: 2em; */
+}

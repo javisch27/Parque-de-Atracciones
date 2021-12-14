@@ -106,8 +106,8 @@ public class Usuario {
 		return presupuestoDisponible;
 	}
 
-	public double getTiempoDisponible() {
-		return tiempoDisponible;
+	public String getTiempoDisponible() {
+		return ModificadorFormatoHora.obtenerHoraConFormato(tiempoDisponible);
 	}
 
 	public String getNombre() {
