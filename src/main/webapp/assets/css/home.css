@@ -5,7 +5,7 @@
 }
 
 #back {
-	background-image: url('../img/home/img-background-home.jpeg');
+	background-image: url('/assets/img/home/img-background-home.jpeg');
 	height: 100vh;
 }
 
@@ -35,3 +35,4 @@
 	color: black;
 	font-size: large;
 }
+

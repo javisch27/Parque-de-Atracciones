@@ -30,7 +30,7 @@
 
 	height: 50vh;
 	/* 	min-height: 500px; */
-	background-image: url('../img/index/banner-lightside.jpg');
+	background-image: url('/assets/img/index/banner-lightside.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 .oscuro {
 	height: 50vh;
 	/*   min-height: 500px; */
-	background-image: url('../img/index/banner-darkside.jpg');
+	background-image: url('/assets/img/index/banner-darkside.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

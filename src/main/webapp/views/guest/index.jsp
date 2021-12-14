@@ -74,7 +74,7 @@
 									class="d-flex flex-fill align-items-end justify-content-end">
 
 									<form method="get" action="attraction">
-										<button type="submit" class="btn btn-secondary"
+										<button type="submit" class="btn btn-primary"
 											value="${atraccion.id_atraccion}" name="attractionID">Info</button>
 									</form>
 

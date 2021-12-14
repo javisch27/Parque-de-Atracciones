@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -16,14 +17,35 @@
 
 </head>
 <body>
-
+	<jsp:include page="/partials/login-modal.jsp"></jsp:include>
+	<jsp:include page="/partials/user-modal.jsp"></jsp:include>
 
 	<div id="back" class="bg-image">
 
+
+
+		<form class="form text-end m-3">
+			<c:choose>
+				<c:when test="${usuario != null}">
+					<button type="button"
+						class="btn btn-outline-primary"
+						data-bs-toggle="modal" data-bs-target="#userModal">${usuario.nombre}</button>
+
+				</c:when>
+				<c:otherwise>
+					<button type="button"
+						class="btn btn-outline-primary "
+						data-bs-toggle="modal" data-bs-target="#guestModal">Login</button>
+
+				</c:otherwise>
+			</c:choose>
+		</form>
+
 		<div id="botones">
 
-
 			<div class="d-flex justify-content-center bd-highlight mb-3">
+
+
 
 				<div class="p-2">
 					<div class="mb-3 p-3 rounded fondoTransparente">
@@ -35,8 +57,7 @@
 				class="d-flex justify-content-around bd-highlight example-parent ">
 				<div class="p-2 d-flex flex-column align-items-center">
 					<div class="fondoTransparente  rounded iconos text-center">
-						<img class="m-3 logos"
-							src="/assets/img/home/light.png">
+						<img class="m-3 logos" src="/assets/img/home/light.png">
 					</div>
 					<div class="mt-2">
 						<form method="get" action="guest">
@@ -49,8 +70,7 @@
 
 				<div class="p-2 d-flex flex-column align-items-center">
 					<div class="fondoTransparente  rounded iconos text-center">
-						<img class="m-3 logos"
-							src="/assets/img/home/dark.png">
+						<img class="m-3 logos" src="/assets/img/home/dark.png">
 					</div>
 					<div class="mt-2">
 

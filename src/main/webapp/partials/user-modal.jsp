@@ -8,8 +8,8 @@
 
 <div class="modal fade" id="userModal" tabindex="-1"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content modal-sm">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content ">
 			<div class="modal-header">
 				<h5 class="modal-title fs-5" >${usuario.nombre}</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -35,7 +35,7 @@
 				<div class="modal-footer d-block">
 					<!--    <p class="float-start">Not yet account <a href="#">Sign Up</a></p> -->
 					<a href="/logout"><button
-							class="btn btn-secondary float-end">Salir</button></a>
+							class="btn btn-primary float-end">Salir</button></a>
 				</div>
 
 			</div>
