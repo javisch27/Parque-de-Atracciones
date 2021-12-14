@@ -41,7 +41,7 @@
 
 		<div id="formulario">
 			<form action="/LaFuerza-Turismo/attractions/edit.do" method="post">
-				<input type="hidden" name="id" value="${atraccion.id_atraccion}">
+				<input type="hidden" name="id_atraccion" value="${atraccion.id_atraccion}">
 				<jsp:include page="/views/attractions/form.jsp"></jsp:include>
 			</form>
 		</div>

@@ -34,6 +34,9 @@
 			<c:out value='${usuario.errors.get("tipoAtraccionPreferida")}'></c:out>
 		</div>
 	</div>
+	
+
+	
 	<div class="mb-3">
 		<label for="presupuestoDisponible"
 			class='col-form-label ${usuario.errors.get("presupuestoDisponible") != null ? "is-invalid" : "" }'>Presupuesto:</label>
@@ -45,10 +48,10 @@
 		</div>
 	</div>
 	<div class="mb-3">
-		<label for="tiempoDisponible"
+		<label for="tiempoMaximo"
 			class='col-form-label ${usuario.errors.get("tiempoDisponible") != null ? "is-invalid" : "" }'>Tiempo:</label>
-		<input class="form-control" type="number" id="tiempoDisponible"
-			name="tiempoDisponible" required value="${usuario.tiempoDisponible}"></input>
+		<input class="form-control" type="number" id="tiempoMaximo"
+			name="tiempoMaximo" required value="${usuario.tiempoDisponible}"></input>
 		<div class="invalid-feedback">
 			<c:out value='${usuario.errors.get("tiempoDisponible")}'></c:out>
 		</div>

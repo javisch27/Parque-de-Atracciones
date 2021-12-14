@@ -160,6 +160,30 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	public int update(Atraccion atraccion) {
+
+		try {
+			String sql = "UPDATE ATRACCIONES SET  NOMBRE = ?, COSTO = ?, TIEMPO = ?, CUPO = ?, TIPO_ATRACCION = ?, DESCRIPCION = ? WHERE ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+
+			statement.setString(1, atraccion.getNombre());
+			statement.setInt(2, atraccion.getCosto());
+			statement.setDouble(3, atraccion.getTiempoTotal());
+			statement.setInt(4, atraccion.getCupoInicial());
+			statement.setInt(5, atraccion.getTipoAtraccion().getNumeroId());
+			statement.setString(6, atraccion.getDescripcion());
+			statement.setInt(7, atraccion.getId_atraccion());
+
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 
 	public int insert(Atraccion atraccion) {
 		try {
@@ -169,7 +193,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, atraccion.getNombre());
 			statement.setInt(2, atraccion.getCosto());
-			statement.setDouble(3, atraccion.getTiempoUtilizado());
+			statement.setDouble(3, atraccion.getTiempoTotal());
 			statement.setInt(4, atraccion.getCupoInicial());
 			statement.setInt(5, atraccion.getTipoAtraccion().getNumeroId());
 			statement.setString(6, atraccion.getDescripcion());

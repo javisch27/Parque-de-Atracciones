@@ -20,5 +20,7 @@ public interface AtraccionesDAO extends GenericDAO<Atraccion> {
 	public abstract LinkedList<Atraccion> encontrarAtraccionesdePromosAXB(int idPromocion);
 
 	public abstract LinkedList<Atraccion> encontraAtraccionesContratadasPorUsuarios(int idUsuario);
+	
+	public abstract int update(Atraccion atraccion);
 
 }

@@ -43,14 +43,14 @@ public class EditUsuarioServlet extends HttpServlet {
 		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
 		Integer presupuestoDisponible = Integer.parseInt(req.getParameter("presupuestoDisponible"));
 		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoMaximo"));
-		Integer usuario_id = Integer.parseInt(req.getParameter("usuario_id"));
+		Integer usuario_id = Integer.parseInt(req.getParameter("id"));
 
 		Usuario usuario = usuarioService.update(password, admin, tipoAtraccion, presupuestoDisponible, tiempoMaximo,
 				usuario_id);
 
 		if (usuario.isValid()) {
 //			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
-			resp.sendRedirect("/views/admin/index.jsp&partial=usuarios");
+			resp.sendRedirect("/LaFuerza-Turismo/views/admin/index.jsp&partial=usuarios");
 			
 		} else {
 			req.setAttribute("usuario", usuario);

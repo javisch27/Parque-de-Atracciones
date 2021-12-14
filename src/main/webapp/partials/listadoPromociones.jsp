@@ -42,7 +42,7 @@
 						</p></td>
 					<td >$<c:out value="${promocion.costo}"></c:out></td>
 					<td ><c:out
-							value="${promocion.getTiempoTotal()}"></c:out></td>
+							value="${promocion.getTiempoTotalFormato()}"></c:out></td>
 					<td ><c:out value="${promocion.getCupo()}"></c:out></td>
 					<td ><c:out value="${promocion.tipoAtraccion.nombre}"></c:out></td>
 					<c:if test="${!usuario.admin}">
@@ -56,10 +56,10 @@
 
 					<c:if test="${usuario != null}">
 						<td class="p-3 text-center"><c:if test="${usuario.admin}">
-								<a href="attractions/edit.do?id=${promocion.propuestaID}"
+								<a href="/LaFuerza-Turismo/promociones/edit.do?id=${promocion.propuestaID}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="attractions/delete.do?id=${promocion.propuestaID}"
+								<a href="/LaFuerza-Turismo/promociones/delete.do?id=${promocion.propuestaID}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:if test="${!usuario.admin}">

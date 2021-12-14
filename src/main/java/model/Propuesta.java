@@ -41,8 +41,12 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 		return propuestaID;
 	}
 
-	public String getTiempoTotal() {
+	public String getTiempoTotalFormato() {
 		return ModificadorFormatoHora.obtenerHoraConFormato(tiempoTotal);
+	}
+	
+	public Double getTiempoTotal() {
+		return tiempoTotal;
 	}
 
 	public void setTiempoTotal(double tiempoTotal) {

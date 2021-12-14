@@ -37,18 +37,24 @@ public class EditAttractionServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer costo = Integer.parseInt(req.getParameter("costo"));
-		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
-		Double duracion = Double.parseDouble(req.getParameter("duracion"));
-		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
-		Integer cupoMaximo = Integer.parseInt(req.getParameter("cupoMaximo"));
-		String nombre = req.getParameter("nombre");
-		String descripcion = req.getParameter("descripcion");
-		Integer id_atraccion = Integer.parseInt(req.getParameter("id_atraccion"));
+		//Integer costo = Integer.parseInt(req.getParameter("costo"));
+		Integer costo = req.getParameter("costo").trim() == "" ? null : Integer.parseInt(req.getParameter("costo"));
+		//Double duracion = Double.parseDouble(req.getParameter("duracion"));
+		Double duracion = req.getParameter("tiempoTotal").trim() == "" ? null : Double.parseDouble(req.getParameter("tiempoTotal"));
+		//TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
+		TipoAtraccion tipoAtraccion = req.getParameter("tipoAtraccion").trim() == "" ? null : TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));
+		//Integer cupoMaximo = Integer.parseInt(req.getParameter("cupoMaximo"));
+		Integer cupoMaximo = req.getParameter("cupoInicial").trim() == "" ? null : Integer.parseInt(req.getParameter("cupoInicial"));
+		//String nombre = req.getParameter("nombre");
+		String nombre = req.getParameter("nombre").trim() == "" ? null : req.getParameter("nombre");
+		//String descripcion = req.getParameter("descripcion");
+		String descripcion = req.getParameter("descripcion").trim() == "" ? null : req.getParameter("descripcion");
+		//Integer id_atraccion = Integer.parseInt(req.getParameter("id_atraccion"));
+		Integer id_atraccion = req.getParameter("id_atraccion").trim() == "" ? null : Integer.parseInt(req.getParameter("id_atraccion"));
 
 		Atraccion atraccion = attractionService.update(costo, duracion, tipoAtraccion, cupoMaximo, nombre, descripcion,
 				id_atraccion);
-
+		
 		if (atraccion.isValid()) {
 			resp.sendRedirect("/views/admin/index.jsp&partial=atracciones");
 			

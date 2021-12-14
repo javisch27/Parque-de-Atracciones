@@ -33,22 +33,33 @@ public class CreateAttractionServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nombre = req.getParameter("nombre");
-		Integer costo = Integer.parseInt(req.getParameter("costo"));
-		Double tiempoTotal = Double.parseDouble(req.getParameter("tiempoTotal"));
-		Integer cupoMaximo = Integer.parseInt(req.getParameter("cupoMaximo"));
-		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
-		String descripcion = req.getParameter("descripcion");
+		// Integer costo = Integer.parseInt(req.getParameter("costo"));
+		Integer costo = req.getParameter("costo").trim() == "" ? null : Integer.parseInt(req.getParameter("costo"));
+		// Double duracion = Double.parseDouble(req.getParameter("duracion"));
+		Double duracion = req.getParameter("tiempoTotal").trim() == "" ? null
+				: Double.parseDouble(req.getParameter("tiempoTotal"));
+		// TipoAtraccion tipoAtraccion =
+		// TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
+		TipoAtraccion tipoAtraccion = req.getParameter("tipoAtraccion").trim() == "" ? null
+				: TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));
+		// Integer cupoMaximo = Integer.parseInt(req.getParameter("cupoMaximo"));
+		Integer cupoMaximo = req.getParameter("cupoInicial").trim() == "" ? null
+				: Integer.parseInt(req.getParameter("cupoInicial"));
+		// String nombre = req.getParameter("nombre");
+		String nombre = req.getParameter("nombre").trim() == "" ? null : req.getParameter("nombre");
+		// String descripcion = req.getParameter("descripcion");
+		String descripcion = req.getParameter("descripcion").trim() == "" ? null : req.getParameter("descripcion");
 
-		Atraccion atraccion = atraccionService.create(costo, tiempoTotal, tipoAtraccion, cupoMaximo, nombre, descripcion);
+		Atraccion atraccion = atraccionService.create(costo, duracion, tipoAtraccion, cupoMaximo, nombre, descripcion);
+
 		if (atraccion.isValid()) {
-			//resp.sendRedirect("/attractions/index.do");  //TODO  antes /LaFuerza-Turismo/attractions/index.do
+			// resp.sendRedirect("/attractions/index.do"); //TODO antes
+			// /LaFuerza-Turismo/attractions/index.do
 			resp.sendRedirect("/views/admin/index.jsp&partial=atracciones");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/attractions/create2.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/create2.jsp");
 			dispatcher.forward(req, resp);
 		}
 

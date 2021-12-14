@@ -35,12 +35,12 @@ public class AtraccionService {
 		atraccion.setCosto(costo);
 		atraccion.setTiempoTotal(duracion);
 		atraccion.setTipoAtraccion(tipoAtraccion);
-		atraccion.setCupoDisponible(cupoMaximo);
+		atraccion.setCupoInicial(cupoMaximo);
 		atraccion.setNombre(nombre);
 		atraccion.setDescripcion(descripcion);
 
 		if (atraccion.isValid()) {
-			atraccionDAO.updateCupos(atraccion);
+			atraccionDAO.update(atraccion);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}
 
@@ -58,6 +58,5 @@ public class AtraccionService {
 		AtraccionesDAO atraccionDAO = DAOFactory.getAtraccionesDAO();
 		return atraccionDAO.find(id);
 	}
-
 
 }

@@ -44,12 +44,12 @@
 						</p></td>
 					<td class="">$<c:out value="${atraccion.costo}"></c:out></td>
 					<td class=""><c:out
-							value="${atraccion.getTiempoTotal()}"></c:out></td>
+							value="${atraccion.getTiempoTotalFormato()}"></c:out></td>
 					<td class=""><c:out value="${atraccion.cupoDisponible}"></c:out></td>
 					<td class=""><c:out value="${atraccion.tipoAtraccion.nombre}"></c:out></td>
 					<c:if test="${!usuario.admin}">
 						<td><a
-							href="promocion/detalle?promocionID=${atraccion.id_atraccion}&lado=${lado}&slider=true"
+							href="attraction?attractionID=${atraccion.id_atraccion}&lado=${lado}"
 							class="btn btn-white rounded-0" role="button"><i
 								class="far fa-eye"></i></a></td>
 					</c:if>
@@ -58,10 +58,10 @@
 
 					<c:if test="${usuario != null}">
 						<td class="p-3 text-center"><c:if test="${usuario.admin}">
-								<a href="attractions/edit.do?id=${atraccion.id_atraccion}"
+								<a href="/LaFuerza-Turismo/attractions/edit.do?id=${atraccion.id_atraccion}"
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="attractions/delete.do?id=${atraccion.id_atraccion}"
+								<a href="/LaFuerza-Turismo/attractions/delete.do?id=${atraccion.id_atraccion}"
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:if test="${!usuario.admin}">
@@ -71,7 +71,7 @@
 									<c:when
 										test="${usuario.puedepagarPropuesta(atraccion) && usuario.tieneTiempoDisponible(atraccion) && atraccion.hayCupoDisponible}">
 										<a
-											href="/LaFuerza-Turismo/promociones/buy.do?id=${atraccion.id_atraccion}"
+											href="/LaFuerza-Turismo/attractions/buy.do?id=${atraccion.id_atraccion}"
 											class="btn btn-success rounded" role="button">Comprar</a>
 									</c:when>
 									<c:otherwise>

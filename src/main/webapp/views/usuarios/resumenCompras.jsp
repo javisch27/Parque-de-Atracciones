@@ -21,6 +21,7 @@
 <link href="assets/css/attractions.css" rel="stylesheet" />
 <script type="text/javascript"
 	src="/LaFuerza-Turismo/assets/js/listaComprasUsuario.js" defer></script>
+	
 <script defer type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script defer type="text/javascript"
@@ -72,67 +73,22 @@
 			</c:if>
 
 			<div
-				class="px-4 p-3 m-3 mt-4 rounded <c:choose>
+				class="d-flex px-4 p-3 m-3 mt-4 rounded <c:choose>
 					<c:when test="${lado=='LADO OSCURO'}">bg-dark</c:when>
 					<c:otherwise>bg-light</c:otherwise>
 				</c:choose>">
 
-
-
+			
 				<h4>Mis Compras</h4>
+				<h4>otra cosa</h4>
+				
+				
 			</div>
 
 
-			<div class="p-3">
-
-
-				<table id="tablaCompras"
-					class="table table-stripped table-hover <c:if test="${lado=='LADO OSCURO'}">table-dark</c:if>">
-					<thead>
-						<tr class="text-center">
-
-							<th class="p-3 text-start">Nombre</th>
-							<th class="p-3">Tipo</th>
-							<th class="p-3">Duraci&oacute;n</th>
-							<th class="p-3">Costo</th>
-							<th class="p-3">Lado</th>
-							<th class="p-3">Info</th>
-
-						</tr>
-					</thead>
-					<tbody>
-
-						<c:forEach items="${propuestas}" var="propuesta">
-
-
-							<tr class="align-middle text-center">
-
-								<td class="px-3 text-start"><strong><c:out
-											value="${propuesta.nombre}"></c:out></strong>
-									<p>
-										<c:out value="${propuesta.descripcion}"></c:out>
-									</p></td>
-								<td><c:out value="${propuesta.tipoPropuesta()}"></c:out></td>
-								<td><c:out value="${propuesta.costo}"></c:out></td>
-								<td><c:out value="${propuesta.tiempoTotal}"></c:out></td>
-								<td><c:out value="${propuesta.tipoAtraccion.nombre}"></c:out></td>
-								<td><a
-									href="attraction?attractionID=${propuesta.propuestaID}"
-									class="btn btn-white rounded-0" role="button"><i
-										class="far fa-eye"></i></a></td>
-							</tr>
-
-						</c:forEach>
-
-					</tbody>
-				</table>
-			</div>
+			<jsp:include page="/partials/listadoResumenCompras.jsp"></jsp:include>
 
 		</main>
-
-
-
-
 
 
 	</div>
