@@ -17,7 +17,7 @@
 }
 
 .fondoTransparenteLight {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: rgba(0, 0, 0, 0.35);
 
 }
 
@@ -43,4 +43,12 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+#titulo {
+  position: absolute; /* or absolute */
+  top: 34px;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }

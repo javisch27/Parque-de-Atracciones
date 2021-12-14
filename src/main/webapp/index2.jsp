@@ -34,20 +34,21 @@
 			class="<c:choose><c:when test="${lado=='LADO OSCURO'}"> oscuro</c:when><c:otherwise>luminoso </c:otherwise></c:choose>"
 			id="header"> </header>
 
+		<div class="container d-flex">
+			<div
+				class="container my-5 py-4 px-5 rounded d-flex flex-column align-items-center justify-content-center"
+				id="fondo-cards">
 
-		<div
-			class="container my-5 py-4 px-5 rounded d-flex flex-column align-items-center justify-content-center"
-			id="fondo-cards">
+				<div class="p-3 col-11">
 
-			<div class="p-3 col-11">
+					<jsp:include page="/partials/carousel.jsp"></jsp:include>
+				</div>
 
-				<jsp:include page="/partials/carousel.jsp"></jsp:include>
+
+
 			</div>
 
-
-	
 		</div>
-
 	</div>
 
 

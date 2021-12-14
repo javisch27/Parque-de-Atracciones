@@ -28,7 +28,7 @@
 					<div class=" d-flex justify-content-center">
 						<div class=" col-6 ">
 
-							<div class="fondoTransparenteDark roundedpy-4 px-3 py-4 mb-3">
+							<div class="fondoTransparenteDark roundedpy-4 px-3 py-4 mb-3 d-md-none d-lg-block d-sm-none d-md-block d-none d-sm-block">
 								<h5>${promocion.nombre}</h5>
 								<p>${promocion.descrpicion}</p>
 								<div class=" d-flex justify-content-center">
