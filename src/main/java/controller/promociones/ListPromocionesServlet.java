@@ -39,7 +39,7 @@ public class ListPromocionesServlet extends HttpServlet implements Servlet {
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 		
 		
-		if (usuario != null) {
+		if (usuario != null && usuario.isAdmin() ) {
 			
 			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id());
 			if (usuario2.isAdmin()) {
