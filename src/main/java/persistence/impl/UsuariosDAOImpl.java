@@ -23,16 +23,17 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 	
 	public int update(Usuario user) {
 		try {
-			String sql = "UPDATE USUARIOS SET PASSWORD = ?, ADMIN = ?, TIPO_ATRACCION = ?, PRESUPUESTO = ?, TIEMPO = ? WHERE NOMBRE = ?";
+			String sql = "UPDATE USUARIOS SET NOMBRE = ?, PASSWORD = ?, ADMIN = ?, TIPO_ATRACCION = ?, PRESUPUESTO = ?, TIEMPO = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, user.getPassword());
-			statement.setBoolean(2, user.isAdmin());
-			statement.setInt(3, user.getTipoAtraccionPreferida().getNumeroId());
-			statement.setInt(4, user.getPresupuestoDisponible());
-			statement.setDouble(5, user.getTiempoDisponible());
-			statement.setString(6, user.getNombre());
+			statement.setString(1, user.getNombre());
+			statement.setString(2, user.getPassword());
+			statement.setBoolean(3, user.isAdmin());
+			statement.setInt(4, user.getTipoAtraccionPreferida().getNumeroId());
+			statement.setInt(5, user.getPresupuestoDisponible());
+			statement.setDouble(6, user.getTiempoDisponible());
+			statement.setInt(7, user.getUsuario_id());
 
 			int rows = statement.executeUpdate();
 
@@ -191,6 +192,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 			statement.setString(1, usuario.getNombre());
 			statement.setInt(2, usuario.getTipoAtraccionPreferida().getNumeroId());
 			statement.setInt(3, usuario.getPresupuestoDisponible());
+			statement.setDouble(4, usuario.getTiempoDisponible());
 			statement.setString(5, usuario.getPassword());
 			statement.setBoolean(6, usuario.isAdmin());
 			int rows = statement.executeUpdate();

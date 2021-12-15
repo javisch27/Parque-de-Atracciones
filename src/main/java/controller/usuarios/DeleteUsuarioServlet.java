@@ -27,8 +27,8 @@ public class DeleteUsuarioServlet extends HttpServlet {
 
 		usuarioService.delete(id);
 
-//		resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
-		resp.sendRedirect("/views/admin/index.jsp&partial=usuarios");
+		resp.sendRedirect("/usuarios/index.do");
+		//resp.sendRedirect("/views/admin/index.jsp&partial=usuarios");
 	}
 
 

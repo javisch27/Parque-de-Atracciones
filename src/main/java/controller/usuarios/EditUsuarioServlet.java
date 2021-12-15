@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Atraccion;
 import model.TipoAtraccion;
 import model.Usuario;
 import services.UsuarioService;
@@ -38,20 +37,19 @@ public class EditUsuarioServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String nombre = req.getParameter("nombre");
 		String password = req.getParameter("password");
 		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
-		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
+		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(req.getParameter("tipoAtraccionPreferida"));
 		Integer presupuestoDisponible = Integer.parseInt(req.getParameter("presupuestoDisponible"));
-		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoMaximo"));
-		Integer usuario_id = Integer.parseInt(req.getParameter("id"));
+		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoDisponible"));
+		Integer usuario_id = Integer.parseInt(req.getParameter("usuario_id"));
 
-		Usuario usuario = usuarioService.update(password, admin, tipoAtraccion, presupuestoDisponible, tiempoMaximo,
+		Usuario usuario = usuarioService.update(nombre, password, admin, tipoAtraccion, presupuestoDisponible, tiempoMaximo,
 				usuario_id);
 
 		if (usuario.isValid()) {
-//			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
-			resp.sendRedirect("/LaFuerza-Turismo/views/admin/index.jsp&partial=usuarios");
-			
+			resp.sendRedirect("/usuarios/index.do");
 		} else {
 			req.setAttribute("usuario", usuario);
 

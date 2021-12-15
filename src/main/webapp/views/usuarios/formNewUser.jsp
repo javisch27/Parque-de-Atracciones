@@ -6,15 +6,14 @@
 		<div class="row g-3">
 			<div class="col-md-4 mb-3">
 				<label for="nombre" class="col-form-label">Nombre:</label> <input
-					type="text" class="form-control" id="nombre" name="nombre" required
-					value="${usuario.nombre}">
+					type="text" class="form-control" id="nombre" name="nombre" required>
 			</div>
 			
 			<div class=" col-md-4 mb-3">
 				<label for="password"
 					class='col-form-label ${usuario.errors.get("password") != null ? "is-invalid" : "" }'>Password:</label>
 				<input class="form-control" type="text" id="password"
-					name="password" required value="${usuario.password}"></input>
+					name="password" required ></input>
 				<div class="invalid-feedback">
 					<c:out value='${usuario.errors.get("password")}'></c:out>
 				</div>
@@ -26,7 +25,7 @@
 					class='col-form-label ${usuario.errors.get("admin") != null ? "is-invalid" : "" }'></label>
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" 
-					<c:if test="${usuario.admin}"> checked="checked"</c:if>
+					
 							
 						id="admin"> <label class="form-check-label" for="admin">
 						Administrador </label>
@@ -46,15 +45,9 @@
 				de atracción:</label> <select class="form-select"
 				id="tipoAtraccionPreferida" name="tipoAtraccionPreferida" required>
 
-				<option
-					<c:if test="${usuario.tipoAtraccionPreferida == null }"> selected</c:if>
-					value="">Seleccionar...</option>
-				<option
-					<c:if test="${usuario.tipoAtraccionPreferida == 'LADO_LUMINOSO' }"> selected</c:if>
-					value="LADO_LUMINOSO">Lado Luminoso</option>
-				<option
-					<c:if test="${usuario.tipoAtraccionPreferida == 'LADO_OSCURO' }"> selected</c:if>
-					value="LADO_OSCURO">Lado Oscuro</option>
+				<option selected value="">Seleccionar...</option>
+				<option value="LADO_LUMINOSO">Lado Luminoso</option>
+				<option value="LADO_OSCURO">Lado Oscuro</option>
 			</select>
 			<div class="invalid-feedback">
 				<c:out value='${usuario.errors.get("tipoAtraccionPreferida")}'></c:out>
@@ -68,7 +61,7 @@
 					class='col-form-label ${usuario.errors.get("presupuestoDisponible") != null ? "is-invalid" : "" }'>Presupuesto:</label>
 				<input class="form-control" type="number" id="presupuestoDisponible"
 					name="presupuestoDisponible" required min="0"
-					value="${usuario.presupuestoDisponible}"></input>
+					"></input>
 				<div class="invalid-feedback">
 					<c:out value='${usuario.errors.get("presupuestoDisponible")}'></c:out>
 				</div>
@@ -80,7 +73,7 @@
 					class='col-form-label ${usuario.errors.get("tiempoDisponible") != null ? "is-invalid" : "" }'>Tiempo:</label>
 				<input class="form-control" type="number" id="tiempoDisponible"
 					name="tiempoDisponible" required min="0"
-					value="${usuario.tiempoDisponible}"></input>
+					"></input>
 				<div class="invalid-feedback">
 					<c:out value='${usuario.errors.get("tiempoDisponible")}'></c:out>
 				</div>

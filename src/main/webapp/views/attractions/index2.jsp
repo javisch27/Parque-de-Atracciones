@@ -15,8 +15,7 @@
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="assets/css/listadoPropuestas.css"
-	rel="stylesheet" />
+<link href="assets/css/listadoPropuestas.css" rel="stylesheet" />
 
 
 </head>
@@ -42,8 +41,6 @@
 
 		<main class="container">
 
-
-
 			<c:if test="${flash != null}">
 				<div class="alert alert-danger">
 					<p>
@@ -66,12 +63,11 @@
 				</c:choose>">
 
 
-
 				<h4>Listado de Atracciones</h4>
 			</div>
 
-	<jsp:include page="/partials/listadoAtracciones.jsp"></jsp:include>
-			
+			<jsp:include page="/partials/listadoAtracciones.jsp"></jsp:include>
+
 		</main>
 
 

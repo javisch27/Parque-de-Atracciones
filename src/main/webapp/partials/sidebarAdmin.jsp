@@ -10,7 +10,7 @@
 	<div class="offcanvas-body px-0 ">
 
 
-		<div class="border-end " id="sidebar-wrapper">
+		<div class="" id="sidebar-wrapper">
 
 			<div class="list-group list-group-flush lead ">
 

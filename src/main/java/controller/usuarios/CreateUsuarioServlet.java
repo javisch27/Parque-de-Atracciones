@@ -36,14 +36,13 @@ public class CreateUsuarioServlet extends HttpServlet {
 		String nombre = req.getParameter("nombre");
 		String password = req.getParameter("password");
 		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
-		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(Integer.parseInt(req.getParameter("Tipo_Atraccion")));
+		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(req.getParameter("tipoAtraccionPreferida"));
 		Integer presupuestoDisponible = Integer.parseInt(req.getParameter("presupuestoDisponible"));
-		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoMaximo"));
+		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoDisponible"));
 
 		Usuario usuario = usuarioService.create(nombre, password, admin, tipoAtraccion, presupuestoDisponible, tiempoMaximo);
 		if (usuario.isValid()) {
-//			resp.sendRedirect("/LaFuerza-Turismo/usuarios/index.do");
-			resp.sendRedirect("/views/admin/index.jsp&partial=usuarios");
+			resp.sendRedirect("/usuarios/index.do");
 		} else {
 			req.setAttribute("usuario", usuario);
 

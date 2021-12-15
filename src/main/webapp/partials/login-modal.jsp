@@ -6,7 +6,7 @@
 	rel="stylesheet" />
 
 	
-<div class="modal fade  " id="guestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="guestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -20,6 +20,7 @@
                         <label class="form-label">Usuario</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" />
                     </div>
+                    
                     <div class="mb-3">
                         <label class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" />

@@ -13,7 +13,13 @@
 	
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
 
-<div class="d-flex">
+
+</head>
+
+<body>
+
+
+<div>
 	<div class="sidebar">
 		<div class="sidebar-inner">
 			<div class="sidebar-menu scrollable pos-r ps">
@@ -52,7 +58,11 @@
 
 
 	</div>
-	<footer></footer>
+
 
 
 </div>
+
+
+</body>
+</html>

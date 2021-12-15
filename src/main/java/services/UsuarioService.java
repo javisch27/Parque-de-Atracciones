@@ -26,11 +26,12 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public Usuario update(String password, boolean admin, TipoAtraccion tipoAtraccion, int presupuesto, double tiempoMaximo, int usuario_id) {
+	public Usuario update(String nombre, String password, boolean admin, TipoAtraccion tipoAtraccion, int presupuesto, double tiempoMaximo, int usuario_id) {
 
 		UsuariosDAO usuarioDAO = DAOFactory.getUserDAO();
 		Usuario usuario = usuarioDAO.find(usuario_id);
-
+		
+		usuario.setNombre(nombre);
 		usuario.setPassword(password);
 		usuario.setAdmin(admin);
 		usuario.setTipoAtraccionPreferida(tipoAtraccion);

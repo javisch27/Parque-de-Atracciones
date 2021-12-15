@@ -11,13 +11,12 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
-<link href="/assets/css/formsAdmin.css"
-	rel="stylesheet" />
+<link href="/assets/css/formsAdmin.css" rel="stylesheet" />
 
 <div class="d-flex">
 	<div class="sidebar">
 		<div class="sidebar-inner">
-			<div class="sidebar-menu scrollable pos-r ps">
+			<div class="sidebar-menu scrollable">
 				<jsp:include page="/partials/sidebarAdmin.jsp"></jsp:include>
 			</div>
 		</div>
@@ -33,19 +32,18 @@
 		</div>
 
 
-
 		<c:if test="${usuario != null && !usuario.isValid()}">
 			<div class="alert alert-danger">
 				<p>Se encontraron errores al actualizar el usuario.</p>
 			</div>
 		</c:if>
 
-	<div id="formulario">
-		<form action="/usuarios/edit.do" method="post">
-			<input type="hidden" name="id" value="${usuario.usuario_id}">
-			<jsp:include page="/views/usuarios/form.jsp"></jsp:include>
-		</form>
-</div>
+		<div id="formulario">
+			<form action="/usuarios/edit.do" method="post">
+				<input type="hidden" name="usuario_id" value="${usuario.usuario_id}">
+				<jsp:include page="/views/usuarios/form.jsp"></jsp:include>
+			</form>
+		</div>
 
 
 
