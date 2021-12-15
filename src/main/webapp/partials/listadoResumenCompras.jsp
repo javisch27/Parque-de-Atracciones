@@ -8,8 +8,8 @@
 
 				<th class="p-3 text-start">Nombre</th>
 				<th class="p-3">Tipo</th>
-				<th class="p-3">Duraci&oacute;n</th>
 				<th class="p-3">Costo</th>
+				<th class="p-3">Duración</th>
 				<th class="p-3">Lado</th>
 				<th class="p-3">Info</th>
 
@@ -28,8 +28,8 @@
 							<c:out value="${propuesta.descripcion}"></c:out>
 						</p></td>
 					<td><c:out value="${propuesta.tipoPropuesta()}"></c:out></td>
-					<td><c:out value="${propuesta.costo}"></c:out></td>
-					<td><c:out value="${propuesta.tiempoTotal}"></c:out></td>
+					<td>$<c:out value="${propuesta.costo}"></c:out></td>
+					<td><c:out value="${propuesta.getTiempoTotalFormato()}"></c:out></td>
 					<td><c:out value="${propuesta.tipoAtraccion.nombre}"></c:out></td>
 					<td><a href="/attraction?attractionID=${propuesta.propuestaID}"
 						class="btn btn-white rounded-0" role="button"><i

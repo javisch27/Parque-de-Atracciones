@@ -20,7 +20,7 @@
 			</div>
 			<div class="col-3 col-md-2 mb-3">
 				<label for="tiempoTotal"
-					class='col-form-label ${atraccion.errors.get("tiempoTotal") != null ? "is-invalid" : "" }'>Duration:</label>
+					class='col-form-label ${atraccion.errors.get("tiempoTotal") != null ? "is-invalid" : "" }'>Duración:</label>
 				<input class="form-control" type="number" id="tiempoTotal"
 					name="tiempoTotal" min="0" required value="${atraccion.tiempoTotal}"></input>
 				<div class="invalid-feedback">
@@ -29,7 +29,7 @@
 			</div>
 			<div class="col-3 col-md-2 mb-3">
 				<label for="cupoInicial"
-					class='col-form-label ${atraccion.errors.get("cupoInicial") != null ? "is-invalid" : "" }'>Capacity:</label>
+					class='col-form-label ${atraccion.errors.get("cupoInicial") != null ? "is-invalid" : "" }'>Cupo:</label>
 				<input class="form-control" type="number" id="cupoInicial"
 					name="cupoInicial" required min="0" value="${atraccion.cupoInicial}"></input>
 				<div class="invalid-feedback">

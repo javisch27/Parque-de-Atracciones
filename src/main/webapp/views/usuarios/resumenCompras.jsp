@@ -19,9 +19,9 @@
 <script defer src="https://kit.fontawesome.com/d3e9765b95.js"
 	crossorigin="anonymous"></script>
 <link href="/assets/css/attractions.css" rel="stylesheet" />
-<script type="text/javascript"
-	src="/assets/js/listaComprasUsuario.js" defer></script>
-	
+<script type="text/javascript" src="/assets/js/listaComprasUsuario.js"
+	defer></script>
+
 <script defer type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script defer type="text/javascript"
@@ -73,16 +73,24 @@
 			</c:if>
 
 			<div
-				class="d-flex px-4 p-3 m-3 mt-4 rounded <c:choose>
+				class="d-flex justify-content-between align-items-center px-4 p-3 m-3 mt-4 rounded <c:choose>
 					<c:when test="${lado=='LADO OSCURO'}">bg-dark</c:when>
 					<c:otherwise>bg-light</c:otherwise>
 				</c:choose>">
 
-			
+
 				<h4>Mis Compras</h4>
-				<h4>otra cosa</h4>
-				
-				
+				<div class="d-flex flex-column align-items-end">
+					<h6 class="mx-4">
+						Gasto total: $
+						<c:out value="${usuario.getPresupuestoUtilizado()}"></c:out>
+					</h6>
+					<h6 class="mx-4">
+						Tiempo total:
+						<c:out value="${usuario.getTiempoUtilizado()}"></c:out>
+					</h6>
+				</div>
+
 			</div>
 
 

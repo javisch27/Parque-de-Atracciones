@@ -169,5 +169,27 @@ public class Usuario {
 	public boolean isNull() {
 		return false;
 	}
+	
+	
+	public int getPresupuestoUtilizado() {
+		int costoTotal = 0;
+		for (Propuesta propuestaContratada : propuestasCompradas) {
+			costoTotal += propuestaContratada.getCosto();
+			
+		}
+		return costoTotal;
+	}
+	
+	public String getTiempoUtilizado() {
+		double tiempoTotal = 0;
+		for (Propuesta propuestaContratada : propuestasCompradas) {
+			tiempoTotal += propuestaContratada.getTiempoUtilizado();
+			
+		}
+		return ModificadorFormatoHora.obtenerHoraConFormato(tiempoTotal);
+	}
+	
+	
+	
 
 }
