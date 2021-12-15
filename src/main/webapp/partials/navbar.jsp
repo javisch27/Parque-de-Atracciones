@@ -55,9 +55,7 @@
 		</div>
 
 		<div class="d-flex align-items-center">
-			
-
-
+		
 
 			<form class="form-inline my-2 my-lg-0 px-3">
 				<c:choose>

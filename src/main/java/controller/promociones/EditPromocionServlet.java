@@ -107,8 +107,8 @@ public class EditPromocionServlet extends HttpServlet {
 		}
 
 		if (promocion.isValid()) {
-			//resp.sendRedirect("/promociones/index.do");
-			resp.sendRedirect("/views/admin/index.jsp&partial=promociones");
+			resp.sendRedirect("/promociones");
+			//resp.sendRedirect("/views/admin/index.jsp&partial=promociones");
 		} else {
 			req.setAttribute("promocion", promocion);
 

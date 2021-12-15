@@ -17,7 +17,8 @@ import model.PromoPorcentual;
 import model.Promocion;
 import model.PromocionAXB;
 import model.TipoAtraccion;
-import model.TipoPromocion;
+import model.Usuario;
+import model.nullobjects.NullUsuario;
 
 public class PromocionesDAOImpl implements PromocionesDAO {
 
@@ -39,7 +40,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	@Override
 	public Promocion find(Integer id) {
 		try {
@@ -54,6 +55,29 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			if (resultados.next()) {
 				promocion = toPromocion(resultados);
 			}
+			return promocion;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	
+	
+	public Promocion findByName(String nombrePromo) {
+		try {
+			String sql = "SELECT * FROM PROMOCIONES WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombrePromo);
+			ResultSet resultados = statement.executeQuery();
+
+			Promocion promocion = null;
+		
+
+			if (resultados.next()) {
+				promocion = toPromocion(resultados);
+			}
+
 			return promocion;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
@@ -150,14 +174,14 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	public int update(Promocion promocion) {
 		try {
 			String sql = "UPDATE PROMOCIONES SET TIPO_PROMOCION = ?, TIPO_ATRACCIONES = ?, DESCRIPCION = ?, VARIABLE = ? WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			
+
 			if (promocion.getClass() == PromoPorcentual.class) {
 				statement.setInt(1, 1);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
@@ -165,7 +189,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setDouble(4, promocion.getVariable());
 				statement.setString(5, promocion.getNombre());
 			}
-			
+
 			if (promocion.getClass() == PromoAbsoluta.class) {
 				statement.setInt(1, 2);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
@@ -173,29 +197,120 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setDouble(4, promocion.getVariable());
 				statement.setString(5, promocion.getNombre());
 			}
-			
+
 			if (promocion.getClass() == PromocionAXB.class) {
 				statement.setInt(1, 3);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
 				statement.setString(3, promocion.getDescripcion());
 				statement.setString(5, promocion.getNombre());
+				updateAtraccionesDePromosAXB((PromocionAXB)promocion);
 			}
+			
 
 			int rows = statement.executeUpdate();
+			
+			
+			this.updateAtraccionesDePromociones(promocion);
 
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
+	private void updateAtraccionesDePromosAXB(PromocionAXB promocion) {
+		deleteAtraccionesDePromosAXB(promocion);
+		insertAtraccionesDePromosAXB(promocion);
+		
+	}
+
+	private int insertAtraccionesDePromosAXB(PromocionAXB promocion) {
+		try {
+			String sql = "INSERT INTO ATRACCIONES_DE_PROMOS_AXB (ID_PROMOCION, ID_ATRACCION) VALUES (?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int rows = 0;
+
+			for (Atraccion atraccion : promocion.getAtraccionesGratis()) {
+				int atraccionID = atraccion.getId_atraccion();
+				statement.setInt(1, promocion.getPropuestaID());
+				statement.setInt(2, atraccionID);
+				
+				rows = statement.executeUpdate();
+			}
+		return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+		
+	}
+
+	private int deleteAtraccionesDePromosAXB(Promocion promocion) {
+		try {
+			String sql = "DELETE FROM ATRACCIONES_DE_PROMOS_AXB WHERE ID_PROMOCION = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, promocion.getPropuestaID());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+		
+	}
+
+	private void updateAtraccionesDePromociones(Promocion promocion) {
+
+		deleteAtraccionesDePromociones(promocion);
+		insertAtraccionesDePromociones(promocion);
+	}
+
+	private int deleteAtraccionesDePromociones(Promocion promocion) {
+		try {
+			String sql = "DELETE FROM ATRACCIONES_DE_PROMOCIONES WHERE ID_PROMOCION = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, promocion.getPropuestaID());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+
+	}
+
+	private int insertAtraccionesDePromociones(Promocion promocion) {
+
+		try {
+			String sql = "INSERT INTO ATRACCIONES_DE_PROMOCIONES (ID_PROMOCION, ID_ATRACCION) VALUES (?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int rows = 0;
+
+			for (Atraccion atraccion : promocion.getAtraccionesIncluidas()) {
+				int atraccionID = atraccion.getId_atraccion();
+				statement.setInt(1, promocion.getPropuestaID());
+				statement.setInt(2, atraccionID);
+				
+				rows = statement.executeUpdate();
+			}
+		return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
 	public int insert(Promocion promocion) {
 		try {
 			String sql = "INSERT INTO PROMOCIONES (TIPO_PROMOCION, TIPO_ATRACCIONES, NOMBRE, DESCRIPCION, VARIABLE) VALUES (?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			
+
 			if (promocion.getClass() == PromoPorcentual.class) {
 				statement.setInt(1, 1);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
@@ -203,7 +318,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setString(4, promocion.getDescripcion());
 				statement.setDouble(5, promocion.getVariable());
 			}
-			
+
 			if (promocion.getClass() == PromoAbsoluta.class) {
 				statement.setInt(1, 2);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
@@ -211,22 +326,33 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setString(4, promocion.getDescripcion());
 				statement.setDouble(5, promocion.getVariable());
 			}
-			
+
 			if (promocion.getClass() == PromocionAXB.class) {
 				statement.setInt(1, 3);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
 				statement.setString(3, promocion.getNombre());
 				statement.setString(4, promocion.getDescripcion());
+				
 			}
 			
+		
 			int rows = statement.executeUpdate();
+			
+			Promocion promoNueva = findByName(promocion.getNombre());
+			promocion.setPropuestaID(promoNueva.getPropuestaId());
+			
+			insertAtraccionesDePromociones(promocion);
+			if(promocion.getClass() == PromocionAXB.class) {
+				insertAtraccionesDePromosAXB((PromocionAXB)promocion);
+			}
+			
 
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
 	}
-	
+
 	public int delete(Promocion promocion) {
 		try {
 			String sql = "DELETE FROM PROMOCIONES WHERE ID = ?";

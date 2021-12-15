@@ -2,7 +2,7 @@
 <div class="modal-body">
 
 	<div class="mb-3">
-		<label for="tipoPromocion">Tipo de promoción:</label> <input
+		<label for="tipoPromocion">Tipo de promoci�n:</label> <input
 			class="form-control" type="text" id="tipoPromocion"
 			name="tipoPromocion"></input>
 	</div>

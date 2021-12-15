@@ -44,7 +44,7 @@
 
 		<div id="formulario">
 			<form action="/promociones/create.do" method="post">
-				<jsp:include page="/views/promociones/form.jsp"></jsp:include>
+				<jsp:include page="/views/promociones/form2.jsp"></jsp:include>
 			</form>
 		</div>
 

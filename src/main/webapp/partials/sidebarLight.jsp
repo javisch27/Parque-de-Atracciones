@@ -22,13 +22,17 @@
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
 					<c:choose><c:when test="${usuario == null}">href="/"</c:when><c:otherwise>href="/index2.jsp"</c:otherwise></c:choose>>Home</a> <a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
-					href="#!">La Fuerza</a> <a
+					href="#!">La Fuerza</a> 
+					<a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
-					href="/attractions?lado=LADO+LUMINOSO">Atracciones</a> 	<a
+					href="/attractions?lado=LADO+LUMINOSO">Atracciones</a>
+					 	<a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
-					href="/promociones?lado=LADO+LUMINOSO">Promociones</a> <a
+					href="/promociones?lado=LADO+LUMINOSO">Promociones</a>
+					 <a
 					class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
-					href="#!">Nosotros</a> <a
+					href="#!">Nosotros</a> 
+					<a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
 					href="#!">contacto</a>
 
