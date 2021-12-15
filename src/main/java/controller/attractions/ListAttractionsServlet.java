@@ -34,33 +34,31 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 		List<Atraccion> atracciones = atraccionService.list();
 		req.setAttribute("atracciones", atracciones);
 
-		// Usuario usuario = (Usuario) ((HttpServletRequest)
-		// req).getSession().getAttribute("usuario"); //TODO es valido aca? sino filtro
-		// ??
 
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 
-		if (usuario != null && usuario.isAdmin()) {
+		if (usuario != null ) {
 
 			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id()); // TODO hace falta esto? si no existe da
-																				// error. puede trucharse lo atnerior
-																				// usuario?
+																				// error. puede trucharse lo atnerior																				// usuario?
 			if (usuario2.isAdmin()) {
 				req.setAttribute("partial", "atracciones");
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/index.jsp");
 				dispatcher.forward(req, resp);
+			} else {
+				String lado = req.getParameter("lado");
+				
+				req.setAttribute("lado", lado.toUpperCase());
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
+				dispatcher.forward(req, resp);				
 			}
-
-		} else {
-
-			String lado = req.getParameter("lado");
-			req.setAttribute("lado", lado.toUpperCase());
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
-			dispatcher.forward(req, resp);
-
-		}
-
+			
+		} else {			
+				req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");// TODO falta poner los mensjes
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+				dispatcher.forward(req, resp);
+			}
+			
 	}
 
 }
