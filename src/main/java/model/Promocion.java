@@ -53,13 +53,15 @@ public abstract class Promocion extends Propuesta {
 		return tiempoTotal;
 	}
 	
-	public int getCupo() {
-		List<Integer> cupos = new ArrayList<>();
-		
+	public int getCupoPromo() {
+		List<Integer> cuposAtracciones = new ArrayList<>();
+	
 		for (Atraccion atraccion : atraccionesIncluidas) {
-			cupos.add(atraccion.getCupoDisponible());
+
+			cuposAtracciones.add(atraccion.getCupoDisponible());
 		}
-		return Collections.min(cupos); 
+		
+		return Collections.min(cuposAtracciones); 
 	}
 	
 
@@ -130,5 +132,7 @@ public abstract class Promocion extends Propuesta {
 	public Map<String, String> getErrors() {
 		return errors;
 	}
+	
+	public abstract double getVariable();
 
 }

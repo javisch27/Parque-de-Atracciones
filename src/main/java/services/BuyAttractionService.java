@@ -26,8 +26,8 @@ public class BuyAttractionService {
 		if (!usuario.puedepagarPropuesta(atraccion)) {
 			errors.put("usuario", "No tienes dinero suficiente");
 		}
-		if (!usuario.tieneTiempoDisponible(atraccion)) {
-			errors.put("usuario", "No tienes tiempo suficiente");
+		if (!usuario.atraccionNoContratada(atraccion)) {
+			errors.put("usuario", "Ya esta contratada la Atracción");
 		}
 
 		if (errors.isEmpty()) {

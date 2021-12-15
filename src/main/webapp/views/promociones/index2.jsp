@@ -15,8 +15,7 @@
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="/assets/css/listadoPropuestas.css"
-	rel="stylesheet" />
+<link href="/assets/css/listadoPropuestas.css" rel="stylesheet" />
 
 
 </head>
@@ -43,22 +42,6 @@
 		<main class="container">
 
 
-
-			<c:if test="${flash != null}">
-				<div class="alert alert-danger">
-					<p>
-						<c:out value="${flash}" />
-						<c:if test="${errors != null}">
-							<ul>
-								<c:forEach items="${errors}" var="entry">
-									<li><c:out value="${entry.getValue()}"></c:out></li>
-								</c:forEach>
-							</ul>
-						</c:if>
-					</p>
-				</div>
-			</c:if>
-
 			<div
 				class="px-4 p-3 m-3 mt-4 rounded <c:choose>
 					<c:when test="${lado=='LADO OSCURO'}">bg-dark</c:when>
@@ -71,7 +54,7 @@
 			</div>
 
 
-		<jsp:include page="/partials/listadoPromociones.jsp"></jsp:include>
+			<jsp:include page="/partials/listadoPromociones.jsp"></jsp:include>
 
 		</main>
 
@@ -86,6 +69,7 @@
 		<jsp:include page="/partials/footer.jsp"></jsp:include>
 	</footer>
 
+	<jsp:include page="/partials/mensajes.jsp"></jsp:include>
 
 </body>
 </html>

@@ -162,7 +162,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setInt(1, 1);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
 				statement.setString(3, promocion.getDescripcion());
-				statement.setDouble(4, promocion.getPorcentajeDescuento());
+				statement.setDouble(4, promocion.getVariable());
 				statement.setString(5, promocion.getNombre());
 			}
 			
@@ -170,7 +170,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setInt(1, 2);
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
 				statement.setString(3, promocion.getDescripcion());
-				statement.setDouble(4, promocion.getCosto());
+				statement.setDouble(4, promocion.getVariable());
 				statement.setString(5, promocion.getNombre());
 			}
 			
@@ -201,7 +201,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
 				statement.setString(3, promocion.getNombre());
 				statement.setString(4, promocion.getDescripcion());
-				statement.setDouble(5, promocion.getPorcentajeDescuento());
+				statement.setDouble(5, promocion.getVariable());
 			}
 			
 			if (promocion.getClass() == PromoAbsoluta.class) {
@@ -209,7 +209,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 				statement.setInt(2, promocion.getTipoAtraccion().getNumeroId());
 				statement.setString(3, promocion.getNombre());
 				statement.setString(4, promocion.getDescripcion());
-				statement.setDouble(5, promocion.getCosto());
+				statement.setDouble(5, promocion.getVariable());
 			}
 			
 			if (promocion.getClass() == PromocionAXB.class) {

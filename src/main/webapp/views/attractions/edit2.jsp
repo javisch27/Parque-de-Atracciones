@@ -39,6 +39,7 @@
 			</div>
 		</c:if>
 
+
 		<div id="formulario">
 			<form action="/attractions/edit.do" method="post">
 				<input type="hidden" name="id_atraccion" value="${atraccion.id_atraccion}">

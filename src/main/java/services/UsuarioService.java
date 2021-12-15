@@ -16,8 +16,9 @@ public class UsuarioService {
 	public Usuario create(String nombre, String password, boolean admin, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo) {
 
 		Usuario usuario = new Usuario(nombre, password, admin, tipoAtraccionPreferida, presupuesto, tiempoMaximo, null, -1);
-
+		
 		if (usuario.isValid()) {
+			usuario.setPassword(password);
 			UsuariosDAO usuarioDAO = DAOFactory.getUserDAO();
 			usuarioDAO.insert(usuario);
 			// XXX: si no devuelve "1", es que hubo más errores
@@ -27,6 +28,35 @@ public class UsuarioService {
 	}
 
 	public Usuario update(String nombre, String password, boolean admin, TipoAtraccion tipoAtraccion, int presupuesto, double tiempoMaximo, int usuario_id) {
+
+		UsuariosDAO usuarioDAO = DAOFactory.getUserDAO();
+		Usuario usuario = usuarioDAO.find(usuario_id);
+		
+		usuario.setNombre(nombre);
+		if(password != "") {
+			usuario.setPassword(password);
+		}
+		usuario.setAdmin(admin);
+		usuario.setTipoAtraccionPreferida(tipoAtraccion);
+		usuario.setPresupuestoDisponible(presupuesto);
+		usuario.setTiempoDisponible(tiempoMaximo);
+
+		if (usuario.isValid()) {
+			
+			if(password != "") {
+				
+				usuarioDAO.update(usuario);
+			} else {
+				usuarioDAO.updateSinPsw(usuario);
+			}
+			
+			// XXX: si no devuelve "1", es que hubo más errores 
+		}
+
+		return usuario;
+	}
+	
+	public Usuario updateSinPSW(String nombre, String password, boolean admin, TipoAtraccion tipoAtraccion, int presupuesto, double tiempoMaximo, int usuario_id) {
 
 		UsuariosDAO usuarioDAO = DAOFactory.getUserDAO();
 		Usuario usuario = usuarioDAO.find(usuario_id);

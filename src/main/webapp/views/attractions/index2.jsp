@@ -41,20 +41,7 @@
 
 		<main class="container">
 
-			<c:if test="${flash != null}">
-				<div class="alert alert-danger">
-					<p>
-						<c:out value="${flash}" />
-						<c:if test="${errors != null}">
-							<ul>
-								<c:forEach items="${errors}" var="entry">
-									<li><c:out value="${entry.getValue()}"></c:out></li>
-								</c:forEach>
-							</ul>
-						</c:if>
-					</p>
-				</div>
-			</c:if>
+
 
 			<div
 				class="px-4 p-3 m-3 mt-4 rounded <c:choose>
@@ -80,6 +67,9 @@
 	<footer>
 		<jsp:include page="/partials/footer.jsp"></jsp:include>
 	</footer>
+	
+	<jsp:include page="/partials/mensajes.jsp"></jsp:include>
+
 
 
 </body>

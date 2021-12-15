@@ -1,9 +1,12 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <div class="p-3">
 	<c:if test="${usuario.isAdmin()}">
 		<div class="mb-3">
 			<a href="/promociones/create.do" class="btn btn-primary" role="button">
-				<i class="bi bi-plus-lg"></i> Nueva PromociÛn
+				<i class="bi bi-plus-lg"></i> Nueva Promoci√≥n
 			</a>
 		</div>
 	</c:if>
@@ -12,9 +15,9 @@
 		<thead>
 			<tr class="text-center">
 
-				<th class="p-3 text-start">PromociÛn</th>
+				<th class="p-3 text-start">Promoci√≥n</th>
 				<th class="p-3">Costo</th>
-				<th class="p-3">Duraci&oacute;n</th>
+				<th class="p-3">Duraci√≥n</th>
 				<th class="p-3">Cupo</th>
 				<th class="p-3">Lado</th>
 				<c:if test="${!usuario.admin}">
@@ -43,7 +46,7 @@
 					<td >$<c:out value="${promocion.costo}"></c:out></td>
 					<td ><c:out
 							value="${promocion.getTiempoTotalFormato()}"></c:out></td>
-					<td ><c:out value="${promocion.getCupo()}"></c:out></td>
+					<td ><c:out value="${promocion.getCupoPromo()}"></c:out></td>
 					<td ><c:out value="${promocion.tipoAtraccion.nombre}"></c:out></td>
 					<c:if test="${!usuario.admin}">
 						<td><a

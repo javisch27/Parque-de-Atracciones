@@ -41,6 +41,6 @@
 		</tbody>
 	</table>
 	
-		<a onclick="window.history.back();" class="btn btn-primary"
+		<a onclick="history.go(-2);" class="btn btn-primary"
 		role="button">Volver</a>
 </div>

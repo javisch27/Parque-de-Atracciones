@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@maxpell77 
+Workbench-ar
+/
+trabajoFinal-LaFuerza
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+trabajoFinal-LaFuerza/src/main/webapp/views/usuarios/form.jsp
+
+Maximiliano Pell correcciones admin
+Latest commit 0235b20 14 hours ago
+ History
+ 0 contributors
+99 lines (80 sloc)  3.31 KB
+   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
@@ -43,7 +72,7 @@
 		<div class="col-md-4 mb-3">
 			<label for="tipoAtraccionPreferida"
 				class='col-form-label ${usuario.errors.get("tipoAtraccionPreferida") != null ? "is-invalid" : "" }'>Tipo
-				de atracci�n:</label> <select class="form-select"
+				de atracción:</label> <select class="form-select"
 				id="tipoAtraccionPreferida" name="tipoAtraccionPreferida" required>
 
 				<option

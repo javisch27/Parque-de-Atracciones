@@ -134,14 +134,27 @@ public class Usuario {
 		return tiempoDisponible >= propuesta.getTiempoUtilizado();
 	}
 
-	private boolean atraccionNoContratada(Propuesta propuesta) {
+
+	
+	private boolean promocionNocontratada() {
+		
+		return true;
+		
+	}
+	
+	public boolean atraccionNoContratada(Propuesta propuesta) {
 		boolean atraccionNoInculida = true;
+		
 		for (Propuesta propuestaContratada : propuestasCompradas) {
-			for (Atraccion atraccionContratada : propuestaContratada.getAtraccionesIncluidas())
-				atraccionNoInculida &= !propuesta.getAtraccionesIncluidas().contains(atraccionContratada);
+			atraccionNoInculida &= !propuestaContratada.getAtraccionesIncluidas().contains(propuesta);
+					
 		}
 		return atraccionNoInculida;
+			
 	}
+	
+	
+	
 
 	public void agregarPropuestaAceptada(Propuesta nuevaPropuesta) {
 		propuestasCompradas.add(nuevaPropuesta);

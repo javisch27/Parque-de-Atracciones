@@ -44,9 +44,12 @@ public class EditUsuarioServlet extends HttpServlet {
 		Integer presupuestoDisponible = Integer.parseInt(req.getParameter("presupuestoDisponible"));
 		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoDisponible"));
 		Integer usuario_id = Integer.parseInt(req.getParameter("usuario_id"));
-
-		Usuario usuario = usuarioService.update(nombre, password, admin, tipoAtraccion, presupuestoDisponible, tiempoMaximo,
-				usuario_id);
+		Usuario usuario = usuarioService.update(nombre, password, admin, tipoAtraccion, presupuestoDisponible,
+				tiempoMaximo, usuario_id);
+		
+		
+	
+		
 
 		if (usuario.isValid()) {
 			resp.sendRedirect("/usuarios/index.do");

@@ -36,8 +36,9 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 
 
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
+		String lado = req.getParameter("lado");
 
-		if (usuario != null ) {
+		if (usuario != null && usuario.isAdmin()) {
 
 			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id()); // TODO hace falta esto? si no existe da
 																				// error. puede trucharse lo atnerior																				// usuario?
@@ -45,15 +46,14 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 				req.setAttribute("partial", "atracciones");
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/index.jsp");
 				dispatcher.forward(req, resp);
-			} else {
-				String lado = req.getParameter("lado");
-				
-				req.setAttribute("lado", lado.toUpperCase());
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
-				dispatcher.forward(req, resp);				
-			}
+			} 
 			
-		} else {			
+		} else if  (lado != null){	
+			req.setAttribute("lado", lado.toUpperCase());
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
+			dispatcher.forward(req, resp);
+			
+		} else {
 				req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");// TODO falta poner los mensjes
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 				dispatcher.forward(req, resp);

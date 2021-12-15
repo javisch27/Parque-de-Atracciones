@@ -29,6 +29,9 @@ public class BuyPromocionService {
 		if (!usuario.tieneTiempoDisponible(promocion)) {
 			errors.put("usuario", "No tienes tiempo suficiente");
 		}
+		if (!usuario.tieneTiempoDisponible(promocion)) {
+			errors.put("usuario", "No tienes tiempo suficiente");
+		}
 
 		if (errors.isEmpty()) {
 			usuario.agregarPropuestaAceptada(promocion);

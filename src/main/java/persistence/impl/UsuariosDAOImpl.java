@@ -43,6 +43,28 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		}
 	}
 	
+	
+	public int updateSinPsw(Usuario user) {
+		try {
+			String sql = "UPDATE USUARIOS SET NOMBRE = ?,  ADMIN = ?, TIPO_ATRACCION = ?, PRESUPUESTO = ?, TIEMPO = ? WHERE ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, user.getNombre());
+			statement.setBoolean(2, user.isAdmin());
+			statement.setInt(3, user.getTipoAtraccionPreferida().getNumeroId());
+			statement.setInt(4, user.getPresupuestoDisponible());
+			statement.setDouble(5, user.getTiempoDisponible());
+			statement.setInt(6, user.getUsuario_id());
+
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
 	@Override
 	public Usuario find(Integer id) {
 		try {

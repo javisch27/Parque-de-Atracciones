@@ -15,5 +15,7 @@ public interface UsuariosDAO extends GenericDAO<Usuario> {
 	public abstract int delete(Usuario usuario);
 	
 	public abstract int insert(Usuario usuario);
+
+	public abstract int updateSinPsw(Usuario usuario);
 }
 

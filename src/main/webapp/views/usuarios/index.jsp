@@ -13,28 +13,17 @@
 
 	<main class="container">
 
-		<c:if test="${flash != null}">
-			<div class="alert alert-danger">
-				<p>
-					<c:out value="${flash}" />
-					<c:if test="${errors != null}">
-						<ul>
-							<c:forEach items="${errors}" var="entry">
-								<li><c:out value="${entry.getValue()}"></c:out></li>
-							</c:forEach>
-						</ul>
-					</c:if>
-				</p>
-			</div>
-		</c:if>
 
 		<div class="bg-light p-4 mb-3 rounded">
 			<h1>Estas son las usuarios de la Fuerza</h1>
 		</div>
-		
+
 		<jsp:include page="/partials/listadoUsuarios.jsp"></jsp:include>
 
 	</main>
+
+
+<jsp:include page="/partials/mensajes.jsp"></jsp:include>
 
 </body>
 </html>

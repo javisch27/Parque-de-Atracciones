@@ -1,54 +1,53 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="modal-body">
+
 	<div class="mb-3">
-		<label for="nombre" class="col-form-label">Nombre:</label> <input
-			type="text" class="form-control" id="nombre" name="nombre"
-			required value="${atraccion.nombre}">
-	</div>
-	<div class="mb-3">
-		<label for="cost"
-			class='col-form-label ${atraccion.errors.get("costo") != null ? "is-invalid" : "" }'>Costo:</label>
-		<input class="form-control" type="number" id="costo" name="costo"
-			required value="${atraccion.costo}"></input>
-		<div class="invalid-feedback">
-			<c:out value='${atraccion.errors.get("costo")}'></c:out>
-		</div>
-	</div>
-	<div class="mb-3">
-		<label for="tiempoTotal"
-			class='col-form-label ${atraccion.errors.get("tiempoTotal") != null ? "is-invalid" : "" }'>Duración:</label>
-		<input class="form-control" type="number" id="tiempoTotal" name="tiempoTotal"
-			required value="${atraccion.tiempoTotal}"></input>
-		<div class="invalid-feedback">
-			<c:out value='${atraccion.errors.get("tiempoTotal")}'></c:out>
-		</div>
-	</div>
-	<div class="mb-3">
-		<label for="cupoInicial"
-			class='col-form-label ${atraccion.errors.get("cupoInicial") != null ? "is-invalid" : "" }'>Cupo Inicial:</label>
-		<input class="form-control" type="number" id="cupoInicial" name="cupoInicial"
-			required value="${atraccion.cupoInicial}"></input>
-		<div class="invalid-feedback">
-			<c:out value='${atraccion.errors.get("cupoInicial")}'></c:out>
-		</div>
+		<label for="tipoPromocion">Tipo de promociÃ³n:</label> <input
+			class="form-control" type="text" id="tipoPromocion"
+			name="tipoPromocion"></input>
 	</div>
 	<div class="mb-3">
 		<label for="tipoAtraccion"
-			class='col-form-label ${atraccion.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo de atración:</label>
-		<input class="form-control" type="text" id="tipoAtraccion" name="tipoAtraccion"
-			required value="${atraccion.tipoAtraccion}"></input>
+			class='col-form-label ${promocion.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo
+			de atracciones:</label> <input class="form-control" type="text"
+			id="tipoAtraccion" name="tipoAtraccion" required
+			value="${promocion.tipoAtraccion}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${atraccion.errors.get("tipoAtraccion")}'></c:out>
+			<c:out value='${promocion.errors.get("tipoAtraccion")}'></c:out>
 		</div>
 	</div>
 	<div class="mb-3">
+		<label for="nombre" class="col-form-label">Nombre:</label> <input
+			type="text" class="form-control" id="nombre" name="nombre" required
+			value="${promocion.nombre}">
+	</div>
+	<div class="mb-3">
 		<label for="descripcion"
-			class='col-form-label ${atraccion.errors.get("descripcion") != null ? "is-invalid" : "" }'>Descripción:</label>
-		<input class="form-control" type="text" id="descripcion" name="descripcion"
-			required value="${atraccion.descripcion}"></input>
+			class='col-form-label ${promocion.errors.get("descripcion") != null ? "is-invalid" : "" }'>Descripciï¿½n:</label>
+		<input class="form-control" type="text" id="descripcion"
+			name="descripcion" required value="${promocion.descripcion}"></input>
 		<div class="invalid-feedback">
-			<c:out value='${atraccion.errors.get("descripcion")}'></c:out>
+			<c:out value='${promocion.errors.get("descripcion")}'></c:out>
 		</div>
+	</div>
+	<div class="mb-3">
+		<label for="atraccionesIncluidas"
+			class='col-form-label ${promocion.errors.get("atraccionesIncluidas") != null ? "is-invalid" : "" }'>Atracciones
+			incluidas:</label> <input class="form-control" type="text"
+			id="atraccionesIncluidas" name="atraccionesIncluidas"></input>
+		<div class="invalid-feedback">
+			<c:out value='${promocion.errors.get("atraccionesIncluidas")}'></c:out>
+		</div>
+	</div>
+	<div class="mb-3">
+		<label for="atraccionesGratisPromoAXB">Atracciones gratis en promociones AXB:</label> <input
+			class="form-control" type="text" id="atraccionesGratisPromoAXB"
+			name="atraccionesGratisPromoAXB"></input>
+	</div>
+	<div class="mb-3">
+		<label for="variable">Variable:</label> <input
+			class="form-control" type="text" id="variable"
+			name="variable"></input>
 	</div>
 </div>
 <div>

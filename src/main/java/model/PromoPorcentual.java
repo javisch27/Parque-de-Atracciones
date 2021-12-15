@@ -26,4 +26,9 @@ public class PromoPorcentual extends Promocion {
 		this.porcentajeDescuento = porcentajeDescuento;
 	}
 
+	@Override
+	public double getVariable() {
+		return this.porcentajeDescuento;
+	}
+
 }

@@ -24,4 +24,9 @@ public class PromocionAXB extends Promocion {
 	public void setAtraccionesGratis(LinkedList<Atraccion> atraccionesGratis) {
 		this.atraccionesGratis = atraccionesGratis;
 	}
+
+	@Override
+	public double getVariable() {
+		return 0;
+	}
 }

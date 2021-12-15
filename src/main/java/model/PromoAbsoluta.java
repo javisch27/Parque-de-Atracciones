@@ -16,4 +16,9 @@ public class PromoAbsoluta extends Promocion {
 		
 	}
 
+	@Override
+	public double getVariable() {
+		return this.costo;
+	}
+
 }

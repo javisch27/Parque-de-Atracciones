@@ -39,35 +39,75 @@ public class EditPromocionServlet extends HttpServlet {
 		dispatcher.forward(req, resp);
 	}
 
-	//metodo a modificar
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		TipoPromocion tipoPromocion = TipoPromocion.valueOf(req.getParameter("tipoPromocion"));
-		TipoAtraccion tipoAtracciones = TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));
-		String nombre = req.getParameter("nombre");
-		String descripcion = req.getParameter("descripcion");
-		String [] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
-		String [] atraccionesGratisPromoAXBString = (req.getParameter("atraccionesGratisPromoAXB")).split(",");
-		Double variable = Double.parseDouble(req.getParameter("variable"));
-		Integer id_promocion = Integer.parseInt(req.getParameter("id"));
-		
-		LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
-		LinkedList<Atraccion> atraccionesGratisPromoAXB = new LinkedList<Atraccion>();
-		
+		Promocion promocion = null;
 		AtraccionService atraccionService = new AtraccionService();
 		
-		for (int i = 0; i < atraccionesIncluidasString.length; i++) {
-			atraccionesIncluidas.add(atraccionService.find(Integer.valueOf(atraccionesIncluidasString[i])));
+		if (tipoPromocion == TipoPromocion.PORCENTUAL) {
+			TipoAtraccion tipoAtracciones = TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));
+			String nombre = req.getParameter("nombre");
+			String descripcion = req.getParameter("descripcion");
+			String[] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
+			Double variable = Double.parseDouble(req.getParameter("variable"));
+			Integer id_promocion = Integer.parseInt(req.getParameter("id"));
+
+			LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
+
+			for (int i = 0; i < atraccionesIncluidasString.length; i++) {
+				atraccionesIncluidas.add(atraccionService.find(Integer.valueOf(atraccionesIncluidasString[i])));
+			}
+
+			promocion = promocionService.update(tipoPromocion, tipoAtracciones, nombre, descripcion,
+					atraccionesIncluidas, null, variable, id_promocion);
 		}
 		
-		for (int i = 0; i < atraccionesGratisPromoAXBString.length; i++) {
-			atraccionesGratisPromoAXB.add(atraccionService.find(Integer.valueOf(atraccionesGratisPromoAXBString[i])));
+		if (tipoPromocion == TipoPromocion.ABSOLUTA) {
+			TipoAtraccion tipoAtracciones = TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));
+			String nombre = req.getParameter("nombre");
+			String descripcion = req.getParameter("descripcion");
+			String[] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
+			Double variable = Double.parseDouble(req.getParameter("variable"));
+			Integer id_promocion = Integer.parseInt(req.getParameter("id"));
+
+			LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
+
+			for (int i = 0; i < atraccionesIncluidasString.length; i++) {
+				atraccionesIncluidas.add(atraccionService.find(Integer.valueOf(atraccionesIncluidasString[i])));
+			}
+
+			promocion = promocionService.update(tipoPromocion, tipoAtracciones, nombre, descripcion,
+					atraccionesIncluidas, null, variable, id_promocion);
+		}
+		
+		if (tipoPromocion == TipoPromocion.AXB) {
+			TipoAtraccion tipoAtracciones = TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));
+			String nombre = req.getParameter("nombre");
+			String descripcion = req.getParameter("descripcion");
+			String[] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
+			String[] atraccionesGratisPromoAXBString = (req.getParameter("atraccionesGratisPromoAXB")).split(",");
+			Integer id_promocion = Integer.parseInt(req.getParameter("id"));
+
+			LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
+			LinkedList<Atraccion> atraccionesGratisPromoAXB = new LinkedList<Atraccion>();
+
+			for (int i = 0; i < atraccionesIncluidasString.length; i++) {
+				atraccionesIncluidas.add(atraccionService.find(Integer.valueOf(atraccionesIncluidasString[i])));
+			}
+			
+			for (int i = 0; i < atraccionesGratisPromoAXBString.length; i++) {
+				atraccionesGratisPromoAXB.add(atraccionService.find(Integer.valueOf(atraccionesGratisPromoAXBString[i])));
+			}
+
+			promocion = promocionService.update(tipoPromocion, tipoAtracciones, nombre, descripcion,
+					atraccionesIncluidas, atraccionesGratisPromoAXB, 0.0, id_promocion);
 		}
 
-		Promocion promocion = promocionService.update(tipoPromocion, tipoAtracciones, nombre, descripcion, atraccionesIncluidas, atraccionesGratisPromoAXB, variable, id_promocion);
-
 		if (promocion.isValid()) {
-//			resp.sendRedirect("/LaFuerza-Turismo/promociones/index.do");
+			//resp.sendRedirect("/promociones/index.do");
 			resp.sendRedirect("/views/admin/index.jsp&partial=promociones");
 		} else {
 			req.setAttribute("promocion", promocion);

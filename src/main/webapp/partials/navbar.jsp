@@ -9,9 +9,6 @@
 		<c:otherwise>navbar-light bg-light </c:otherwise></c:choose>">
 
 
-
-
-
 	<div
 		class="d-flex justify-content-between justify-content-between vw-100 align-items-center">
 
