@@ -28,7 +28,7 @@ public class BuyPromocionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		Integer promocionId = Integer.parseInt(req.getParameter("id_promocion"));
+		Integer promocionId = Integer.parseInt(req.getParameter("id"));
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 		Map<String, String> errors = buyPromocionService.buy(usuario.getUsuario_id(), promocionId);
 		
@@ -41,9 +41,15 @@ public class BuyPromocionServlet extends HttpServlet {
 			req.setAttribute("errors", errors);
 			req.setAttribute("flash", "No ha podido realizarse la compra");
 		}
+		
+		String lado = usuario.getTipoAtraccionPreferida().getNombre();
+		req.setAttribute("lado", lado);
+		
+		System.out.println(lado+" en buy");
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/promociones/index.do");
+				.getRequestDispatcher("/promociones?lado="+lado);
+		
 		dispatcher.forward(req, resp);
 	}
 }

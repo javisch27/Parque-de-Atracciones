@@ -32,12 +32,10 @@ public class ListUserComprasServlet extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 		Usuario usuario2 = usuarioService.find(usuario.getUsuario_id());
-		
-		LinkedList<Propuesta> propuestasCompradas = usuario2.getPropuestasContratadas();  
-				
+
+		LinkedList<Propuesta> propuestasCompradas = usuario2.getPropuestasContratadas();
+
 		req.setAttribute("propuestas", propuestasCompradas);
-		
-		
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/resumenCompras.jsp");
 		dispatcher.forward(req, resp);

@@ -29,7 +29,7 @@ public class DetallePromocionServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String promocionID = req.getParameter("promocionID");
+		String promocionID = req.getParameter("id");
 
 		
 		Promocion promocion = promocionService.find(Integer.parseInt(promocionID));

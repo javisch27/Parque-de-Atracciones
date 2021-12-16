@@ -41,7 +41,7 @@
 							<div class="d-flex justify-content-between">
 								<c:choose>
 									<c:when
-										test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
+										test="${usuario.puedeAdquirirPropuesta(promocion) && promocion.hayCupoDisponible}">
 
 										<div>
 											<a href="/promociones/buy.do?id=${promocion.propuestaID}"
@@ -58,7 +58,7 @@
 								</c:choose>
 								<div>
 									<a
-										href="/promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado} "
+										href="/promocion/detalle?id=${promocion.propuestaID}&lado=${lado} "
 										class="btn btn-success rounded" role="button">Info</a>
 								</div>
 							</div>

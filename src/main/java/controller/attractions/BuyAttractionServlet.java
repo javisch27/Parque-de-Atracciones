@@ -54,9 +54,6 @@ public class BuyAttractionServlet extends HttpServlet {
  		RequestDispatcher dispatcher = getServletContext()
 				.getRequestDispatcher("/"+ruta+"?promocionID="+promocionID+"&attractionID="+attractionID );
 
- 		
- 		
- 	
 		dispatcher.forward(req, resp);
 	}
 }

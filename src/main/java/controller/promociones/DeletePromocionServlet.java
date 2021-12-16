@@ -23,7 +23,7 @@ public class DeletePromocionServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id_promocion = Integer.parseInt(req.getParameter("id_promocion"));
+		Integer id_promocion = Integer.parseInt(req.getParameter("id"));
 
 		promocionService.delete(id_promocion);
 

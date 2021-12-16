@@ -135,20 +135,29 @@ public class Usuario {
 	}
 
 
+
 	
-	private boolean promocionNocontratada() {
-		
-		return true;
-		
-	}
+//	public boolean atraccionNoContratada(Propuesta propuesta) {
+//		boolean atraccionNoInculida = true;
+//		
+//		for (Propuesta propuestaContratada : propuestasCompradas) {
+//			atraccionNoInculida &= !propuestaContratada.getAtraccionesIncluidas().contains(propuesta);
+//					
+//		}
+//		return atraccionNoInculida;
+//			
+//	}
+	
 	
 	public boolean atraccionNoContratada(Propuesta propuesta) {
 		boolean atraccionNoInculida = true;
-		
-		for (Propuesta propuestaContratada : propuestasCompradas) {
-			atraccionNoInculida &= !propuestaContratada.getAtraccionesIncluidas().contains(propuesta);
-					
+				
+		for (Atraccion atraccion : propuesta.getAtraccionesIncluidas()) {	
+			for (Propuesta propuestaContratada : propuestasCompradas) {
+				atraccionNoInculida &= !propuestaContratada.getAtraccionesIncluidas().contains(atraccion);				
+			}		
 		}
+			
 		return atraccionNoInculida;
 			
 	}

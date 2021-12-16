@@ -5,7 +5,9 @@
 <div class="p-3">
 	<c:if test="${usuario.isAdmin()}">
 		<div class="mb-3">
-			<a href="/promociones/create.do" class="btn btn-primary" role="button">
+		<!-- <a href="/promociones/create.do" -->
+
+			<a href="/attractions?partial=listadoParaPromos" class="btn btn-primary" role="button">
 				<i class="bi bi-plus-lg"></i> Nueva Promoción
 			</a>
 		</div>
@@ -50,7 +52,7 @@
 					<td ><c:out value="${promocion.tipoAtraccion.nombre}"></c:out></td>
 					<c:if test="${!usuario.admin}">
 						<td><a
-							href="/promocion/detalle?promocionID=${promocion.propuestaID}&lado=${lado}&slider=true"
+							href="/promocion/detalle?id=${promocion.propuestaID}&lado=${lado}&slider=true"
 							class="btn btn-white rounded-0" role="button"><i
 								class="far fa-eye"></i></a></td>
 					</c:if>
@@ -70,7 +72,7 @@
 								<c:choose>
 
 									<c:when
-										test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
+										test="${usuario.puedeAdquirirPropuesta(promocion) && promocion.hayCupoDisponible}">
 										<a
 											href="/promociones/buy.do?id=${promocion.propuestaID}"
 											class="btn btn-success rounded" role="button">Comprar</a>

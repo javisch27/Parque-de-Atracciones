@@ -361,6 +361,9 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, promocion.getPropuestaID());
 			int rows = statement.executeUpdate();
+			
+			deleteAtraccionesDePromociones(promocion);
+			deleteAtraccionesDePromosAXB(promocion);
 
 			return rows;
 		} catch (Exception e) {

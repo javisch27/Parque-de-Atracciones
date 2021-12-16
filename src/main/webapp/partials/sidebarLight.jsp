@@ -20,7 +20,7 @@
 
 				<a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
-					<c:choose><c:when test="${usuario == null}">href="/"</c:when><c:otherwise>href="/index2.jsp"</c:otherwise></c:choose>>Home</a> <a
+					<c:choose><c:when test="${usuario == null}">href="/guest?lado=LADO+LUMINOSO"</c:when><c:otherwise>href="/index2.jsp"</c:otherwise></c:choose>>Home</a> <a
 					class="list-group-item list-group-item-action list-group-item-light  p-3 text text-dark"
 					href="#!">La Fuerza</a> 
 					<a

@@ -11,11 +11,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Atraccion;
+import model.Ofertador;
 import model.Usuario;
 import services.AtraccionService;
 import services.UsuarioService;
 
-@WebServlet("/attractions") // antes era /index.do para filtrar
+@WebServlet("/attractions")
 public class ListAttractionsServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
@@ -26,39 +27,56 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 	public void init() throws ServletException {
 		super.init();
 		this.atraccionService = new AtraccionService();
-		this.usuarioService = new UsuarioService(); // TODO esto esta mal aca!??? como se hace?
+		this.usuarioService = new UsuarioService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Atraccion> atracciones = atraccionService.list();
-		req.setAttribute("atracciones", atracciones);
-
-
 		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 		String lado = req.getParameter("lado");
 
-		if (usuario != null && usuario.isAdmin()) {
+		if (usuario != null ) {
+			req.setAttribute("atracciones", atracciones);
+			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id());
+			String partial = req.getParameter("partial");
 
-			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id()); // TODO hace falta esto? si no existe da
-																				// error. puede trucharse lo atnerior																				// usuario?
-			if (usuario2.isAdmin()) {
-				req.setAttribute("partial", "atracciones");
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/index.jsp");
+			if (usuario2.isAdmin()) {//admin
+				
+				if (partial.equals("listadoParaPromos") ) {	//crea listado atracciones para promo				
+					req.setAttribute("atracciones", atracciones);
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/promociones/create.do");
+					dispatcher.forward(req, resp);
+
+				} else { //listado atraccciones en panel
+					
+					req.setAttribute("atracciones", atracciones);
+					req.setAttribute("partial", "atracciones");
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/admin/index.jsp");
+					dispatcher.forward(req, resp);
+
+				}
+
+			} else { //usuario logeado
+				
+				List<Atraccion> atraccionesOrdenadas = Ofertador.ordenarAtracciones(atracciones,usuario.getTipoAtraccionPreferida());			
+				req.setAttribute("atracciones", atraccionesOrdenadas);		
+				req.setAttribute("lado", lado.toUpperCase());
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
 				dispatcher.forward(req, resp);
-			} 
-			
-		} else if  (lado != null){	
+			}
+
+		} else if (lado != null) { //usuario no logueado
+
+			req.setAttribute("atracciones", atracciones);		
 			req.setAttribute("lado", lado.toUpperCase());
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/index2.jsp");
 			dispatcher.forward(req, resp);
-			
-		} else {
-				req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");// TODO falta poner los mensjes
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-				dispatcher.forward(req, resp);
-			}
-			
+
+		} else { //directo 
+			resp.sendRedirect("/");
+		}
+
 	}
 
 }

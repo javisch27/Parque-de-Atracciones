@@ -68,7 +68,7 @@
 						<c:if test="${usuario != null}">
 							<c:choose>
 								<c:when
-									test="${usuario.puedepagarPropuesta(promocion) && usuario.tieneTiempoDisponible(promocion) && promocion.hayCupoDisponible}">
+									test="${usuario.puedeAdquirirPropuesta(promocion) && promocion.hayCupoDisponible}">
 
 									<div>
 										<a href="/promociones/buy.do?id=${promocion.propuestaID}"
@@ -114,7 +114,7 @@
 										class="d-flex flex-fill align-items-end justify-content-end">
 
 										<a
-											href="/attraction?promocionID=${promocion.propuestaID}&lado=${lado}&attractionID=${atraccion.id_atraccion} "
+											href="/attraction?id=${promocion.propuestaID}&lado=${lado}&attractionID=${atraccion.id_atraccion} "
 											class="btn btn-primary rounded" role="button">Info</a>
 
 									</div>

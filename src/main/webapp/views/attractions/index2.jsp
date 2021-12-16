@@ -59,15 +59,12 @@
 
 
 
-
-
-
 	</div>
 
 	<footer>
 		<jsp:include page="/partials/footer.jsp"></jsp:include>
 	</footer>
-	
+
 	<jsp:include page="/partials/mensajes.jsp"></jsp:include>
 
 

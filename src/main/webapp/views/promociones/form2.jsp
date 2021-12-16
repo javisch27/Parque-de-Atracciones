@@ -55,12 +55,13 @@
 							value="AXB">Promoción AXB</option>
 					</select>
 				</div>
-				
-				
+
+
 				<div class="col-4 mb-3 d-none" id="promosConVariables">
-					<label for="variable" class="col-form-label"> <span id="inputVariable"></span></label> <input
-						type="text" class="form-control" id="variable" name="variable"
-						required value="${promocion.variable}">
+					<label for="variable" class="col-form-label"> <span
+						id="inputVariable"></span></label> <input type="text" class="form-control"
+						id="variable" name="variable" required
+						value="${promocion.variable}">
 				</div>
 			</div>
 
@@ -71,7 +72,7 @@
 					type="text" class="form-control" id="nombre" name="nombre" required
 					value="${promocion.nombre}">
 			</div>
-			
+
 
 			<div class="col-5 mb-3">
 				<label for="descripcion"
@@ -83,7 +84,7 @@
 					<c:out value='${promocion.errors.get("descripcion")}'></c:out>
 				</div>
 			</div>
-			
+
 
 			<div class="mb-3">
 				<label for="atraccionesIncluidas"
@@ -103,11 +104,33 @@
 
 
 
-<!-- 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value=""
-					id="flexCheckDefault"> <label class="form-check-label"
-					for="flexCheckDefault"> Default checkbox </label>
-			</div> -->
+			<div class="mb-3 d-none" id="chechLuminoso" >
+				<c:forEach items="${atracciones}" var="atraccion">
+					<c:if test="${atraccion.tipoAtraccion == 'LADO_LUMINOSO'}">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox"
+								id="${atraccion.nombre}" name="listadoAtraccionesSelec">
+							<label class="form-check-label" for="${atraccion.nombre}">
+								<c:out value="${atraccion.nombre}"></c:out>
+							</label>
+						</div>
+					</c:if>
+				</c:forEach>
+			</div>
+			
+			<div class="mb-3 d-none" id="chechOscuro" >
+				<c:forEach items="${atracciones}" var="atraccion">
+					<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox"
+								id="${atraccion.nombre}" name="listadoAtraccionesSelec">
+							<label class="form-check-label" for="${atraccion.nombre}">
+								<c:out value="${atraccion.nombre}"></c:out>
+							</label>
+						</div>
+					</c:if>
+				</c:forEach>
+			</div>
 
 
 

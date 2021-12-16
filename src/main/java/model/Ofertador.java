@@ -12,25 +12,55 @@ import persistence.commons.ConnectionProvider;
 
 public abstract class Ofertador {
 
-	private static List<Propuesta> ordenarPropuestas(LinkedList<Propuesta> propuestas, TipoAtraccion tipoAtraccion) {
 
-		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
-		List<Propuesta> restoPropuestas = new ArrayList<Propuesta>();
+	
+	public static List<Atraccion> ordenarAtracciones(List<Atraccion> atracciones, TipoAtraccion tipoAtraccion) {
 
-		for (Propuesta propuesta : propuestas) {
-			if (propuesta.getTipoAtraccion() == tipoAtraccion) {
-				propuestasFiltradas.add(propuesta);
+		
+		List<Atraccion> atraccionesFiltradas = new ArrayList<Atraccion>();
+		List<Atraccion> restoAtracciones = new ArrayList<Atraccion>();
+
+		for (Atraccion atraccion : atracciones) {
+			if (atraccion.getTipoAtraccion().equals(tipoAtraccion)) {
+				atraccionesFiltradas.add(atraccion);
 			} else {
-				restoPropuestas.add(propuesta);
+				restoAtracciones.add(atraccion);
 			}
 		}
 
-		Collections.sort(propuestasFiltradas);
-		Collections.sort(restoPropuestas);
-		propuestasFiltradas.addAll(restoPropuestas);
+		Collections.sort(atraccionesFiltradas);
+		Collections.sort(restoAtracciones);
+		atraccionesFiltradas.addAll(restoAtracciones);
+		
+		
 
-		return propuestasFiltradas;
+		return atraccionesFiltradas;
 	}
+	
+	public static List<Promocion> ordenarPromocinoes(List<Promocion> promociones, TipoAtraccion tipoAtraccion) {
+
+		
+		List<Promocion> promocionesFiltradas = new ArrayList<Promocion>();
+		List<Promocion> restoPromocinoes = new ArrayList<Promocion>();
+
+		for (Promocion promocion : promociones) {
+			if (promocion.getTipoAtraccion().equals(tipoAtraccion)) {
+				promocionesFiltradas.add(promocion);
+			} else {
+				restoPromocinoes.add(promocion);
+			}
+		}
+
+		Collections.sort(promocionesFiltradas);
+		Collections.sort(restoPromocinoes);
+		promocionesFiltradas.addAll(restoPromocinoes);
+		
+		
+
+		return promocionesFiltradas;
+	}
+	
+	
 
 	private static void propuestaAceptada(Usuario usuario, Propuesta propuesta) {
 		usuario.agregarPropuestaAceptada(propuesta);

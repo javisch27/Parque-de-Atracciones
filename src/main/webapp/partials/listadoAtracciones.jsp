@@ -1,15 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="p-3">
-<c:if test="${usuario.isAdmin()}">
-	<div class="mb-3">
-		<a href="/attractions/create.do"
-			class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i>
-			Nueva Atracción
-		</a>
-	</div>
-</c:if>
+	<c:if test="${usuario.isAdmin()}">
+		<div class="mb-3">
+			<a href="/attractions/create.do" class="btn btn-primary"
+				role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
+			</a>
+		</div>
+	</c:if>
 
-<table
+	<table
 		class="table table-stripped table-hover <c:if test="${lado=='LADO OSCURO'}">table-dark</c:if>">
 		<thead>
 			<tr class="text-center">
@@ -69,9 +68,8 @@
 								<c:choose>
 
 									<c:when
-										test="${usuario.puedepagarPropuesta(atraccion) && usuario.tieneTiempoDisponible(atraccion) && atraccion.hayCupoDisponible}">
-										<a
-											href="/attractions/buy.do?id=${atraccion.id_atraccion}"
+										test="${usuario.puedeAdquirirPropuesta(atraccion) && atraccion.hayCupoDisponible}">
+										<a href="/attractions/buy.do?id=${atraccion.id_atraccion}"
 											class="btn btn-success rounded" role="button">Comprar</a>
 									</c:when>
 									<c:otherwise>
@@ -86,6 +84,7 @@
 
 
 			</c:forEach>
+
 
 
 
