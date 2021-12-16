@@ -76,6 +76,10 @@
 				<c:out value='${atraccion.errors.get("descripcion")}'></c:out>
 			</div>
 		</div>
+		
+			<div class="mb-3 " name="subida-imagenes" type="POST" enctype="multipart/formdata">
+				<input type="file" name="imagen" />
+			</div>
 
 
 

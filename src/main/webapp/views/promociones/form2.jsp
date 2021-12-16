@@ -60,7 +60,7 @@
 				<div class="col-4 mb-3 d-none" id="promosConVariables">
 					<label for="variable" class="col-form-label"> <span
 						id="inputVariable"></span></label> <input type="text" class="form-control"
-						id="datoVariable" name="datoVariable" 
+						id="datoVariable" name="datoVariable"
 						value="${promocion.variable}">
 				</div>
 			</div>
@@ -89,8 +89,9 @@
 			<div class="d-none">
 
 				<div class="mb-3">
-					<label for="atraccionesIncluidas">Atracciones :</label> <input class="form-control" type="text"
-						id="atraccionesIncluidas" name="atraccionesIncluidas"></input>
+					<label for="atraccionesIncluidas">Atracciones :</label> <input
+						class="form-control" type="text" id="atraccionesIncluidas"
+						name="atraccionesIncluidas"></input>
 				</div>
 
 				<div class="mb-3">
@@ -113,6 +114,7 @@
 							<c:if test="${atraccion.tipoAtraccion == 'LADO_LUMINOSO'}">
 								<div class="form-check">
 									<input class="form-check-input check" type="checkbox"
+										id="${atraccion.id_atraccion}a"
 										name="${atraccion.id_atraccion}"> <label
 										class="form-check-label" for="${atraccion.nombre}"> <c:out
 											value="${atraccion.nombre}"></c:out>
@@ -129,7 +131,8 @@
 							<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
 								<div class="form-check">
 									<input class="form-check-input check" type="checkbox"
-										name="${atraccion.id_atraccion}""> <label
+										id="${atraccion.id_atraccion}b"
+										name="${atraccion.id_atraccion}"> <label
 										class="form-check-label" for="${atraccion.id_atraccion}">
 										<c:out value="${atraccion.nombre}"></c:out>
 									</label>
@@ -142,7 +145,7 @@
 
 
 
-			<div id='listaCheckAXB' class="col-4 d-none">
+				<div id='listaCheckAXB' class="col-4 d-none">
 
 					<div class="mb-3 d-none mb-4" id="chechLuminosoAXB">
 						<label for="listadoAtraccionesSelec" class="my-3">Listado
@@ -151,9 +154,10 @@
 							<c:if test="${atraccion.tipoAtraccion == 'LADO_LUMINOSO'}">
 								<div class="form-check">
 									<input class="form-check-input checkAXB" type="checkbox"
-									 name="${atraccion.id_atraccion}">
-									<label class="form-check-label" for="${atraccion.nombre}">
-										<c:out value="${atraccion.nombre}"></c:out>
+										name="${atraccion.id_atraccion}"
+										id="${atraccion.id_atraccion}c"> <label
+										class="form-check-label" for="${atraccion.nombre}"> <c:out
+											value="${atraccion.nombre}"></c:out>
 									</label>
 								</div>
 							</c:if>
@@ -167,16 +171,22 @@
 							<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
 								<div class="form-check">
 									<input class="form-check-input checkAXB" type="checkbox"
-										 name="${atraccion.id_atraccion}"">
-									<label class="form-check-label" for="${atraccion.id_atraccion}">
+										id="${atraccion.id_atraccion}d"
+										name="${atraccion.id_atraccion}"> <label
+										class="form-check-label" for="${atraccion.id_atraccion}">
 										<c:out value="${atraccion.nombre}"></c:out>
 									</label>
 								</div>
 							</c:if>
 						</c:forEach>
 					</div>
-				</div> 
+				</div>
 
+			</div>
+
+
+			<div class="mb-3 " name="subida-imagenes" type="POST" enctype="multipart/formdata">
+				<input type="file" name="imagen" />
 			</div>
 
 			<div>

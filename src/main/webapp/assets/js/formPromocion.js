@@ -78,8 +78,12 @@ document.getElementById("listaCheck").addEventListener("click", function() {
 
 		if (r.checked) {
 
-			seleccion.push(+r.name)
-
+			seleccion.push(+r.name);
+		
+		
+			document.getElementById(r.name+"c").addAttribute("disabled");
+		
+			
 		} else {
 			let index = seleccion.indexOf(+r.id);
 			if (index > -1) {
