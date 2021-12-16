@@ -31,7 +31,16 @@
 					<td>$<c:out value="${propuesta.costo}"></c:out></td>
 					<td><c:out value="${propuesta.getTiempoTotalFormato()}"></c:out></td>
 					<td><c:out value="${propuesta.tipoAtraccion.nombre}"></c:out></td>
-					<td><a href="/attraction?attractionID=${propuesta.propuestaID}"
+					<td><a
+						<c:choose>
+							<c:when test="${propuesta.tipoPropuesta()=='Promoción'}">
+								href="/promocion/detalle?id=${propuesta.propuestaID}&lado=${lado}"
+							</c:when>
+							<c:otherwise>
+					 			href="/attraction?attractionID=${propuesta.propuestaID}"
+							</c:otherwise>
+						</c:choose>
+						href="/attraction?attractionID=${propuesta.propuestaID}"
 						class="btn btn-white rounded-0" role="button"><i
 							class="far fa-eye"></i></a></td>
 				</tr>
@@ -40,7 +49,6 @@
 
 		</tbody>
 	</table>
-	
-		<a onclick="history.go(-2);" class="btn btn-primary"
-		role="button">Volver</a>
+
+	<a onclick="history.go(-2);" class="btn btn-primary" role="button">Volver</a>
 </div>

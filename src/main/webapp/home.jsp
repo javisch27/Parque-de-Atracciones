@@ -88,5 +88,7 @@
 
 
 	</div>
+	
+	<jsp:include page="/partials/mensajes.jsp"></jsp:include>
 </body>
 </html>
