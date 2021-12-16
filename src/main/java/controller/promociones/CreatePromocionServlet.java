@@ -64,9 +64,9 @@ public class CreatePromocionServlet extends HttpServlet {
 //			System.out.println(checkboxNamesList[i]+",");
 //		
 //		}
-		List<String> list = Arrays.asList(checkboxNamesList);
-	
-		System.out.println(list);
+//		List<String> list = Arrays.asList(checkboxNamesList);
+//	
+//		System.out.println(list);
 	
 		
 		

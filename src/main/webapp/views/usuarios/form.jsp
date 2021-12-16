@@ -16,21 +16,18 @@
 				<label for="password"
 					class='col-form-label ${usuario.errors.get("password") != null ? "is-invalid" : "" }'>Password:</label>
 				<input class="form-control" type="text" id="password"
-					name="password" required  placeholder="completar solo para cambiar contraseña"></input>
+					name="password"   placeholder="completar solo para cambiar contraseña"></input>
 				<div class="invalid-feedback">
 					<c:out value='${usuario.errors.get("password")}'></c:out>
 				</div>
 			</div>
 
 
-			<div class="col-md-2 mb-3 pt-3">
+				<div class="col-md-2 mb-3 pt-3">
 				<label for="admin"
 					class='col-form-label ${usuario.errors.get("admin") != null ? "is-invalid" : "" }'></label>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" 
-					<c:if test="${usuario.admin}"> checked="checked"</c:if>
-							
-						id="admin"> <label class="form-check-label" for="admin">
+					<input class="form-check-input" type="checkbox" id="admin" name="admin" value="admin" > <label class="form-check-label" for="admin">
 						Administrador </label>
 				</div>
 				<div class="invalid-feedback">

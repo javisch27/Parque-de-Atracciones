@@ -107,18 +107,18 @@ public class PromocionService {
 
 	public void delete(Integer id) {
 		Promocion promocion = this.find(id);
-		
-		if (promocion.getClass() == PromoPorcentual.class) {
-			promocion = new PromoPorcentual(null, "", "", null, 0.0, id);
-		}
-		
-		if (promocion.getClass() == PromoAbsoluta.class) {
-			promocion = new PromoAbsoluta(null, "", "", null, 0, id);
-		}
-		
-		if (promocion.getClass() == PromocionAXB.class) {
-			promocion = new PromocionAXB(null, "", "", null, null, id);
-		}
+//		
+//		if (promocion.getClass() == PromoPorcentual.class) {
+//			promocion = new PromoPorcentual(null, "", "", null, 0.0, id);
+//		}
+//		
+//		if (promocion.getClass() == PromoAbsoluta.class) {
+//			promocion = new PromoAbsoluta(null, "", "", null, 0, id);
+//		}
+//		
+//		if (promocion.getClass() == PromocionAXB.class) {
+//			promocion = new PromocionAXB(null, "", "", null, null, id);
+//		}
 
 		PromocionesDAO promocionDAO = DAOFactory.getPromocinoesDAO();
 		promocionDAO.delete(promocion);

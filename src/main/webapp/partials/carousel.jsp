@@ -44,7 +44,7 @@
 										test="${usuario.puedeAdquirirPropuesta(promocion) && promocion.hayCupoDisponible}">
 
 										<div>
-											<a href="/promociones/buy.do?id=${promocion.propuestaID}"
+											<a href="/promociones/buy.do?id=${promocion.propuestaID}&ruta=index"
 												class="btn btn-success rounded" role="button">Comprar</a>
 
 										</div>

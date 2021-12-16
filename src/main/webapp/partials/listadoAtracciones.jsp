@@ -69,7 +69,7 @@
 
 									<c:when
 										test="${usuario.puedeAdquirirPropuesta(atraccion) && atraccion.hayCupoDisponible}">
-										<a href="/attractions/buy.do?id=${atraccion.id_atraccion}"
+										<a href="/attractions/buy.do?id=${atraccion.id_atraccion}&ruta=attractions&lado=${lado}"
 											class="btn btn-success rounded" role="button">Comprar</a>
 									</c:when>
 									<c:otherwise>

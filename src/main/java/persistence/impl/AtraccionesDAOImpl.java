@@ -16,7 +16,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	
 	public List<Atraccion> findAll() {
 		try {
-			String sql = "SELECT * FROM ATRACCIONES";
+			String sql = "SELECT * FROM ATRACCIONES WHERE  borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -35,7 +35,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 	@Override
 	public Atraccion find(Integer id) {
 		try {
-			String sql = "SELECT * FROM ATRACCIONES WHERE id = ?";
+			String sql = "SELECT * FROM ATRACCIONES WHERE id = ?  AND borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -207,7 +207,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 
 	public int delete(Atraccion atraccion) {
 		try {
-			String sql = "DELETE FROM ATRACCIONES WHERE ID = ?";
+			String sql = "UPDATE ATRACCIONES SET BORRADO = 1  WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -219,10 +219,25 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+//	public int delete(Atraccion atraccion) {
+//		try {
+//			String sql = "DELETE FROM ATRACCIONES WHERE ID = ?";
+//			Connection conn = ConnectionProvider.getConnection();
+//
+//			PreparedStatement statement = conn.prepareStatement(sql);
+//			statement.setInt(1, atraccion.getId_atraccion());
+//			int rows = statement.executeUpdate();
+//
+//			return rows;
+//		} catch (Exception e) {
+//			throw new MissingDataException(e);
+//		}
+//	}
 
 	public Atraccion findByname(String nombreAtraccion) {
 		try {
-			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?";
+			String sql = "SELECT * FROM ATRACCIONES WHERE NOMBRE = ?  AND borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombreAtraccion);
@@ -242,7 +257,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 
 	public int countAll() {
 		try {
-			String sql = "SELECT COUNT(1) AS TOTAL FROM ATRACCIONES";
+			String sql = "SELECT COUNT(1) AS TOTAL FROM ATRACCIONES  AND borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();

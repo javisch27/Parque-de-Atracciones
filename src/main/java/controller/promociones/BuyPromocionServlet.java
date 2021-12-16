@@ -36,7 +36,7 @@ public class BuyPromocionServlet extends HttpServlet {
 		req.getSession().setAttribute("usuario", usuario2);
 		
 		if (errors.isEmpty()) {
-			req.setAttribute("flash", "¡Gracias por comprar!");
+			req.setAttribute("flash", "¡Gracias por tu compra!");
 		} else {
 			req.setAttribute("errors", errors);
 			req.setAttribute("flash", "No ha podido realizarse la compra");
@@ -45,10 +45,16 @@ public class BuyPromocionServlet extends HttpServlet {
 		String lado = usuario.getTipoAtraccionPreferida().getNombre();
 		req.setAttribute("lado", lado);
 		
-		System.out.println(lado+" en buy");
+		String ruta = req.getParameter("ruta");
+		if(ruta.equals("detalle")) {
+			ruta = "promocion/detalle";
+		} else if (ruta.equals("index")) {
+			ruta = "index2.jsp";	
+		}
+		
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/promociones?lado="+lado);
+				.getRequestDispatcher("/"+ruta+"?lado="+lado);
 		
 		dispatcher.forward(req, resp);
 	}

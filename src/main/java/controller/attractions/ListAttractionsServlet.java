@@ -43,7 +43,7 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 
 			if (usuario2.isAdmin()) {//admin
 				
-				if (partial.equals("listadoParaPromos") ) {	//crea listado atracciones para promo				
+				if (partial != null && partial.equals("listadoParaPromos") ) {	//crea listado atracciones para promo				
 					req.setAttribute("atracciones", atracciones);
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/promociones/create.do");
 					dispatcher.forward(req, resp);

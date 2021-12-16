@@ -24,7 +24,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 
 	public List<Promocion> findAll() {
 		try {
-			String sql = "SELECT * FROM PROMOCIONES";
+			String sql = "SELECT * FROM PROMOCIONES WHERE  borrado ISNULL";
 
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	@Override
 	public Promocion find(Integer id) {
 		try {
-			String sql = "SELECT * FROM PROMOCIONES WHERE id = ?";
+			String sql = "SELECT * FROM PROMOCIONES WHERE id = ?  AND borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -65,7 +65,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	
 	public Promocion findByName(String nombrePromo) {
 		try {
-			String sql = "SELECT * FROM PROMOCIONES WHERE NOMBRE = ?";
+			String sql = "SELECT * FROM PROMOCIONES WHERE NOMBRE = ?  AND borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombrePromo);
@@ -161,7 +161,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 
 	public int countAll() {
 		try {
-			String sql = "SELECT COUNT(1) AS TOTAL FROM PROMOCIONES";
+			String sql = "SELECT COUNT(1) AS TOTAL FROM PROMOCIONES  WHERE borrado ISNULL";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -355,20 +355,23 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 
 	public int delete(Promocion promocion) {
 		try {
-			String sql = "DELETE FROM PROMOCIONES WHERE ID = ?";
+
+			String sql = "UPDATE PROMOCIONES SET BORRADO = 1  WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, promocion.getPropuestaID());
 			int rows = statement.executeUpdate();
 			
-			deleteAtraccionesDePromociones(promocion);
-			deleteAtraccionesDePromosAXB(promocion);
+//			deleteAtraccionesDePromociones(promocion);
+//			deleteAtraccionesDePromosAXB(promocion);
 
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
 	}
+	
+
 
 }

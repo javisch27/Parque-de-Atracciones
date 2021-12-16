@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			req.setAttribute("flash", "Nombre de usuario o contraseña incorrectos");// TODO falta poner los mensjes
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/");
 			dispatcher.forward(req, resp);
 		}
 	}
