@@ -1,6 +1,8 @@
 package controller.promociones;
 
+import java.util.List;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 import jakarta.servlet.RequestDispatcher;
@@ -41,6 +43,33 @@ public class CreatePromocionServlet extends HttpServlet {
 		TipoPromocion tipoPromocion = TipoPromocion.valueOf(req.getParameter("tipoPromocion"));
 		Promocion promocion = null;
 		AtraccionService atraccionService = new AtraccionService();
+		
+		String[] checkboxNamesList= req.getParameterValues("listadoAtraccionesSelec");
+		
+//		System.out.println("cadena string entera "+checkboxNamesList);
+		
+		
+		
+		
+		
+//		for(String  s : checkboxNamesList){
+//			System.out.println(req.getParameter(s));
+//		}
+//		
+//		for(String  s : checkboxNamesList){
+//			System.out.println(checkboxNamesList);
+//		}
+		
+//		for (int i = 0; i < checkboxNamesList.length; i++) {
+//			System.out.println(checkboxNamesList[i]+",");
+//		
+//		}
+		List<String> list = Arrays.asList(checkboxNamesList);
+	
+		System.out.println(list);
+	
+		
+		
 		
 		if (tipoPromocion == TipoPromocion.PORCENTUAL) {
 			TipoAtraccion tipoAtracciones = TipoAtraccion.valueOf(req.getParameter("tipoAtraccion"));

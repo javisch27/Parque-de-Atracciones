@@ -35,11 +35,8 @@ public class CreateUsuarioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nombre = req.getParameter("nombre");
 		String password = req.getParameter("password");
-		
-		String [] otro = req.getParameterValues("admin");
-
-		System.out.println(otro);
-		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
+	
+		Boolean admin = req.getParameter("admin") != null;
 		TipoAtraccion tipoAtraccion = TipoAtraccion.valueOf(req.getParameter("tipoAtraccionPreferida"));
 		Integer presupuestoDisponible = Integer.parseInt(req.getParameter("presupuestoDisponible"));
 		Double tiempoMaximo = Double.parseDouble(req.getParameter("tiempoDisponible"));

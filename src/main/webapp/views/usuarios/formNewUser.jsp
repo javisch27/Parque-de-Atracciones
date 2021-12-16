@@ -25,13 +25,15 @@
 				<label for="admin"
 					class='col-form-label ${usuario.errors.get("admin") != null ? "is-invalid" : "" }'></label>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="admin" name="admin" value="43"> <label class="form-check-label" for="admin">
+					<input class="form-check-input" type="checkbox" id="admin" name="admin" value="43" > <label class="form-check-label" for="admin">
 						Administrador </label>
 				</div>
 				<div class="invalid-feedback">
 					<c:out value='${usuario.errors.get("admin")}'></c:out>
 				</div>
 			</div>
+			
+		
 
 		</div>
 

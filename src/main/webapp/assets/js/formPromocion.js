@@ -63,11 +63,7 @@ function deschequearItems() {
 
 }
 
-document.getElementById("El regreso del Jedi").addEventListener("change", function() {
-	
-	console.log(document.getElementById("El regreso del Jedi").checked)
 
-})
 
 
 

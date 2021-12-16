@@ -123,8 +123,8 @@
 					<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox"
-								id="${atraccion.nombre}" name="listadoAtraccionesSelec">
-							<label class="form-check-label" for="${atraccion.nombre}">
+								id="${atraccion.id_atraccion}" name="listadoAtraccionesSelec">
+							<label class="form-check-label" for="${atraccion.id_atraccion}">
 								<c:out value="${atraccion.nombre}"></c:out>
 							</label>
 						</div>
