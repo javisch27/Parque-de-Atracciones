@@ -81,7 +81,7 @@ document.getElementById("listaCheck").addEventListener("click", function() {
 			seleccion.push(+r.name);
 		
 		
-			document.getElementById(r.name+"c").addAttribute("disabled");
+		
 		
 			
 		} else {
@@ -94,7 +94,7 @@ document.getElementById("listaCheck").addEventListener("click", function() {
 
 	});
 
-console.log(seleccion)
+	console.log(seleccion)
 	document.getElementById("atraccionesIncluidas").value = seleccion;
 
 })
@@ -121,8 +121,8 @@ document.getElementById("listaCheckAXB").addEventListener("click", function() {
 
 	});
 	
+
 	console.log(seleccion2)
-	
 
 	document.getElementById("atraccionesGratisPromoAXB").value = seleccion2;
 

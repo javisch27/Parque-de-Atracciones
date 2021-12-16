@@ -77,10 +77,10 @@
 			</div>
 		</div>
 		
-			<div class="mb-3 " name="subida-imagenes" type="POST" enctype="multipart/formdata">
+<!-- 			<div class="mb-3 " name="subida-imagenes" type="POST" enctype="multipart/formdata">
 				<input type="file" name="imagen" />
 			</div>
-
+ -->
 
 
 		<div>
