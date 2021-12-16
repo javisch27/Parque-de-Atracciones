@@ -76,7 +76,7 @@ public class CreatePromocionServlet extends HttpServlet {
 			String nombre = req.getParameter("nombre");
 			String descripcion = req.getParameter("descripcion");
 			String[] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
-			Double variable = Double.parseDouble(req.getParameter("variable"));
+			Double variable = Double.parseDouble(req.getParameter("datoVariable"));
 
 			LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 
@@ -93,7 +93,7 @@ public class CreatePromocionServlet extends HttpServlet {
 			String nombre = req.getParameter("nombre");
 			String descripcion = req.getParameter("descripcion");
 			String[] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
-			Double variable = Double.parseDouble(req.getParameter("variable"));
+			Double variable = Double.parseDouble(req.getParameter("datoVariable"));
 			
 			LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 

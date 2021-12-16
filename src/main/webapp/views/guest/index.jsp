@@ -45,11 +45,7 @@
 				<div class="col-8">
 					<p class="text-center"
 						<c:choose><c:when test="${lado=='LADO OSCURO'}">text-white</c:when></c:choose>>Algun
-						texto explicando de que se trata el parque, que puede hacer atc
-						teAlgun texto explicando de que se trata el parque, que puede
-						hacer atc teAlgun texto explicando de que se trata el parque, que
-						puede hacer atc asdfasdfa adsf asdf asdf d dsfasdfasd dasdf asd
-						asdfsdfsdfadddasddd asd asdf t</p>
+						¡Buenas! En este parque te ofrecemos atracciones para diferentes gustos: ¿de qué lado estás? ¿Del lado luminoso, como Luke, Leia y el maestro Yoda? ¿O del lado oscuro, como Darth Vader o el emperador Palpatine? Entrá, conocé nuestro parque temático del universo Star Wars, investigá de qué se tratan nuestras atracciones y promociones ¡y que la fuerza esté con vos!</p>
 				</div>
 			</div>
 

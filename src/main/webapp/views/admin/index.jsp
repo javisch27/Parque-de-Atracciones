@@ -53,6 +53,11 @@
 					<jsp:include page="/partials/listadoPromociones.jsp"></jsp:include>
 				</c:when>
 			</c:choose>
+			<c:choose>
+				<c:when test="${partial=='compras'}">
+					<jsp:include page="/partials/listadoComprasUsuarios.jsp"></jsp:include>
+				</c:when>
+			</c:choose>
 
 		</main>
 
@@ -63,6 +68,6 @@
 
 </div>
 
-
+	<jsp:include page="/partials/mensajes.jsp"></jsp:include>
 </body>
 </html>

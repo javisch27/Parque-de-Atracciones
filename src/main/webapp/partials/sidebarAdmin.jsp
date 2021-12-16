@@ -27,8 +27,11 @@
 					class="list-group-item list-group-item-action py-4"
 					href="/promociones?partial=promociones"><i class="fas fa-tags mx-3"></i>Promociones</a>
 				<a
+					class="list-group-item list-group-item-action py-4 "
+					href="/usuarios/comprasTodosUsuarios.do"><i class="fas fa-money-bill-wave mx-3"></i></i>Ventas</a>
+									<a
 					class="list-group-item list-group-item-action py-4"
-					href="#!"><i class="far fa-envelope mx-3"></i>Mensajes</a>
+					href="#!"><i class="far fa-envelope mx-3"></i>Mensajes</a> 
 		
 
 			</div>

@@ -60,7 +60,7 @@
 				<div class="col-4 mb-3 d-none" id="promosConVariables">
 					<label for="variable" class="col-form-label"> <span
 						id="inputVariable"></span></label> <input type="text" class="form-control"
-						id="variable" name="variable" required
+						id="datoVariable" name="datoVariable" 
 						value="${promocion.variable}">
 				</div>
 			</div>
@@ -86,54 +86,98 @@
 			</div>
 
 
-			<div class="mb-3">
-				<label for="atraccionesIncluidas"
-					class='col-form-label ${promocion.errors.get("atraccionesIncluidas") != null ? "is-invalid" : "" }'>Atracciones
-					incluidas:</label> <input class="form-control" type="text"
-					id="atraccionesIncluidas" name="atraccionesIncluidas"></input>
-				<div class="invalid-feedback">
-					<c:out value='${promocion.errors.get("atraccionesIncluidas")}'></c:out>
+			<div class="d-none">
+
+				<div class="mb-3">
+					<label for="atraccionesIncluidas">Atracciones :</label> <input class="form-control" type="text"
+						id="atraccionesIncluidas" name="atraccionesIncluidas"></input>
 				</div>
-			</div>
 
-			<div class="mb-3 atraccionesGratis d-none" id="atraccionesGratis">
-				<label for="atraccionesGratisPromoAXB">Atracciones gratis en
-					promociones AXB:</label> <input class="form-control" type="text"
-					id="atraccionesGratisPromoAXB" name="atraccionesGratisPromoAXB"></input>
-			</div>
-
+				<div class="mb-3">
+					<label for="atraccionesGratisPromoAXB">Atracciones gratis
+						en promociones AXB:</label> <input class="form-control" type="text"
+						id="atraccionesGratisPromoAXB" name="atraccionesGratisPromoAXB"></input>
+				</div>
 
 
-			<div class="mb-3 d-none" id="chechLuminoso" >
-				<c:forEach items="${atracciones}" var="atraccion">
-					<c:if test="${atraccion.tipoAtraccion == 'LADO_LUMINOSO'}">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox"
-								id="${atraccion.nombre}" name="listadoAtraccionesSelec">
-							<label class="form-check-label" for="${atraccion.nombre}">
-								<c:out value="${atraccion.nombre}"></c:out>
-							</label>
-						</div>
-					</c:if>
-				</c:forEach>
-			</div>
-			
-			<div class="mb-3 d-none" id="chechOscuro" >
-				<c:forEach items="${atracciones}" var="atraccion">
-					<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox"
-								id="${atraccion.id_atraccion}" name="listadoAtraccionesSelec">
-							<label class="form-check-label" for="${atraccion.id_atraccion}">
-								<c:out value="${atraccion.nombre}"></c:out>
-							</label>
-						</div>
-					</c:if>
-				</c:forEach>
+
 			</div>
 
 
+			<div class="row">
+				<div id='listaCheck' class="col-4">
+					<div class="mb-3 d-none mb-4" id="chechLuminoso">
+						<label for="listadoAtraccionesSelec" class="my-3">Listado
+							Atracciones</label>
+						<c:forEach items="${atracciones}" var="atraccion">
+							<c:if test="${atraccion.tipoAtraccion == 'LADO_LUMINOSO'}">
+								<div class="form-check">
+									<input class="form-check-input check" type="checkbox"
+										name="${atraccion.id_atraccion}"> <label
+										class="form-check-label" for="${atraccion.nombre}"> <c:out
+											value="${atraccion.nombre}"></c:out>
+									</label>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
 
+					<div class="mb-3 d-none" id="chechOscuro">
+						<label for="listadoAtraccionesSelec" class="mt-3">Listado
+							Atracciones</label>
+						<c:forEach items="${atracciones}" var="atraccion">
+							<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
+								<div class="form-check">
+									<input class="form-check-input check" type="checkbox"
+										name="${atraccion.id_atraccion}""> <label
+										class="form-check-label" for="${atraccion.id_atraccion}">
+										<c:out value="${atraccion.nombre}"></c:out>
+									</label>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
+				</div>
+
+
+
+
+			<div id='listaCheckAXB' class="col-4 d-none">
+
+					<div class="mb-3 d-none mb-4" id="chechLuminosoAXB">
+						<label for="listadoAtraccionesSelec" class="my-3">Listado
+							Atracciones Gratis</label>
+						<c:forEach items="${atracciones}" var="atraccion">
+							<c:if test="${atraccion.tipoAtraccion == 'LADO_LUMINOSO'}">
+								<div class="form-check">
+									<input class="form-check-input checkAXB" type="checkbox"
+									 name="${atraccion.id_atraccion}">
+									<label class="form-check-label" for="${atraccion.nombre}">
+										<c:out value="${atraccion.nombre}"></c:out>
+									</label>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
+
+					<div class="mb-3 d-none" id="chechOscuroAXB">
+						<label for="listadoAtraccionesSelec" class="mt-3">Listado
+							Atracciones</label>
+						<c:forEach items="${atracciones}" var="atraccion">
+							<c:if test="${atraccion.tipoAtraccion == 'LADO_OSCURO'}">
+								<div class="form-check">
+									<input class="form-check-input checkAXB" type="checkbox"
+										 name="${atraccion.id_atraccion}"">
+									<label class="form-check-label" for="${atraccion.id_atraccion}">
+										<c:out value="${atraccion.nombre}"></c:out>
+									</label>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
+				</div> 
+
+			</div>
 
 			<div>
 				<button type="submit" class="btn btn-primary">Guardar</button>
