@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <div class="modal-body">
 	<form>
@@ -24,10 +25,7 @@
 				<label for="admin"
 					class='col-form-label ${usuario.errors.get("admin") != null ? "is-invalid" : "" }'></label>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" 
-					
-							
-						id="admin"> <label class="form-check-label" for="admin">
+					<input class="form-check-input" type="checkbox" id="admin" name="admin" value="43"> <label class="form-check-label" for="admin">
 						Administrador </label>
 				</div>
 				<div class="invalid-feedback">
@@ -42,7 +40,7 @@
 		<div class="col-md-4 mb-3">
 			<label for="tipoAtraccionPreferida"
 				class='col-form-label ${usuario.errors.get("tipoAtraccionPreferida") != null ? "is-invalid" : "" }'>Tipo
-				de atracción:</label> <select class="form-select"
+				de atracciÃ³n:</label> <select class="form-select"
 				id="tipoAtraccionPreferida" name="tipoAtraccionPreferida" required>
 
 				<option selected value="">Seleccionar...</option>

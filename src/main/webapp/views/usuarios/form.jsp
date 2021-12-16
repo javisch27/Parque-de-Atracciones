@@ -1,34 +1,7 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@maxpell77 
-Workbench-ar
-/
-trabajoFinal-LaFuerza
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-trabajoFinal-LaFuerza/src/main/webapp/views/usuarios/form.jsp
 
-Maximiliano Pell correcciones admin
-Latest commit 0235b20 14 hours ago
- History
- 0 contributors
-99 lines (80 sloc)  3.31 KB
-   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <div class="modal-body">
 	<form>
@@ -43,7 +16,7 @@ Latest commit 0235b20 14 hours ago
 				<label for="password"
 					class='col-form-label ${usuario.errors.get("password") != null ? "is-invalid" : "" }'>Password:</label>
 				<input class="form-control" type="text" id="password"
-					name="password" required value="${usuario.password}"></input>
+					name="password" required  placeholder="completar solo para cambiar contraseña"></input>
 				<div class="invalid-feedback">
 					<c:out value='${usuario.errors.get("password")}'></c:out>
 				</div>

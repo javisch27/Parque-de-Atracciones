@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <link href="/assets/css/login-modal.css"
 	rel="stylesheet" />
 <script defer src="https://kit.fontawesome.com/d3e9765b95.js" crossorigin="anonymous"></script>
@@ -21,10 +22,10 @@
 				<div class="border-end " id="sidebar-wrapper">
 					<div class="list-group list-group-flush lead ">
 					<c:if test="${!usuario.admin}">
-						<a class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"						
+						<a class="list-group-item-light  p-3 text text-dark"						
 							href="/usuario/compras.do?=${usuario.usuario_id}"><i class="fas fa-shopping-cart px-3"></i>Mis Compras</a></c:if> 
 						
-						<a class="list-group-item list-group-item-action list-group-item-light   p-3 text text-dark"
+						<a class=" list-group-item-light  p-3 text text-dark"
 							href="#!"><i class="fas fa-user px-3"></i>Mi Perfil</a> 
 					</div>
 					<!-- corregir los href -->

@@ -8,8 +8,8 @@
 <jsp:include page="/partials/head.jsp"></jsp:include>
 <script defer src="https://kit.fontawesome.com/d3e9765b95.js"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
 	
 <jsp:include page="/partials/user-modal.jsp"></jsp:include>
 

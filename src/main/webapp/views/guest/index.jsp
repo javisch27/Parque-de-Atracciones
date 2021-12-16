@@ -89,13 +89,13 @@
 
 
 
-		<div class="d-flex justify-content-center bd-highlight ">
+		<div class="d-flex justify-content-center bd-highlight " >
 			<div class="py-4">
 				<form method="GET" action="guest">
-					<button type="submit"
-						class="btn fondoTransparente rounded btn-lg m-4 cambiarLado"
-						value=<c:choose><c:when test="${lado=='LADO OSCURO'}"> "Lado Luminoso"</c:when>
-		<c:otherwise>"Lado Oscuro"</c:otherwise></c:choose>
+					<button type="submit" id="boton-lado"
+						
+						<c:choose><c:when test="${lado=='LADO OSCURO'}"> class="btn fondoTransparente rounded btn-lg m-4 cambiarLado btnLuminoso" value= "Lado Luminoso"</c:when>
+		<c:otherwise>class="btn fondoTransparente rounded btn-lg m-4 cambiarLado btnOscuro" value= "Lado Oscuro"</c:otherwise></c:choose>
 						name="lado">CAMBIAR DE LADO</button>
 
 				</form>

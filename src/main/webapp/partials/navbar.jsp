@@ -45,7 +45,7 @@
 							</div>
 							<div class="p-2">
 								<span class="navbar-text fs-5"> <c:out
-										value="${usuario.tiempoDisponible}"></c:out></span>
+										value="${usuario.getTiempoDisponibleFormato()}"></c:out></span>
 							</div>
 
 						</div>

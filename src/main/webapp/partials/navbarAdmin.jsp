@@ -20,7 +20,7 @@
 
 
 	<form class="form-inline my-2 my-lg-0 px-3">
-		<button type="button" class="btn btn-outline-secondary my-2 my-sm-0"
+		<button type="button" class="btn btn-outline-primary my-2 my-sm-0"
 			data-bs-toggle="modal" data-bs-target="#userModal">${usuario.nombre}</button>
 	</form>
 

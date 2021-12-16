@@ -60,9 +60,9 @@
 					<div class="row">
 
 						<div
-							class="col-md-3  mx-2 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.costo}</div>
+							class="col-md-3  mx-2 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">$${promocion.costo}</div>
 						<div
-							class="col-md-3 mx-2  fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.tiempoTotal}</div>
+							class="col-md-3 mx-2  fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${promocion.getTiempoTotalFormato()}</div>
 					</div>
 					<div>
 						<c:if test="${usuario != null}">

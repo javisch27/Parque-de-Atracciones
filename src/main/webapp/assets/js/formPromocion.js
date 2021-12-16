@@ -37,17 +37,39 @@ document.getElementById("tipoAtraccion").addEventListener("change", function() {
 
 
 	if (lado === "LADO_LUMINOSO") {
-
+		deschequearItems()
 		document.getElementById("chechLuminoso").classList.remove('d-none');
 		document.getElementById("chechOscuro").classList.add('d-none');
 
 	} else if (lado === "LADO_OSCURO") {
-
+		deschequearItems()
 		document.getElementById("chechOscuro").classList.remove('d-none');
 		document.getElementById("chechLuminoso").classList.add('d-none');
 
 	} else {
+		deschequearItems()
 		document.getElementById("chechLuminoso").classList.add('d-none');
 		document.getElementById("chechOscuro").classList.add('d-none');
 	}
 });
+
+
+function deschequearItems() {
+	let formularios = document.querySelectorAll(' form-check-input');
+	formularios.forEach(function(r) {
+		r.checked = false;
+
+	});
+
+}
+
+document.getElementById("El regreso del Jedi").addEventListener("change", function() {
+	
+	console.log(document.getElementById("El regreso del Jedi").checked)
+
+})
+
+
+
+
+

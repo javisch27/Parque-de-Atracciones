@@ -10,10 +10,11 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
 	rel="stylesheet" />
-<link href="/assets/css/home.css" rel="stylesheet" />
-
 <script defer type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+<link href="/assets/css/home.css" rel="stylesheet" />
+
+
 
 </head>
 <body>
@@ -27,14 +28,12 @@
 		<form class="form text-end m-3">
 			<c:choose>
 				<c:when test="${usuario != null}">
-					<button type="button"
-						class="btn btn-outline-primary"
+					<button type="button" class="btn btn-outline-primary"
 						data-bs-toggle="modal" data-bs-target="#userModal">${usuario.nombre}</button>
 
 				</c:when>
 				<c:otherwise>
-					<button type="button"
-						class="btn btn-outline-primary "
+					<button type="button" class="btn btn-outline-primary "
 						data-bs-toggle="modal" data-bs-target="#guestModal">Login</button>
 
 				</c:otherwise>

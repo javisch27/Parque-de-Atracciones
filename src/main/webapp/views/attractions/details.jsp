@@ -82,9 +82,9 @@
 				<div
 					class="d-flex flex-row mb-3 justify-content-around align-items-center mt-5">
 					<div
-						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${atraccion.costo}</div>
+						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">$ ${atraccion.costo}</div>
 					<div
-						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${atraccion.tiempoTotal}</div>
+						class="col-md-3 fondoTransparente<c:choose><c:when test="${lado=='LADO OSCURO'}">Dark</c:when></c:choose>  rounded iconos text-center py-3">${atraccion.getTiempoTotalFormato()}</div>
 				</div>
 
 				<div
@@ -92,7 +92,7 @@
 					<c:if test="${usuario != null}">
 						<c:choose>
 							<c:when
-								test="${usuario.puedepagarPropuesta(atraccion) && usuario.tieneTiempoDisponible(atraccion) && atraccion.hayCupoDisponible && usuario.atraccionNoContratada(atraccion)}">
+								test="${usuario.puedeAdquirirPropuesta(atraccion) && atraccion.hayCupoDisponible}">
 
 								<div>
 									<a

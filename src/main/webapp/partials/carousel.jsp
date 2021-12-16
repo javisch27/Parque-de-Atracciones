@@ -33,7 +33,7 @@
 								<p>${promocion.descrpicion}</p>
 								<div class=" d-flex justify-content-center">
 									<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">$${promocion.costo}</div>
-									<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">${promocion.tiempoTotal}</div>
+									<div class="fondoTransparenteDark rounded py-2 px-4 mx-2">${promocion.getTiempoTotalFormato()}</div>
 								</div>
 
 							</div>
