@@ -41,6 +41,7 @@ public class CreatePromocionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		TipoPromocion tipoPromocion = TipoPromocion.valueOf(req.getParameter("tipoPromocion"));
+		System.out.println(tipoPromocion);
 		Promocion promocion = null;
 		AtraccionService atraccionService = new AtraccionService();
 		
@@ -76,7 +77,7 @@ public class CreatePromocionServlet extends HttpServlet {
 			String nombre = req.getParameter("nombre");
 			String descripcion = req.getParameter("descripcion");
 			String[] atraccionesIncluidasString = (req.getParameter("atraccionesIncluidas")).split(",");
-			Double variable = Double.parseDouble(req.getParameter("datoVariable"));
+			Double variable = Double.parseDouble(req.getParameter("variable"));
 
 			LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 

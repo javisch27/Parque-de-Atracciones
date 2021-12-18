@@ -4,12 +4,11 @@ import java.util.LinkedList;
 
 public class PromoPorcentual extends Promocion {
 
-	protected int tipo_promocion_id = 2;
 	private double porcentajeDescuento;
 
 	public PromoPorcentual(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
-			LinkedList<Atraccion> atraccionesIncluidas, double porcentajeDescuento, int id_promocion) {
-		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas, id_promocion);
+			LinkedList<Atraccion> atraccionesIncluidas, double porcentajeDescuento, int id_promocion,  int tipo_promocion_id) {
+		super(tipoAtraccion, titulo, descrpicion, atraccionesIncluidas, id_promocion, tipo_promocion_id);
 		this.porcentajeDescuento = porcentajeDescuento;
 		this.costo = obtenerCosto();
 	}

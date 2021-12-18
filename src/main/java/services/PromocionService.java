@@ -26,17 +26,17 @@ public class PromocionService {
 		Promocion promocion = null;
 
 		if (tipoPromocion == TipoPromocion.PORCENTUAL) {
-			promocion = new PromoPorcentual(tipoAtracciones, nombre, descripcion, atraccionesIncluidas, variable, -1);
+			promocion = new PromoPorcentual(tipoAtracciones, nombre, descripcion, atraccionesIncluidas, variable, -1, 1);
 		}
 
 		if (tipoPromocion == TipoPromocion.ABSOLUTA) {
 			promocion = new PromoAbsoluta(tipoAtracciones, nombre, descripcion, atraccionesIncluidas, (int) (variable),
-					-1);
+					-1, 2);
 		}
 
 		if (tipoPromocion == TipoPromocion.AXB) {
 			promocion = new PromocionAXB(tipoAtracciones, nombre, descripcion, atraccionesIncluidas,
-					atraccionesGratisPromoAXB, -1);
+					atraccionesGratisPromoAXB, -1, 3);
 		}
 
 		if (promocion.isValid()) {

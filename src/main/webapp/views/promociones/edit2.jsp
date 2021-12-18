@@ -44,7 +44,7 @@
 		<div id="formulario">
 			<form action="/promociones/edit.do" method="post">
 				<input type="hidden" name="id" value="${promocion.propuestaID}">
-				<jsp:include page="/views/promociones/form.jsp"></jsp:include>
+				<jsp:include page="/views/promociones/form2.jsp"></jsp:include>
 			</form>
 		</div>
 

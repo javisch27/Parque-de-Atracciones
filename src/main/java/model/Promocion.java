@@ -16,9 +16,10 @@ public abstract class Promocion extends Propuesta {
 	private Map<String, String> errors;
 
 	public Promocion(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
-			LinkedList<Atraccion> atraccionesIncluidas, int id_promocion) {
+			LinkedList<Atraccion> atraccionesIncluidas, int id_promocion, int tipo_promocion_id) {
 		super(id_promocion);
 		this.tipoAtraccion = tipoAtraccion;
+		this.tipo_promocion_id = tipo_promocion_id;
 		this.nombre = titulo;
 		this.descrpicion = descrpicion;
 		this.atraccionesIncluidas = atraccionesIncluidas;
@@ -134,5 +135,7 @@ public abstract class Promocion extends Propuesta {
 	}
 	
 	public abstract double getVariable();
+	
+
 
 }

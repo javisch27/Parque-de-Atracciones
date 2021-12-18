@@ -40,14 +40,21 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 			req.setAttribute("atracciones", atracciones);
 			Usuario usuario2 = usuarioService.find(usuario.getUsuario_id());
 			String partial = req.getParameter("partial");
+		
 
 			if (usuario2.isAdmin()) {//admin
 				
 				if (partial != null && partial.equals("listadoParaPromos") ) {	//crea listado atracciones para promo				
-					req.setAttribute("atracciones", atracciones);
+				
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/promociones/create.do");
 					dispatcher.forward(req, resp);
 
+				} else if (partial != null && partial.equals("editandoPromos") ) {
+										
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/edit2.jsp");
+					dispatcher.forward(req, resp);
+							
+				
 				} else { //listado atraccciones en panel
 					
 					req.setAttribute("atracciones", atracciones);

@@ -31,7 +31,7 @@ public class EditAttractionServlet extends HttpServlet {
 		Atraccion atraccion = attractionService.find(id);
 		req.setAttribute("atraccion", atraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit2.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit.jsp");
 		dispatcher.forward(req, resp);
 	}
 

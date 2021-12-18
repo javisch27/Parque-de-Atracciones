@@ -1,4 +1,47 @@
-document.getElementById("tipoPromocion").addEventListener("change", function() {
+
+function tipoAtraccion() {
+
+	let lado = document.getElementById("tipoAtraccion").value;
+
+
+	if (lado === "LADO_LUMINOSO") {
+
+		document.getElementById("chechLuminoso").classList.remove('d-none');
+		document.getElementById("chechOscuro").classList.add('d-none');
+		document.getElementById("chechLuminosoAXB").classList.remove('d-none');
+		document.getElementById("chechOscuroAXB").classList.add('d-none');
+
+	} else if (lado === "LADO_OSCURO") {
+
+		document.getElementById("chechOscuro").classList.remove('d-none');
+		document.getElementById("chechLuminoso").classList.add('d-none');
+		document.getElementById("chechOscuroAXB").classList.remove('d-none');
+		document.getElementById("chechLuminosoAXB").classList.add('d-none');
+
+	} else {
+
+		document.getElementById("chechLuminoso").classList.add('d-none');
+		document.getElementById("chechOscuro").classList.add('d-none');
+		document.getElementById("chechLuminosoAXB").classList.add('d-none');
+		document.getElementById("chechOscuroAXB").classList.add('d-none');
+	}
+
+}
+
+
+
+
+function deschequearItems() {
+	let formularios = document.querySelectorAll('input[type=checkbox');
+	formularios.forEach(function(r) {
+		r.checked = false;
+
+	});
+
+}
+
+
+function mostrarImputVariable() {
 
 	let tipoPromocion = document.getElementById("tipoPromocion").value;
 
@@ -18,89 +61,29 @@ document.getElementById("tipoPromocion").addEventListener("change", function() {
 		document.getElementById("promosConVariables").setAttribute("required", "");
 
 		if (tipoPromocion === "ABSOLUTA") {
-			document.getElementById("inputVariable").textContent = "Costo Total";
+			document.getElementById("variable").textContent = "Costo Total";
 
 		} else if (tipoPromocion === "PORCENTUAL") {
-			document.getElementById("inputVariable").textContent = "Porcentaje de Descuento";
+			document.getElementById("variable").textContent = "Porcentaje de Descuento";
 
 		} else {
 			document.getElementById("promosConVariables").classList.add('d-none');
 		}
 
 	}
-});
-
-
-document.getElementById("tipoAtraccion").addEventListener("change", function() {
-
-	let lado = document.getElementById("tipoAtraccion").value;
-
-
-	if (lado === "LADO_LUMINOSO") {
-		deschequearItems()
-		document.getElementById("chechLuminoso").classList.remove('d-none');
-		document.getElementById("chechOscuro").classList.add('d-none');
-		document.getElementById("chechLuminosoAXB").classList.remove('d-none');
-		document.getElementById("chechOscuroAXB").classList.add('d-none');
-
-	} else if (lado === "LADO_OSCURO") {
-		deschequearItems()
-		document.getElementById("chechOscuro").classList.remove('d-none');
-		document.getElementById("chechLuminoso").classList.add('d-none');
-		document.getElementById("chechOscuroAXB").classList.remove('d-none');
-		document.getElementById("chechLuminosoAXB").classList.add('d-none');
-
-	} else {
-		deschequearItems()
-		document.getElementById("chechLuminoso").classList.add('d-none');
-		document.getElementById("chechOscuro").classList.add('d-none');
-		document.getElementById("chechLuminosoAXB").classList.add('d-none');
-		document.getElementById("chechOscuroAXB").classList.add('d-none');
-	}
-});
-
-
-function deschequearItems() {
-	let formularios = document.querySelectorAll(' form-check-input');
-	formularios.forEach(function(r) {
-		r.checked = false;
-
-	});
 
 }
 
-document.getElementById("listaCheck").addEventListener("click", function() {
-
-	let seleccion = [];
-
-	let items = document.querySelectorAll('.check');
-	items.forEach(function(r) {
-
-		if (r.checked) {
-
-			seleccion.push(+r.name);
-		
-		
-		
-		
-			
-		} else {
-			let index = seleccion.indexOf(+r.id);
-			if (index > -1) {
-				seleccion.splice(index, 1);
-			}
-
-		}
-
-	});
-
-	console.log(seleccion)
-	document.getElementById("atraccionesIncluidas").value = seleccion;
-
-})
 
 
-document.getElementById("listaCheckAXB").addEventListener("click", function() {
+
+function limpiarCasillerosYcambiarListas() {
+	deschequearItems();
+	tipoAtraccion();
+
+}
+
+function cargarSelccionCheckAXB() {
 
 	let seleccion2 = [];
 
@@ -121,14 +104,57 @@ document.getElementById("listaCheckAXB").addEventListener("click", function() {
 
 	});
 	
-
 	console.log(seleccion2)
 
 	document.getElementById("atraccionesGratisPromoAXB").value = seleccion2;
 
-})
+}
 
 
+function cargarSelccionCheck() {
+	
+	
+	let seleccion = [];
 
+	let items = document.querySelectorAll('.check');
+	items.forEach(function(r) {
+
+		if (r.checked) {
+
+			seleccion.push(+r.name);
+
+
+		} else {
+			let index = seleccion.indexOf(+r.id);
+			if (index > -1) {
+				seleccion.splice(index, 1);
+			}
+
+		}
+
+	});
+
+	
+	console.log(seleccion)
+	document.getElementById("atraccionesIncluidas").value = seleccion;
+
+
+}
+
+
+function funcionesInicio() {
+	let lado = document.getElementById("tipoAtraccion").value;
+	mostrarImputVariable();
+	tipoAtraccion();
+	cargarSelccionCheckAXB();
+	cargarSelccionCheck();
+}
+
+
+	document.getElementById("listaCheckAXB").addEventListener("click", cargarSelccionCheckAXB);
+	document.getElementById("listaCheck").addEventListener("click", cargarSelccionCheck);
+	document.getElementById("tipoPromocion").addEventListener("change", mostrarImputVariable);
+	document.getElementById("tipoAtraccion").addEventListener("change", limpiarCasillerosYcambiarListas);
+	document.addEventListener("DOMContentLoaded", funcionesInicio);
 
 

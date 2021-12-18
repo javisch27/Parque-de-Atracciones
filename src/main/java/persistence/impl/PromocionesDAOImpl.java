@@ -108,7 +108,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	private PromoPorcentual toPromoPorcentual(ResultSet resultados, LinkedList<Atraccion> atracciones) {
 		try {
 			return new PromoPorcentual(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
-					resultados.getString(5), atracciones, resultados.getDouble(6), resultados.getInt(1));
+					resultados.getString(5), atracciones, resultados.getDouble(6), resultados.getInt(1), resultados.getInt(2));
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
@@ -117,7 +117,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 	private PromoAbsoluta toPromoAbsoluta(ResultSet resultados, LinkedList<Atraccion> atracciones) {
 		try {
 			return new PromoAbsoluta(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
-					resultados.getString(5), atracciones, resultados.getInt(6), resultados.getInt(1));
+					resultados.getString(5), atracciones, resultados.getInt(6), resultados.getInt(1), resultados.getInt(2));
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
@@ -127,7 +127,7 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 			LinkedList<Atraccion> atraccionesGratis) {
 		try {
 			return new PromocionAXB(TipoAtraccion.valueOf(resultados.getInt(3)), resultados.getString(4),
-					resultados.getString(5), atracciones, atraccionesGratis, resultados.getInt(1));
+					resultados.getString(5), atracciones, atraccionesGratis, resultados.getInt(1), resultados.getInt(2));
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}

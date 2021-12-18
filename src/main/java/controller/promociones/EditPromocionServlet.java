@@ -34,8 +34,10 @@ public class EditPromocionServlet extends HttpServlet {
 
 		Promocion promocion = promocionService.find(id);
 		req.setAttribute("promocion", promocion);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/edit2.jsp");
+		
+	
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/attractions?partial=editandoPromos");
+		
 		dispatcher.forward(req, resp);
 	}
 
